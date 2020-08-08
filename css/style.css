@@ -18,6 +18,10 @@ body {
   text-decoration: underline;
 }
 
+.nav-link.active {
+  color: #f67b2f !important;
+}
+
 #header {
   position: relative;
   text-align: center;
@@ -129,4 +133,10 @@ img.profile {
 
 #peter {
   background-image: url("../static/peterVG.png");
+}
+
+#contact {
+  text-align: center;
+  background-color: #FFF;
+  color: #000;
 }
