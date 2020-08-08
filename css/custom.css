@@ -1,0 +1,132 @@
+body {
+  background-color: #FFF;
+  font-size: 120%;
+}
+
+#mainNav .navbar-nav .nav-item .nav-link {
+    font-size: 1.2rem;
+    color: #212529;
+    padding: 0 1rem;
+}
+
+#mainNav {
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
+}
+
+#mainNav a:hover {
+  color: #f67b2f !important;
+  text-decoration: underline;
+}
+
+#header {
+  position: relative;
+  text-align: center;
+  color: white;
+  height: 100vh;
+}
+
+#header .centered {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000;
+  background-color: #FFF;
+  padding: 0.5em;
+  margin-top: 10px;
+  font-size: 1.6em;
+  border-radius: 0.5em;
+  /*
+  opacity: 0.8;
+  border: 3px solid #000;
+  */
+}
+
+.img-fluid {
+    width:100%;
+    height:auto;
+}
+
+.container-md {
+  padding: 1em;
+}
+
+#about {
+  padding: 8rem 0;
+  background-color: #f67b2f;
+  color: #FFF;
+  text-align: left;
+}
+
+#about a {
+  color: #212529;
+}
+
+#about a:hover {
+    text-decoration: underline;
+  }
+
+hr.white {
+  border-top: 3px solid #FFF;
+}
+
+hr.orange {
+  border-top: 3px solid #f67b2f;
+}
+
+#components {
+  padding: 8rem 0;
+  background-color: #FFF;
+  color: #000;
+  text-align: left;
+}
+
+#components a {
+  color: #40bfbf;
+}
+
+#components a:hover {
+    text-decoration: underline;
+  }
+
+.component-square {
+  /* background-color: #87d9df;
+  border: 5px solid #87d9df; */
+  margin: 30px 10px;
+  padding: 0;
+  border-radius: 0.5em;
+  text-align: center;
+}
+
+.component-content {
+  background-color: #FFF;
+  padding: 10px;
+  text-align: left;
+}
+
+.circle {
+    background: #FFF;
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    margin: 10px auto;
+}
+
+.profile {
+  text-align: center;
+  font-size: 0.8em;
+  margin: 20px 0;
+  color: #999;
+}
+
+.profile a:hover {
+  color: #000 !important;
+}
+
+img.profile {
+  margin-bottom; 30px;
+}
+
+#peter {
+  background-image: url("../static/peterVG.png");
+}
