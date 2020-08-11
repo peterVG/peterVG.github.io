@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <!-- copyright Peter Van Garderen 2020 -->
+
+    <title>VanGarderen.Net</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../css/style.css">
+</head>
+<body id="top">
+
+  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="mainNav">
+    <a class="navbar-brand" href="../index.html">Peter Van Garderen</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="../index.html#posts">Posts & Presentations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="../index.html#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <div class="container-md" style="margin-top: 100px; ">
+  <h2>The information model to end all information models</h2>
+
+  <div style="font-size: 80%;">
+    December 8, 2006
+    <p>originally posted at <em><a href="https://web.archive.org/web/20070110060618/http://archivemati.ca/2006/12/08/the-information-model-to-end-all-information-models/">archivemati.ca</a></em></p>
+  </div>
+  <hr class="orange" />
+  <p>I am now beginning work on the second alpha iteration of the open-source <a href="https://accesstomemory.org">ICA-AtoM</a> software application.</p>
+
+  <p>I am working on a considerable upgrade to the underlying object and database model which supports the application. As the application matures and evolves it will be relatively easy to make changes and updates to the application modules and user interfaces. However, it will be difficult to make significant changes to the database model once the application goes into active deployment and people start entering information. Therefore, I better get this right now...</p>
+
+  <p>ICA-AtoM must be flexible enough to support a wide variety of potential uses. Firstly, as an archival description package for individual archival institutions as well as a union catalog application that can combine descriptions from multiple repositories (e.g. <a href="http://humanrightsarchives.org">http://humanrightsarchives.org</a>).</p>
+
+  <p>Beyond that, I have high hopes that ICA-AtoM can evolve to become an even more universal information cataloging tool that can be used, for example, to manage personal digital archives (e.g. family photos, home movies, music collections, etc) as well as other reference resources that typically support archival collections (e.g. encyclopedias, dictionaries, bibliographies, reference libraries, web links, etc.).</p>
+
+  <p>Therefore, I want to be sure that the ICA-AtoM information model supports the International Council on Archives standards out-of-the-box. At the same time, I want it to be flexible enough to support additional information cataloging and classification needs. I want it to be open, extensible and to anticipate the future wave of semantic information organization and sharing.</p>
+
+  <p><h2>Magic Mystery Tour of Information Architecture</h2>
+  That's why I've spend some mind-bending hours revisiting a number of information architecture standards, communities and research projects.</p>
+
+  <p>I've gone everywhere from <a href="http://dublincore.org/">Dublin Core</a> to <a href="http://microformats.org/">Microformats</a> to <a href="http://www.w3.org/2001/sw/">Semantic Web</a> to <a href="http://www.sitepoint.com/print/hierarchical-data-database">modified pre-order tree traversal</a> to <a href="http://propel.phpdb.org/trac/">object relational mapping</a> to <a href="http://www.loc.gov/standards/mets/">METS</a> to <a href="http://www.loc.gov/ead/">EAD</a> to <a href="http://nost.gsfc.nasa.gov/isoas/">OAIS</a> to the <a href="http://www.sims.monash.edu.au/research/rcrg/research/spirt/deliver/conrelmod.html">Monash Project</a> to the <a href="http://www.interpares.org/UBCProject/genesis.htm">UBC Project</a> to <a href="http://www.ontopia.net/topicmaps/materials/tao.html">Topic Maps</a> and back to <a href="http://www.ica.org/biblio.php?pdocid=1">ISAD(G)</a> and <a href="http://www.ica.org/biblio.php?pdocid=144">ISAAR(CPF)</a>.</p>
+
+  <p>The most amusing stop on this magic mystery tour of information architecture was dropping in on the Semantic Web vs. Microformats <a href="http://evan.prodromou.name/RDFa_vs_microformats">stand-off</a> and <a href="http://www.poorbuthappy.com/ease/semantic/">flame war</a>.</p>
+
+  <p>The most useful stop was the Topic Map community and a surprisingly <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnmaj/html/Jour5Intro.asp">relevant article</a> written by a Microsoft architect.</p>
+
+  <p><h2>Towards a Supa-Dupa Information Model</h2>
+  Somewhere in the back of my brain a universal information object architecture is slowly solidifying. I have, in fact, been thinking about and working on such a model for quite a number of years, starting 10 years ago with my first job out of archives school at a local software vendor and extending into my current consulting and doctoral research.</p>
+
+  <p>I posted a high-level architecture diagram for an archives access system on this blog last year. Now I am getting into the nitty-gritty of the information model that would support such a system.</p>
+
+  <p>Some of the guiding principles or goals for this base information model are:
+  <ol>
+  	<li>There are five core entities: Objects, Agents, Events, Places and Concepts</li>
+  <ul>
+  	<li>By default, Object types include archival materials.</li>
+  <li>By default, Agent types include archival record creators</li>
+  <li>By default, Place types include archival repositories</li>
+  </ul>
+  <li>The user can define new category types for the five core entities (e.g. adding bibliographic materials or artifacts as a Object types)</li>
+           <li>Associations and Topic Occurrences are two, parallel contexts in which core entities relate to each other</li>
+  <ul><li>Associations are any type of relationships between core entities (e.g. 'is a child of', 'is a type of', 'is the creator of', 'occurred at', 'is storage location for')<ul><li>The user can define any type of association</li></ul></li>
+  <li>Topic Occurrences are instances when a core entity is used as an access point to describe and identify an Object as an information resource (e.g. Object XYZ is an information resource about Concept XYZ or about Place XYZ or about Agent XYZ).</li></ul>
+  <li>Objects can be used as Topic Occurrences for other Objects (e.g. A. Pallister's book <i>Magna Carta the Legacy of Liberty</i> is an information resource Object that is about the Magna Carta, another information resource Object.</li>
+  <li>Core Entities, Associations and Topic Occurrences can be grouped and restricted to specific scopes or contexts (e.g. so that boundaries can be established between specific collections and taxonomies)</li>
+  	<li>Objects can exist in more than one form (i.e. analogue, digital or multiple copies of both) and in more than one place (e.g. real-world and online)
+  <ul><li>online digital objects must have addressable URIs</li></ul></li>
+  	<li>Core entities are represented by metadata profiles</li>
+  	<li>All information resource Objects can be described using at least Dublin Core metadata elements</li>
+  	<li>All Core Entities can be described at the logical/descriptive level using more than one metadata profile
+  	<ul><li>The administrative metadata for the storage and physical management of analogue and digital objects must be generic at the physical level</li></ul></li>
+
+          <li>The data model must be flexible enough to surface data stored in ICA-AtoM as EAD, EAC, Microformats, RDF or topic maps (e.g. as XSLT transformations or through REST APIs)</li>
+  </ol>
+</P>
+
+  <p>Now my challenge will be to implement these design principle and objectives in a functional and optimal web-based application. This means that the complexity has to be hidden from the user and the application can't slow down to a crawl to process a number of complex relationships or database queries.</p>
+
+  <p>This is what I'll be working on over the next few weeks using the <a href="http://www.symfony-project.com/">Symfony</a> framework, its Propel object-relationship mapping layer and the MySQL database engine.</p>
+
+  <p>I am sure I'll have to make some compromises and tweaks along the way (keep in mind that this list is simply some research notes generated during my best practice analysis) but hopefully this investment will pay off in the long run to make the ICA-AtoM information model as flexible and powerful as possible.<p>
+
+  <img src='../assets/ICAAtoMInfoModel1_02.jpg' align='center' alt='' />
+
+
+
+
+
+  </div>
+
+  <script src="../js/jquery-3.5.0.min.js"></script>
+  <script src="../js/bootstrap.min.js"></script>
+  </body>
