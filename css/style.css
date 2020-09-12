@@ -78,6 +78,10 @@ hr.orange {
   border-top: 3px solid #f67b2f;
 }
 
+#posts {
+  padding: 8rem 0;
+}
+
 #components {
   padding: 8rem 0;
   background-color: #FFF;
