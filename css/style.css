@@ -13,6 +13,18 @@ p {
   font-family: 'Spectral', serif;
 }
 
+#about p {
+  font-family: 'Roboto', sans-serif; 
+}
+
+#posts p {
+  font-family: 'Roboto', sans-serif; 
+}
+
+#contact p {
+  font-family: 'Roboto', sans-serif; 
+}
+
 #mainNav {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15)
 }

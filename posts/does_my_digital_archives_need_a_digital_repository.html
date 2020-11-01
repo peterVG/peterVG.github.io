@@ -49,7 +49,7 @@
 
 <p>
 <h2>First generation</h2>
-  The first generation of open-source repository platforms listed above were designed as 'institutional repository' or digital library systems. Their workflow and metadata functionality were hard-coded for e-text, e-thesis and e-library collections. This makes it slightly complicated to adapt them to the workflow and metadata requirements for digital collections of archival materials, i.e. records and other documentary materials that are managed using archival processes and principles (e.g. appraisal, accessioning, multi-level archival description).</p>
+<p>The first generation of open-source repository platforms listed above were designed as 'institutional repository' or digital library systems. Their workflow and metadata functionality were hard-coded for e-text, e-thesis and e-library collections. This makes it slightly complicated to adapt them to the workflow and metadata requirements for digital collections of archival materials, i.e. records and other documentary materials that are managed using archival processes and principles (e.g. appraisal, accessioning, multi-level archival description).</p>
 
 <p>Dspace from MIT has probably been getting the most attention from those that are pilot testing digital archives. I think in large part because it documents some of its architecture using OAIS terminology which speaks to archivists concerned about digital preservation (although comprehensive digital preservation support is something that is deferred to a future <a href="http://wiki.dspace.org/index.php//DspaceTwo">Dspace 2.0</a> release).</p>
 
@@ -61,27 +61,27 @@
 
 <p>
 <h2>Java Content Repository (JCR) API</h2>
-  It would be great to see these institutional repository systems go one step further and provide support for the emerging industry standard JCR. JCR is a generic API for content repositories. It comes from the Java community but can be ported to any language. The current version is being worked on and supported by the who's who of the ECM and enterprise computing world (see list of names under Expert Group at the <a href="http://jcp.org/en/jsr/detail?id=283">JCR project homepage</a>).</p>
+<p>It would be great to see these institutional repository systems go one step further and provide support for the emerging industry standard JCR. JCR is a generic API for content repositories. It comes from the Java community but can be ported to any language. The current version is being worked on and supported by the who's who of the ECM and enterprise computing world (see list of names under Expert Group at the <a href="http://jcp.org/en/jsr/detail?id=283">JCR project homepage</a>).</p>
 
 <p>JCR API compliance would certainly open up the potential for open-source digital repositories in the enterprise (where we still have to fight an anti-open-source bias from most IT departments).  By the way, <a href="http://jackrabbit.apache.org/index.html">Apache JackRabbit</a> is an open-source digital repository system that does support JCR.</p>
 
 <p>
-  <h2>Don't get me wrong...</h2>
-  Anyway, this is not meant as a rant against the current batch of open-source repository systems, I hope they will improve to meet the needs of a wider user community (including JCR support). I expect to be using and supporting them well into the future as integral parts of mature digital archives architectures.</p>
+<h2>Don't get me wrong...</h2>
+<p>Anyway, this is not meant as a rant against the current batch of open-source repository systems, I hope they will improve to meet the needs of a wider user community (including JCR support). I expect to be using and supporting them well into the future as integral parts of mature digital archives architectures.</p>
 
 <p>This post is meant more as a call for simplicity when starting a first iteration, simple digital archives prototype. It was inspired by a couple of articles I read recently.</p>
 
 <p>
 <h2>Fedora and the Preservation of University Records Project</h2>
-  Firstly, the October 2006 RLG Diginews article that reported on the findings of the '<a href="http://www.rlg.org/en/page.php?Page_ID=20987&Printable=1&Article_ID=1855">Fedora and the Preservation of University Records Project</a>'. This was a project that started very much along the usual lines, i.e. let's take Fedora and let's see what it will take to get it to work as our archival records repository. The authors note:</p>
+<p>Firstly, the October 2006 RLG Diginews article that reported on the findings of the '<a href="http://www.rlg.org/en/page.php?Page_ID=20987&Printable=1&Article_ID=1855">Fedora and the Preservation of University Records Project</a>'. This was a project that started very much along the usual lines, i.e. let's take Fedora and let's see what it will take to get it to work as our archival records repository. The authors note:</p>
 
   <blockquote><code>"We changed our focus when we realized that we were asking the wrong question. In serving as the repository core of a preservation system, a Fedora instance (or instances) would only be one part of an overall preservation environment. Large portions of ingest and access activities in addition to preservation planning decisions would occur outside of the Fedora instance...The question we should have asked was:'“Can a Fedora repository, surrounded by the proper preservation policies, tools, and Fedora services, serve as the basis of a trustworthy preservation system?'"</code></blockquote>
 
 <p>Their research project then shifted focus to produce an excellent set of <a href="http://dca.tufts.edu/features/nhprc/index.html">Ingest and Maintain (storage) guidelines</a>. In other words, it moved from the concept of a digital archives as a software application to the OAIS concept of an archival information system as a “an organization of people and systems that has accepted the responsibility to preserve information and make it available for a designated community.”</p>
 
 <p>
-  <h2>The Internet Archive</h2>
-  Some archival professionals have been slightly annoyed with some of the thunder that was stolen from the digital archives community by the <a href="http://www.archive.org/index.php">Internet Archive</a> project which doesn't operate like a traditional archival institution but does publicize the word 'archive'. Anyway, turf wars about the term 'archive' is so 1990's; some of us don't even flinch anymore when techies use the word 'archival' as a noun instead of an adjective (e.g. 'email archival').</p>
+<h2>The Internet Archive</h2>
+<p>Some archival professionals have been slightly annoyed with some of the thunder that was stolen from the digital archives community by the <a href="http://www.archive.org/index.php">Internet Archive</a> project which doesn't operate like a traditional archival institution but does publicize the word 'archive'. Anyway, turf wars about the term 'archive' is so 1990's; some of us don't even flinch anymore when techies use the word 'archival' as a noun instead of an adjective (e.g. 'email archival').</p>
 
 <p>The point is that the Internet Archive is a great project that has managed to capture a legacy of digital content that would otherwise have been lost. As a result, the Internet Archive is now running the largest digital archives in the world. A recent <a href="http://www.eweek.com/article2/0,1895,2054062,00.asp">eWeek article</a> gave a behind the scenes look at the Internet Archive's technical architecture. What struck me was the simplicity of their setup:</p>
 
@@ -92,8 +92,8 @@
   The Internet Archive uses a JBOD (just a bunch of disks) approach. Off-the-shelf Ubuntu Linux boxes with four hard drives each, all networked together. Some basic network monitoring software, OAI metadata harvesting and off-site replication over HTTP and FTP. Simple. Scalable. Obvious to college students with Linux on their dorm-room desktop, or archivists converted into techies to deal with the changing (digital) nature of our collections.
 
 <p>
-  <h2>A simple digital archives architecture</h2>
-  If that's good enough for the Internet Archive, which is handling petabytes of content and significant traffic volumes, why not for the first iteration of a simple digital archives prototype? Why shouldn't the 'archival storage' component of an OAIS not simply use a Linux or Windows OS to manage file storage rather than implement a digital repository system with all the technical architecture buy-in that requires?</p>
+<h2>A simple digital archives architecture</h2>
+<p>If that's good enough for the Internet Archive, which is handling petabytes of content and significant traffic volumes, why not for the first iteration of a simple digital archives prototype? Why shouldn't the 'archival storage' component of an OAIS not simply use a Linux or Windows OS to manage file storage rather than implement a digital repository system with all the technical architecture buy-in that requires?</p>
 
   <p>As the Tuft-Yale Fedora Project concluded, it is really the supporting processes and tools around the archival storage that are critical anyway. These can be provided by procedural guidelines and simple utilities that can be mixed and matched, as best-of-breed solutions, to provide necessary functionality such as backup and replication, file normalization, checksum integrity monitoring, etc..</p>
 
