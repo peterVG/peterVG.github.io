@@ -79,11 +79,13 @@ p {
 }
 
 #about a {
-  color: #212529;
+  text-decoration: underline;
+  color: #FFF;
 }
 
 #about a:hover {
     text-decoration: underline;
+    color: #007bff;
   }
 
 hr.white {
