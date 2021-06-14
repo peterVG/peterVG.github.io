@@ -1,0 +1,20 @@
+.content {
+  font-family: 'Arial', sans-serif; 
+}
+
+.content h2 {
+    font-family: 'Oswald', serif;
+    font-weight: bold;
+}
+
+#contact {
+  text-align: center;
+}
+
+.social-image {
+  width:  200px;
+}
+
+.border {
+  border: 2px solid red!important;
+}
