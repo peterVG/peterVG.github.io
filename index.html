@@ -14,46 +14,60 @@
 
 <body id="top">
 
-  <nav class="navbar navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container-fluid">
     <a class="navbar-brand" href="#top">Peter Van Garderen</a>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" href="#about">About</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#posts">Posts & Presentations</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#contact">Contact</a>
-      </li>
-    </ul>
-  </nav>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#publications">Publications</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+<div class="container content">
 
   <div id="header">
-    <img src="assets/images/network-connections.jpg" class="img-fluid"/>
-    <img src="assets/images/peter-speaking-grey.jpg" class="img-fluid"/>
+    <video loop muted autoplay poster="assets/images/information-field.png" id="bg-video" src="assets/videos/information-field.mp4" type="video/mp4">
+    </video>
+
+    <div id="profile-photo">
+    <img src="assets/images/peter-speaking-grey.jpg" class="img-fluid" />
+    </div>
+    
+    <!--
+      <img src="assets/images/network-connections.jpg" class="img-fluid"/>
+      <img src="assets/images/peter-speaking-grey.jpg" class="img-fluid"/>
+    -->
   </div>
 
-  <div class="container content">
 
-    <div id="about">
+  <div id="about" class="block">
     <h2>About</h2>
     <hr>
-    <p>I have been working with technology for archival collections since earning my Master's degree in Archival Science in 1997. I am the founder of <a href="https://artefactual.com"> Artefactual Systems Inc.</a> and the free and open source <a href="https://accesstomemory.org">AtoM</a> and <a href="https://archivematica.org">Archivematica</a> software applications.</p>
+    <p>I have been working with technology for archival collections since earning my Master's degree in Archival Science in 1997. I am the founder of <a href="https://artefactual.com"> Artefactual Systems Inc.</a> and the original developer of the free and open source <a href="https://accesstomemory.org">AtoM</a> and <a href="https://archivematica.org">Archivematica</a> software applications.</p>
 
-    <p>These tools are used to manage the discoverability, re-usability, and trustworthiness of digital information at hundreds of memory organizations worldwide. Artefactual Systems is the lead developer for these free and open source applications.</p>
+    <p>I have worked with public sector institutions worldwide to provide archives technology and digital preservation services that range from writing strategy reports, analyzing system requirements, designing system architectures, developing software, and managing open-source projects. I have been a frequent conference speaker on these topics and experiences.</p>
 
-    <p>I have worked with numerous public sector institutions to provide archives technology and digital preservation services that range from writing strategy reports, analyzing system requirements, designing system architectures, developing software, and managing open-source projects. I have been a frequent conference speaker on these topics and experiences.</p>
+    <p>I was recognized for this work with a Distinguished Alumnus designation by the University of British Columbia’s iSchool program. I have previously worked at UBC’s iSchool as an Adjunct Professor (1999-2004) and as the Project Coordinator for International Research on Permanent Authentic Records in Electronic Systems (InterPARES Project) (1998-2000). I also hold a Certificate in Software Engineering from UBC.</p>
 
-    <p>I was recognized for this work with a Distinguished Alumnus designation by the University of British Columbia’s iSchool program, the youngest recipient to date. I have previously worked at UBC’s iSchool as an Adjunct Professor (1999-2004) and as the Project Coordinator for International Research on Permanent Authentic Records in Electronic Systems (InterPARES Project) (1998-2000). I also holds a Certificate in Software Engineering from UBC.</p>
+    <p>I stepped aside as Artefactual president in 2013 to work as an independent consultant and researcher. I returned five years later to work as senior analyst and software developer, applying my extensive domain knowledge and late-blooming coding skills to Artefactual’s R&D and client projects.<p>
+  </div>
 
-    <p>I stepped aside as Artefactual president in 2013 to work as an independent consultant and researcher. In August 2018 I returned to Artefactual as Senior Analyst, applying my extensive domain knowledge to Artefactual’s software development and R&D projects.<p>
-
-    <p>While in constant need of improvement, I have a passion for coding and building prototype solutions for the Archivematica and AtoM ecosystems as well as the burgeoning field of decentralization technologies. See for example: <a href="https://github.com/artefactual-labs/AIPscan">AIPscan</a>, <a href="https://github.com/artefactual-labs/fpr2par">fpr2par</a>, <a href="https://pygate.tech">pygate.tech</a> and <a href="https://deplatformer.io">deplatformer.io</a>.</p>
-    </div>
-
-    <div id="posts">
-    <h2>Selected posts & presentations</h2>
+  <div id="publications" class="block">
+    <h2>Selected publications</h2>
     <hr>
     <p>"<a href="https://www.youtube.com/watch?v=Yth7O6yeZRE&t=06h04m32s">Archival Requirements for the Decentralized Web</a>" Decentralized Web Summit (San Francisco, CA). June 8, 2016.</p>
 
@@ -92,17 +106,17 @@
     <p>"<a href="posts/does_my_digital_archives_need_a_digital_repository.html">Does my digital archives need a digital repository system?</a>" November 27, 2006.</p>
 
     <p>"<a href="posts/web2.0_and_archival_institutions.html">Web 2.0 and archival institutions</a>" May 8, 2006.</p>
-    </div>
+  </div>
 
-    <div id="contact">
+  <div id="contact" class="block">
     <h2>Contact</h2>
     <hr>
     <p>vangarderen.peter [at] gmail [dot] com</p>
     <p><a href="https://twitter.com/pjvangarderen"><img src="assets/images/twitter-logo.png" class="social-image"/></a></p>
     <p><a href="https://www.linkedin.com/in/petervangarderen/"><img src="assets/images/linked-in-logo.png" class="social-image"/></a></p>
     <p><a href="https://github.com/peterVG"><img src="assets/images/github-logo.png" class="social-image"/></a></p>
-    </div>
+  </div>
 
-  <script src="js/bootstrap.min.js"></script>
+  <script src="assets/bootstrap-5.0.1/js/bootstrap.min.js"></script>
 </body>
 </html>

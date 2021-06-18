@@ -15,6 +15,12 @@
   width:  200px;
 }
 
-.border {
-  border: 2px solid red!important;
+.block {
+  padding-top: 100px;
+}
+
+#profile-photo {
+  top: 20%;
+  left: 10%;
+  background: rgba(0, 0, 0, 0.0);
 }
