@@ -1,46 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- copyright Peter Van Garderen 2020 -->
-
-    <title>VanGarderen.Net</title>
+    <title>The information model to end all information models (Van Garderen, 2006)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../assets/bootstrap-5.0.1/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
 </head>
+
 <body id="top">
 
-  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid">
     <a class="navbar-brand" href="../index.html">Peter Van Garderen</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="../index.html#about">About</a>
+          <a class="nav-link" aria-current="page" href="../index.html#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../index.html#posts">Posts & Presentations</a>
+          <a class="nav-link" href="../index.html#publications">Publications</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../index.html#contact">Contact</a>
         </li>
       </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <div class="container-md" style="margin-top: 100px; ">
+  <div class="container post">
   <h2>The information model to end all information models</h2>
 
   <div style="font-size: 80%;">
     December 8, 2006
     <p>originally posted at <em><a href="https://web.archive.org/web/20070110060618/http://archivemati.ca/2006/12/08/the-information-model-to-end-all-information-models/">archivemati.ca</a></em></p>
   </div>
-  <hr class="orange" />
+  <hr>
   <p>I am now beginning work on the second alpha iteration of the open-source <a href="https://accesstomemory.org">ICA-AtoM</a> software application.</p>
 
   <p>I am working on a considerable upgrade to the underlying object and database model which supports the application. As the application matures and evolves it will be relatively easy to make changes and updates to the application modules and user interfaces. However, it will be difficult to make significant changes to the database model once the application goes into active deployment and people start entering information. Therefore, I better get this right now...</p>
@@ -96,14 +95,10 @@
 
   <p>I am sure I'll have to make some compromises and tweaks along the way (keep in mind that this list is simply some research notes generated during my best practice analysis) but hopefully this investment will pay off in the long run to make the ICA-AtoM information model as flexible and powerful as possible.<p>
 
-  <img src='../assets/ICAAtoMInfoModel1_02.jpg' align='center' alt='' />
-
-
-
-
+  <img src='../assets/images/ICAAtoMInfoModel1_02.jpg' class="img-fluid">
 
   </div>
 
-  <script src="../js/jquery-3.5.0.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  </body>
+<script src="../assets/bootstrap-5.0.1/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,47 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-    <!-- copyright Peter Van Garderen 2020 -->
-
-    <title>VanGarderen.Net</title>
+    <title>Decentralized autonomous collections (Van Garderen, 2016)</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/style.css">
+    <link rel="stylesheet" href="../assets/bootstrap-5.0.1/css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../assets/css/style.css" type="text/css">
 </head>
+
 <body id="top">
 
-  <nav class="navbar navbar-expand-md navbar-light bg-light fixed-top" id="mainNav">
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container-fluid">
     <a class="navbar-brand" href="../index.html">Peter Van Garderen</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link" href="../index.html#about">About</a>
+          <a class="nav-link" aria-current="page" href="../index.html#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="../index.html#posts">Posts & Presentations</a>
+          <a class="nav-link" href="../index.html#publications">Publications</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="../index.html#contact">Contact</a>
         </li>
       </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
-  <div class="container-md" style="margin-top: 100px; ">
+  <div class="container post">
   <h2>Decentralized Autonomous Collections</h2>
   <div style="font-size: 80%;">
     April 11, 2016
-    <p>originally posted at <em><a href="https://medium.com/on-archivy/decentralized-autonomous-collections-ff256267cbd6#.2x1c0w76y">Medium.com</a></em></p>
+    <p>original version published at <em><a href="https://medium.com/on-archivy/decentralized-autonomous-collections-ff256267cbd6#.2x1c0w76y">Medium.com</a></em></p>
   </div>
-  <hr class="orange" />
+
+<hr>
 <p><i>A Decentralized Autonomous Collection is a set of digital information objects stored for ongoing re-use with the means and incentives for independent parties to participate in the contribution, presentation, and curation of the information objects outside the control of an exclusive custodian.</i></p>
-<p><img src="../assets/dac2016/decentralized_autonomous_collections.concept.png" /></p>
+<p><img src="../assets/images/dac2016/decentralized_autonomous_collections.concept.png" class="img-fluid"></p>
 
 <p>Decentralized Autonomous Collections (DAC) may be created by any individual or community based on any number of criteria including subject matter, newsworthy events, geographic region, media format, content provenance, business function, political objectives, etc..</p>
 
@@ -111,7 +111,7 @@
 
 <p>By aggregating objects from peer-to-peer storage networks, an unlimited number of ‘virtual’ collections can be made available through traditional HTTP access clients and portals. These portals can add value by curating and presenting the content generically or in culturally-sensitive ways to specific designated communities using new, custom apps or existing web content management tools like Wordpress, Omeka, Mukurtu, or Neocities. These are examples of relatively user-friendly applications that allow non-professionals to present the content and context of their information collections in a way that is appropriate to their intended audience and sensitive to community needs.</p>
 
-<p><a href="http://mukurtu.org"><img src="../assets/dac2016/mukurtu.png" /></a></p>
+<p><a href="http://mukurtu.org"><img src="../assets/images/dac2016/mukurtu.png" class="img-fluid"></a></p>
 
 <p>The metadata that these portals and its users create are valuable information objects in and of themselves and form another key component in the architecture of a Decentralized Autonomous Collection. This includes descriptions of information objects, their context of creation and use, their interpreted meaning and value, technical information required for curation, and tags and taxonomies that aid in their discovery. Depending on the DAC’s design principles, this metadata may conform to professional standards, conventions agreed upon within a designated community, and/or free form formats that reflect the needs, viewpoints, and backgrounds of individual contributors.</p>
 
@@ -119,7 +119,7 @@
 
 <p>The metatadata and content stored on the peer-to-peer networks are mediated through middleware APIs providing DAC micro-services that may include RESTful hypermedia content access, search index caches for the metadata and full-text stored on distributed nodes, and conversion of metadata triples to the data serializations used by popular content management tools (e.g. CSV, SQL).</p>
 
-<p><a href="http://publicmediaplatform.org"><img src="../assets/dac2016/public_media_platform.png" /></a></p>
+<p><a href="http://publicmediaplatform.org"><img src="../assets/images/dac2016/public_media_platform.png" class="img-fluid"></a></p>
 
 <p>Perhaps the best working example that brings together some of the technical components described above is the API used by the Public Media Platform. A key component of this API is the Collection.doc+JSON media type which provides a standardized way to group otherwise disparate online resources into a coherent collection. Other good examples include the APIs provided by the Digital Public Library of America and the National Archives of Austrialia’s Trove portal.</p>
 
@@ -127,7 +127,7 @@
 
 <p>The absence of an exclusive custodian places additional burden on the proof of authenticity for information objects stored in a DAC. This requirement would be met in a DAC through the registration of cryptographic hashes of information objects and their provenance metadata (expressed in machine-readable W3C PROV) on a blockchain database using functionality such as that provided by ProofOfExistence.com. Mediachain is a good example of a project that is working on a protocol and supporting tools that deliver this functionality for image media.</p>
 
-<p><a href="http://proofofexistence.com"><img src="../assets/dac2016/proof_of_existence.png" /></a></p>
+<p><a href="http://proofofexistence.com"><img src="../assets/images/dac2016/proof_of_existence.png" class="img-fluid"></a></p>
 
 <p>Lastly, going one level of abstraction deeper, the portal software apps and API middleware code could also be stored on the peer-to-peer storage layer using a full-clone software versioning system like Git. This would allow for the repurposing of collection management tools by other communities or the re-launching of portals that were taken offline due to technical failure, financial constraints, or political attacks.</p>
 
@@ -143,7 +143,7 @@
 
 <p>In its simplest form, a decentralized rights management architecture might store information objects in encrypted format and use smart contracts to provide private keys to unlock that content when certain criteria are met, e.g. a micropayment is made to the smart contract. This is where some recent blockchain innovation in the music industry shows a promising way forward. A good example is the UJO Music project which is exploring these techniques through the Dot Blockchain concept. Lbry.io is a similar project that has developed its own peer-to-peer and blockchain protocol which includes the ability to pay storage providers, blockchain miners, and content contributors.</p>
 
-<p><a href="https://monegraph.com/m6788760298"><img src="../assets/dac2016/dot_blockchain.png" /></a></p>
+<p><a href="https://monegraph.com/m6788760298"><img src="../assets/images/dac2016/dot_blockchain.png" class="img-fluid"></a></p>
 
 <p><h3>What makes a collection “autonomous”?</h3></p>
 
@@ -151,7 +151,7 @@
 
 <p>The values and principles which influence a Decentralized Autonomous Collection’s content, functionality, accessibility, and its rate of adoption can be encoded as business rules by its initial implementers and updated by its subsequent participants using smart contracts deployed on blockchain technology. Smart contracts monitor the state of certain pre-programed conditions and when these are verified to be true they execute processes such as the release of cryptocurency funds to a designated online wallet or delivering a private key to unlock a digital file. Decentralized autonomous organizations such as Slock.it are providing compelling models for this type ‘rule of code’ replacing the ‘rule of law.’</p>
 
-<p><a href="https://slock.it/dao.html"><img src="../assets/dac2016/dao.jpeg" /></a></p>
+<p><a href="https://slock.it/dao.html"><img src="../assets/images/dac2016/dao.jpeg" class="img-fluid"></a></p>
 
 <p>Stakeholders in an autonomous organization are given the opportunity to vote on proposals that address how its shared assets are managed. Votes can be distributed per unique participant or weighted according to the stake that the participant has in the collective enterprise. This stake could be based on the reputation ranking of the individual as calculated by criteria such as total number of ‘Likes,’ ‘Upvotes,’ ‘Recommendations,’ ‘Tips,’ etc.. It could also be based on the amount of tokens held by the participant in the cryptocurrency denomination chosen by the DAC implementers. These might leverage existing cryptocurrencies like Bitcoin and Ether or they may choose to issue tokens specific to the DAC domain.</p>
 
@@ -159,7 +159,7 @@
 
 <p>The initial balance of tokens could be fiat funds converted from traditional endowments or granting agencies that support the mission of the DAC. It could also be generated through a cryptocurrency crowdfunding campaign to launch or support the activities of a particular DAC. Other sources of DAC revenue could include micropayment fees for the use of its content, APIs, portals, and/or storage nodes.</p>
 
-<p><a href="http:ethereum.org"><img src="../assets/dac2016/ethereum_crowdsale.png" /></a></p>
+<p><a href="http:ethereum.org"><img src="../assets/images/dac2016/ethereum_crowdsale.png" class="img-fluid"></a></p>
 
 <p>The DAC business model can be hard-coded as smart contracts. These would also manage the reserve of tokens that are held as future payment for expenses such as API server hosting or storage. When deemed necessary, the DAC participants would vote on proposals to distribute tokens held in reserve to service providers such as content creators and contributors, collection curators, software developers, or system administrators. These might perform services such as adding new features to the DAC APIs and portals, implementing system architecture upgrades, migrating legacy content and metadata, metadata enhancement and clean-up, creating new online exhibits in one of the DAC’s access portals, or uploading content that accounts for a top percentage of downloads.</p>
 
@@ -171,8 +171,8 @@
 
 <p>Nevertheless, I am researching and developing components in this architecture that may contribute pieces to this larger whole. Therefore, I did want to get a bunch of these synergistic ideas out of my head and to sketch out a rough map, however flawed or incomplete, that I could share with others and use as my own guidepost. At least it now exists as a hypothetical destination in the evolution of managing information collections. Hopefully the right combination of optimistic idealism, cynical reactionism, and opportunistic risk-taking will inspire further collaboration and complimentary ideas on this path.</p>
 
-  </div>
+</div>
 
-  <script src="../js/jquery-3.5.0.min.js"></script>
-  <script src="../js/bootstrap.min.js"></script>
-  </body>
+<script src="../assets/bootstrap-5.0.1/js/bootstrap.min.js"></script>
+</body>
+</html>
