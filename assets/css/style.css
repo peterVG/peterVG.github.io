@@ -51,7 +51,7 @@ body h1, h2, h3 {
 }
 
 .navbar {
-    background: rgba(0, 0, 0, 0.7);
+    background: rgba(0, 0, 0, 0.8);
 }
 
 .navbar a {
@@ -63,13 +63,12 @@ body h1, h2, h3 {
 .navbar-brand {
     font-family: 'Oswald', serif!important;
     letter-spacing:  .15rem;
-    text-shadow:  .1rem .1rem .8rem black;
+    text-shadow:  .1rem .1rem .1rem black;
 }
 
 #about {
   padding: 5em 0 0.5em 0.5em;
   background-color: #FFF;
-
 }
 
 #publications {
@@ -98,7 +97,6 @@ body h1, h2, h3 {
     position:  relative;
     width:  100%;
     min-height: 100vh;
-
 }
 
 /*--- Bootstrap Mobile Gutter Fix --*/
