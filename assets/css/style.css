@@ -162,3 +162,17 @@ video {
 .post {
   padding: 5em 0 0.5em 0.5em;
 }
+
+.post-meta {
+  font-size: 0.7em;
+  margin: 20px 0 40px 0;
+}
+
+.cc-icon {
+  max-width: 12em;
+  margin: 15px 0 15px 0;
+}
+
+.doi-icon {
+  margin:  15px 0 5px 0;
+}
