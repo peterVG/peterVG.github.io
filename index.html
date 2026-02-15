@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     
     <style>
-        /* 1. Force a huge gap at the top so nothing hides under the black bar */
+        /* 1. Increases clearance from the fixed navbar */
         body { 
-            padding-top: 100px; 
+            padding-top: 110px; 
         }
 
         .avatar-img {
@@ -24,9 +24,9 @@
             display: block;
         }
 
-        /* 3. Mobile responsiveness */
+        /* Responsive adjustments */
         @media (max-width: 768px) {
-            body { padding-top: 80px; }
+            body { padding-top: 90px; }
             .avatar-img {
                 width: 140px;
                 height: 140px;
@@ -56,7 +56,7 @@
 
 <div class="container">
     
-    <div class="row mt-5 mb-5">
+    <div class="row mt-5 mb-4">
         <div class="col-12 d-flex justify-content-center justify-content-md-start">
             <div id="profile-pic">
                 <img src="peter-profile.jpeg" class="avatar-img" alt="Peter Van Garderen">
