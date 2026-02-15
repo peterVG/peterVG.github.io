@@ -13,30 +13,46 @@
             padding-top: 100px; 
         }
 
-        /* Small Navbar Avatar Styling */
+        /* Navbar Avatar Styling */
         .nav-avatar {
             width: 40px;
             height: 40px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid #fff; /* Thin white border to pop against black */
+            border: 2px solid #fff; 
             margin-right: 12px;
             vertical-align: middle;
+            /* Smooth transition for the expansion effect */
+            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            z-index: 10;
         }
 
-        /* Optional: adds a slight glow effect to the small avatar */
+        /* THE NEW HOVER FEATURE: Expand image on hover */
         .navbar-brand:hover .nav-avatar {
-            border-color: #007bff;
-            transition: 0.3s;
+            /* Removes the blue border effect from before */
+            border-color: #fff; 
+            
+            /* Expand the image. 8x makes it roughly 320px wide on hover. */
+            /* Change '8' to '100' if you literally want it to fill the entire screen. */
+            transform: scale(8); 
+            
+            /* Ensure it appears above the navbar and text */
+            z-index: 9999;
+        }
+
+        /* Hard hack for Contact section padding as requested */
+        #contact {
+            padding-top: 150px !important;
+            margin-top: 50px !important;
         }
 
         @media (max-width: 576px) {
             body { padding-top: 80px; }
-        }
-
-        #contact {
-            padding-top: 100px !important; 
-            margin-top: 50px !important;  
+            /* Slightly less zoom on mobile so it stays on screen */
+            .navbar-brand:hover .nav-avatar {
+                transform: scale(5);
+            }
         }
     </style>
 </head>
@@ -68,17 +84,11 @@
       <h2 class="fw-bold" style="font-size: 2.5rem;">About</h2>
       <hr>
         <p>I have been working with technology for archival collections since earning my Master's degree in Archival Science in 1997.</p>
-
         <p>My area of expertise is software development for archival systems as well as applying records management standards and archival science research to requirements for decentralized software architectures.</p>
-        
-        <p>I am the creator of the open-source <a href="https://archivematica.org">Archivematica</a> and <a href="https://accesstomemory.org">AtoM</a> (AccessToMemory) software applications; together the most widely-deployed digital archives system around the globe.</p>
-
+        <p>I am the creator of the open-source <a href="https://archivematica.org">Archivematica</a> and <a href="https://accesstomemory.org">AtoM</a> (AccessToMemory) software applications, the most widely-deployed digital archives system worldwide.</p>
         <p>I have worked with public sector institutions worldwide (including United Nations, World Bank, NATO) to provide industry-standard record-keeping technology and digital preservation services that range from writing strategy reports, analyzing system requirements, designing system architectures, developing software, and managing open-source projects. I have been a frequent conference speaker on these topics.</p>
-
         <p>I am the founder of <a href="https://artefactual.com">Artefactual Systems</a>, <a href="https://landano.io">Landano International</a>, <a href="https://orcfax.io">Orcfax</a>, <a href="https://arkly.io">Arkly</a>, and <a href="https://iona.ltd">Iona Systems</a>.</p>
-
         <p>Iona is a Canadian based company that incubates R&D projects focussed on the technology intersection of digital archives systems, blockchain and AI. Iona Systems also makes my consulting services available to clients working in this same domain.</p>
-        
         <p>Iona Systems launched the Orcfax and Landano companies and is the lead developer of the Arkly.io system, an open-source, decentralized, next-generation digital archives platform. Iona is also conducting research into the secure and privacy-protecting application of AI technologies to labour-intensive records management tasks including retention scheduling, archival appraisal as well as PII and compliance scans.</p>
     </div>
 
@@ -116,11 +126,11 @@
       <p><a href="posts/web2.0-and-archival-institutions.html">Web 2.0 and archival institutions</a> (2006)</p>
     </div>
 
-    <div id="contact" class="text-center py-5 pt-5">
+    <div id="contact" class="text-center py-5">
       <h2>Contact</h2>
-      <p>petervg [at] iona [dot] ltd</p>
-      <p style="padding-top: 40px;"><a href="https://www.linkedin.com/in/petervangarderen/"><img src="assets/images/linked-in-logo.png" class="img-fluid social-logo"/></a></p>
-      <p><a href="https://x.com/pjvangarderen"><img src="assets/images/x.com-logo.png" class="img-fluid social-logo" style="width: 10%;"/></a></p>
+      <p style="padding-top: 40px;">vangarderen.peter [at] gmail [dot] com</p>
+      <p style="padding-top: 40px;"><a href="https://twitter.com/pjvangarderen"><img src="assets/images/twitter-logo.png" class="img-fluid social-logo"/></a></p>
+      <p><a href="https://www.linkedin.com/in/petervangarderen/"><img src="assets/images/linked-in-logo.png" class="img-fluid social-logo"/></a></p>
       <p><a href="https://github.com/peterVG"><img src="assets/images/github-logo.png" class="img-fluid social-logo"/></a></p>
     </div>
 
