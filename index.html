@@ -6,6 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="assets/bootstrap-5.0.1/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
+    
+    <style>
+        .avatar-link {
+            display: inline-block;
+            transition: transform 0.2s;
+        }
+
+        .avatar-link:hover {
+            transform: scale(1.1);
+        }
+
+        .avatar-img {
+            width: 80px; 
+            height: 80px;
+            border-radius: 50%; /* The "magic" for the circle */
+            object-fit: cover;
+            border: 3px solid #007bff; /* A blue border frame */
+        }
+    </style>
+    
 </head>
 
 <body id="top">
@@ -33,6 +53,12 @@
 </nav>
 
 <div class="container-fluid">
+
+<div id="profile-pic">
+
+<img src="peter-profile.jpg" class="avatar-img">
+    
+</div>
 
 <div id="about">
   <h2>About</h2>
