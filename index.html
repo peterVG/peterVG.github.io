@@ -8,24 +8,42 @@
     <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     
     <style>
+        /* Fix for fixed navbar: prevents content from being hidden underneath it */
+        body { 
+            padding-top: 70px; 
+        }
+
         .avatar-link {
             display: inline-block;
             transition: transform 0.2s;
+            text-decoration: none;
         }
 
         .avatar-link:hover {
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .avatar-img {
-            width: 80px; 
-            height: 80px;
-            border-radius: 50%; /* The "magic" for the circle */
+            width: 150px; 
+            height: 150px;
+            border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #007bff; /* A blue border frame */
+            border: 5px solid #fff;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+            background-color: #fff;
+        }
+
+        /* Smaller profile pic on mobile phones */
+        @media (max-width: 576px) {
+            .avatar-img {
+                width: 120px;
+                height: 120px;
+            }
+            body {
+                padding-top: 60px;
+            }
         }
     </style>
-    
 </head>
 
 <body id="top">
@@ -52,33 +70,40 @@
   </div>
 </nav>
 
-<div class="container-fluid">
+<div class="container">
+    <div class="row align-items-end mt-4 mb-4">
+        <div class="col-12 col-md-auto text-center text-md-start">
+            <div id="profile-pic">
+                <a href="#top" class="avatar-link">
+                    <img src="peter-profile.jpeg" class="avatar-img" alt="Peter Van Garderen">
+                </a>
+            </div>
+        </div>
+        <div class="col-12 col-md text-center text-md-start mt-3 mt-md-0">
+            <div id="about">
+                <h2 class="display-4 fw-bold">About</h2>
+                <hr>
+            </div>
+        </div>
+    </div>
 
-<div id="profile-pic">
+    <div class="row">
+        <div class="col-12">
+            <p class="lead">I have been working with technology for archival collections since earning my Master's degree in Archival Science in 1997.</p>
 
-<img src="peter-profile.jpeg" class="avatar-img">
-    
-</div>
+            <p>My area of expertise is software development for archival systems as well as applying records management standards and archival science research to requirements for decentralized software architectures.</p>
+            
+            <p>I am the creator of the open-source <a href="https://archivematica.org">Archivematica</a> and <a href="https://accesstomemory.org">AtoM</a> (AccessToMemory) software applications, the most widely-deployed digital archives system worldwide.</p>
 
-<div id="about">
-  <h2>About</h2>
-  <hr>
-    <p>I have been working with technology for archival collections since earning my Master's degree in Archival Science in 1997. I am a distinguished alumui of the University of British Columbia's iSchool.</p>
+            <p>I have worked with public sector institutions worldwide (including United Nations, World Bank, NATO) to provide industry-standard record-keeping technology and digital preservation services that range from writing strategy reports, analyzing system requirements, designing system architectures, developing software, and managing open-source projects. I have been a frequent conference speaker on these topics.</p>
 
-    <p>My area of expertise is software development for archival systems as well as applying records management standards and archival science
-research to requirements for decentralized software architectures.</p>
-    
-    <p>I am the creator of the open-source <a href="https://archivematica.org">Archivematica</a> and <a href="https://accesstomemory.org">AtoM</a> (AccessToMemory) software applications, the most widely-deployed digital archives system worldwide.</p>
+            <p>I am the founder of <a href="https://artefactual.com">Artefactual Systems</a>, <a href="https://landano.io">Landano International</a>, <a href="https://orcfax.io">Orcfax</a>, <a href="https://arkly.io">Arkly</a>, and <a href="https://iona.ltd">Iona Systems</a>.</p>
 
-    <p>I have worked with public sector institutions worldwide (including United Nations, World Bank, NATO) to provide industry-standard record-keeping technology and digital preservation services that range from writing strategy reports, analyzing system requirements, designing system architectures, developing software, and managing
-open-source projects. I have been a frequent conference speaker on these topics.</p>
-
-    <p>I am the founder of <a href="https://artefactual.com">Artefactual Systems</a>, <a href="https://landano.io">Landano</a>, <a href="https://orcfax.io">Orcfax</a>, <a href="https://arkly.io">Arkly</a>, and <a href="https://iona.ltd">Iona Systems</a>.</p>
-
-    <p>Iona Systems is a Canadian based company that incubates R&D projects focussed on the technology intersection of digital archives systems, blockchain and AI (including Landano, Orcfax, and Arkly). Iona Systems also makes my consulting services available to clients working in this same domain. 
-    <p></p>Iona Systems is the lead developer of the Arkly.io system, an open-source, decentralized, next-generation digital archives platform. Iona is also conducting research into the secure and privacy-protecting application of AI technologies to labour-intensive records management tasks including retention scheduling, archival appraisal as well as PII and compliance scans.</p>
-    
-</div>
+            <p>Iona is a Canadian based company that incubates R&D projects focussed on the technology intersection of digital archives systems, blockchain and AI. Iona Systems also makes my consulting services available to clients working in this same domain.</p>
+            
+            <p>Iona Systems launched the Orcfax and Landano companies and is the lead developer of the Arkly.io system, an open-source, decentralized, next-generation digital archives platform. Iona is also conducting research into the secure and privacy-protecting application of AI technologies to labour-intensive records management tasks including retention scheduling, archival appraisal as well as PII and compliance scans.</p>
+        </div>
+    </div>
 
 <div id="publications">
   <h2>Selected publications and presentations</h2>
