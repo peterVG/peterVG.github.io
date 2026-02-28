@@ -1,145 +1,216 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Peter Van Garderen</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="assets/bootstrap-5.0.1/css/bootstrap.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-    
-    <style>
-        /* Ensures content starts below the fixed navbar */
-        body { 
-            padding-top: 100px; 
-        }
+  <title>Peter Van Garderen</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/bootstrap-5.0.1/css/bootstrap.min.css" type="text/css">
+  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
 
-        /* Navbar Avatar Styling */
-        .nav-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 2px solid #fff; 
-            margin-right: 12px;
-            vertical-align: middle;
-            /* Smooth transition for the expansion effect */
-            transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            z-index: 10;
-        }
+  <style>
+    /* Ensures content starts below the fixed navbar */
+    body {
+      padding-top: 100px;
+    }
 
-        /* Expand image on hover */
-        .navbar-brand:hover .nav-avatar {
-            /* Removes the blue border effect from before */
-            border-color: #fff; 
-            
-            /* Expand the image. 8x makes it roughly 320px wide on hover. */
-            /* Change '8' to '100' if you literally want it to fill the entire screen. */
-            transform: scale(8); 
-            
-            /* Ensure it appears above the navbar and text */
-            z-index: 9999;
-        }
+    /* Navbar Avatar Styling */
+    .nav-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #fff;
+      margin-right: 12px;
+      vertical-align: middle;
+      /* Smooth transition for the expansion effect */
+      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      position: relative;
+      z-index: 10;
+    }
 
-        /* Hard hack for Contact section padding */
-        #contact {
-            padding-top: 150px !important;
-            margin-top: 50px !important;
-        }
+    /* Expand image on hover */
+    .navbar-brand:hover .nav-avatar {
+      /* Removes the blue border effect from before */
+      border-color: #fff;
 
-        @media (max-width: 576px) {
-            body { padding-top: 80px; }
-            /* Slightly less zoom on mobile so it stays on screen */
-            .navbar-brand:hover .nav-avatar {
-                transform: scale(5);
-            }
-        }
-        
-    </style>
+      /* Expand the image. 8x makes it roughly 320px wide on hover. */
+      /* Change '8' to '100' if you literally want it to fill the entire screen. */
+      transform: scale(8);
+
+      /* Ensure it appears above the navbar and text */
+      z-index: 9999;
+    }
+
+    /* Hard hack for Contact section padding */
+    #contact {
+      padding-top: 150px !important;
+      margin-top: 50px !important;
+    }
+
+    @media (max-width: 576px) {
+      body {
+        padding-top: 80px;
+      }
+
+      /* Slightly less zoom on mobile so it stays on screen */
+      .navbar-brand:hover .nav-avatar {
+        transform: scale(5);
+      }
+    }
+  </style>
 </head>
 
 <body id="top">
 
-<nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #212529;">
-  <div class="container-fluid">
-    <a class="navbar-brand d-print-none d-flex align-items-center" href="#top">
-      <img src="assets/images/peter-profile.jpeg" alt="Peter" class="nav-avatar">
-      <span>Peter Van Garderen</span>
-    </a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-        <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #212529;">
+    <div class="container-fluid">
+      <a class="navbar-brand d-print-none d-flex align-items-center" href="#top">
+        <img src="assets/images/peter-profile.jpeg" alt="Peter" class="nav-avatar">
+        <span>Peter Van Garderen</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>
 
-<div class="container">
+  <div class="container">
 
     <div id="about" class="mt-4">
       <h2 class="fw-bold" style="font-size: 2.5rem;">About</h2>
       <hr>
-        <p><strong>I am an archivist</strong>. I have been working with technology for archival collections since earning my Master's degree in Archival Science in 1997. I am a Distinguished Alumnus of the University of British Columbia's iSchool.</p>
-        <p><strong>I am a decentralizationist</strong>. I have been working with technology for decentralized systems since 2016 when I wrote my vision piece: <a href="https://medium.com/on-archivy/decentralized-autonomous-collections-ff256267cbd6#.2x1c0w76y">Decentralized Autonomous Collections</a>. This includes projects using Arweave, IPFS, Cardano, and Polygon.</p>
-        <p><strong>I am a AI researcher</strong>. I am working on the implementation of provenance features as well as the secure and privacy-protecting application of AI technologies to labour-intensive records management tasks such as retention scheduling, archival appraisal as well as compliance and PII scans.</p>
-        <p>My area of expertise is AI-driven software development for archival systems as well as applying records management standards and archival science research to requirements for decentralized software architectures.</p>
-        <p>I am the creator of the open-source <a href="https://archivematica.org">Archivematica</a> and <a href="https://accesstomemory.org">AtoM</a> (AccessToMemory) software applications; together the most widely-deployed digital archives system across the globe.</p>
-        <p>I have worked with public sector institutions worldwide (including United Nations, World Bank, NATO) to provide industry-standard record-keeping technology and digital preservation services that range from writing strategy reports, analyzing system requirements, designing system architectures, developing software, and managing open-source projects. I have been a frequent conference speaker on these topics.</p>
-        <hr>
-        <p>I am the founder of <a href="https://artefactual.com">Artefactual Systems</a>, <a href="https://landano.io">Landano International</a>, <a href="https://orcfax.io">Orcfax</a>, <a href="https://arkrim.tech">Arkrim</a>, and <a href="https://iona.ltd">Iona Systems</a>.</p>
-        <p>Iona is a Canadian based company that incubates R&D projects focussed on the technology intersection of digital archives systems, blockchain and AI. Iona Systems also makes my consulting services available to clients working in this same domain.</p>
-        <p>Iona Systems launched the Orcfax and Landano companies and is currently developing the Arkrim.tech system, a next-generation digital archives and records management platform. Iona is also conducting research into the secure and privacy-protecting application of AI technologies to labour-intensive records management tasks including retention scheduling, archival appraisal as well as PII and compliance scans.</p>
+      <p><strong>I am an archivist</strong>. I have been working with technology for archival collections since earning
+        my Master's degree in Archival Science in 1997. I am a Distinguished Alumnus of the University of British
+        Columbia's iSchool.</p>
+      <p><strong>I am a decentralizationist</strong>. I have been working with technology for decentralized systems
+        since 2016 when I wrote my vision piece: <a
+          href="https://medium.com/on-archivy/decentralized-autonomous-collections-ff256267cbd6#.2x1c0w76y">Decentralized
+          Autonomous Collections</a>. This includes projects using Arweave, IPFS, Cardano, and Polygon.</p>
+      <p><strong>I am a AI researcher</strong>. I am working on the implementation of provenance features as well as the
+        secure and privacy-protecting application of AI technologies to labour-intensive records management tasks such
+        as retention scheduling, archival appraisal as well as compliance and PII scans.</p>
+      <p>My area of expertise is AI-driven software development for archival systems as well as applying records
+        management standards and archival science research to requirements for decentralized software architectures.</p>
+      <p>I am the creator of the open-source <a href="https://archivematica.org">Archivematica</a> and <a
+          href="https://accesstomemory.org">AtoM</a> (AccessToMemory) software applications; together the most
+        widely-deployed digital archives system across the globe.</p>
+      <p>I have worked with public sector institutions worldwide (including United Nations, World Bank, NATO) to provide
+        industry-standard record-keeping technology and digital preservation services that range from writing strategy
+        reports, analyzing system requirements, designing system architectures, developing software, and managing
+        open-source projects. I have been a frequent conference speaker on these topics.</p>
+      <hr>
+      <p>I am the founder of <a href="https://artefactual.com">Artefactual Systems</a>, <a
+          href="https://landano.io">Landano International</a>, <a href="https://orcfax.io">Orcfax</a>, <a
+          href="https://arkrim.tech">Arkrim</a>, and <a href="https://iona.ltd">Iona Systems</a>.</p>
+      <p>Iona is a Canadian based company that incubates R&D projects focussed on the technology intersection of digital
+        archives systems, blockchain and AI. Iona Systems also makes my consulting services available to clients working
+        in this same domain.</p>
+      <p>Iona Systems launched the Orcfax and Landano companies and is currently developing the <a
+          href="https://arkrim.tech">Arkrim.tech</a> system, a next-generation digital archives and records management
+        platform. Iona is also conducting research into the secure and privacy-protecting application of AI technologies
+        to labour-intensive records management tasks including retention scheduling, archival appraisal as well as PII
+        and compliance scans.</p>
     </div>
 
     <div id="publications" class="mt-5">
       <h2>Selected publications and presentations</h2>
       <hr>
-      <p><a href="https://medium.com/@peterVG/the-ideal-digital-archives-system-4e01d758fb75">The Ideal Digital Archives System</a> (2024) Medium.com</p>
-      <p><a href="https://medium.com/@peterVG/orcfax-the-trust-machine-revisited-c475dbb0a5d6">Orcfax: the trust machine revisited</a> (2023) Medium.com</p>
-      <p><a href="https://youtu.be/jOWsTt-RLBM">Connecting the Real World to Blockchain</a> (2023) Quantum Miami Conference</p>
-      <p><a href="https://medium.com/@peterVG/why-cardano-in-2023-b481846028bc">Why Cardano in 2023?</a> (2023) Medium.com</p>
-      <p><a href="https://www.youtube.com/live/f2UGAxRwrQk?feature=share&t=1475">Impact as an opportunity for Cardano: Introducing Landano</a> (2022) Cardano Summit Switzerland</p>
-      <p><a href="https://www.landano.io/improving-land-tenure-security-in-mozambique/">Improving Land Security in Mozambique</a> (2022) Landano.io</p>
-      <p><a href="https://www.landano.io/improving-land-records-to-fight-poverty">Improving land records to fight poverty</a> (2022) Landano.io </p>
-      <p><a href=" https://www.landano.io/implementing-decentralized-land-right-records-a-ghana-pilot-project/">Implementing Landano in Ghana</a> (2022) Landano.io</p>
-      <p><a href="https://medium.com/@peterVG/ten-web3-system-requirements-from-moxie-marlinspikes-post-e2313f4b7c6d">Ten web3 system requirements from Moxie Marlinspike’s post</a> (2022) Medium.com</p>
-      <p><a href="posts/archivematica-original-design-principles.html">Archivematica's original design principles</a> Archivematica architectural decision records (2021)</p>
-      <p><a href="https://www.youtube.com/watch?v=Yth7O6yeZRE&t=06h04m32s">Archival requirements for the decentralized web</a> Decentralized Web Summit. San Francisco, U.S.A. (2016)</p>
-      <p><a href="posts/archives-technology-and-innovation.html">Archives, technology, and innovation</a> Association of Canadian Archivists conference. Montreal, Canada (2016) <a href="https://zenodo.org/record/5002213"><img src="assets/images/zenodo.5002213.svg"></a></p>
-      <p><a href="posts/decentralized-autonomous-collections.html">Decentralized autonomous collections</a> (2016) <a href="https://zenodo.org/record/5001890"><img src="assets/images/zenodo.5001890.svg"></a></p>
-      <p><a href="http://www.slideshare.net/peterVG999/introduction-to-blockchain-and-recordkeeping">Introduction to blockchain and recordkeeping</a> Recordkeeping Rountable. Sidney, Australia (2016)</p>
-      <p><a href="http://www.slideshare.net/peterVG999/archivatopia-the-akashic-record-what-if">Archivatopia: the akashic record, what if?</a> Association of Canadian Archivists conference. Victoria, Canada (2014)</p>
-      <p><a href="assets/pdfs/iPres2013-Realizing_the_Archivematica_vision.pdf">Realizing the Archivematica vision: delivering a comprehensive and free OAIS implementation</a> 10th International Conference on Preservation of Digital Objects (iPres) Lisbon, Portugal (2013)  <a href="https://zenodo.org/record/5000841"><img src="assets/images/zenodo.5000841.svg"></a></p>
-      <p><a href="http://blogs.loc.gov/digitalpreservation/2012/10/archivematica-and-the-open-source-mindset-for-digital-preservation-systems/">Archivematica and the Open Source Mindset for Digital Preservation Systems</a> The Signal - Library of Congress (2012)</p>
-      <p><a href="assets/pdfs/iPres2012-The_Community_Driven_Evolution_Of_The_Archivematica_Project.pdf">The community driven evolution of the Archivematica project</a> 9th International Conference on Preservation of Digital Objects (iPres) Toronto, Canada (2012)  <a href="https://zenodo.org/record/5000744"><img src="assets/images/zenodo.5000744.svg"></a></p>
-      <p><a href="assets/pdfs/IDCC2010-Archivematica_concept_poster.pdf">Archivematica concept poster</a> International Digital Curation Conference. Chicago, U.S.A. (2010) <a href="https://zenodo.org/record/5000691"><img src="assets/images/zenodo.5000691.svg"></a></p>
-      <p><a href="assets/pdfs/iPres2010_Using_MicroServices_and_Open_Source_Software.pdf">Using micro-services and open-source software to deliver a comprehensive digital curation solution</a> 7th International Conference on Preservation of Digital Objects (iPres) Vienna, Austria (2010) <a href="https://zenodo.org/record/5000460"><img src="assets/images/zenodo.5000460.svg"></a></p>
-      <p><a href="assets/pdfs/IST2010_LoweringTheBarrierToBestPracticeDigiPres.pdf">Lowering the barrier to best practice digital preservation</a> IS&amp;T Archiving conference. The Hague, The Netherlands (2010) <a href="https://zenodo.org/record/5000330"><img src="assets/images/zenodo.5000330.svg"></a></p>
-      <p><a href="http://www.youtube.com/watch?v=czQx4sCO88k">Creating a comprehensive digital preservation system</a> (<a href="http://www.archives.gov/applied-research/events/archivematica-transcript.pdf">transcript</a>) The National Archives Center for Advanced Systems and Technologies. Washington, U.S.A (2010)</p>
-      <p><a href="assets/pdfs/VanGarderen_TheICA-AtoMProjectAndTechnology_AAB_RioDeJaniero_16-17March2009.pdf">The ICA-AtoM project and technology</a> Association of Brazilian Archives. Rio de Janeiro, Brazil (2009) <a href="https://zenodo.org/record/4774722"><img src="assets/images/zenodo.4774722.svg"></a></p>
-      <p><a href="posts/the-anatomy-of-a-digital-information-object.html">The anatomy of a digital information object</a> (2007)</p>
-      <p><a href="posts/what-is-information-anyway.html">What is information anyway?</a> (2007)  <a href="https://zenodo.org/record/5000022"><img src="assets/images/zenodo.5000022.svg"></a></p>
-      <p><a href="posts/archival-materials-a-practical-definition.html">Archival materials: a practical definition</a> (2007) <a href="https://zenodo.org/record/4998947"><img src="assets/images/zenodo.4998947.svg"></a></p>
-      <p><a href="posts/the-information-model-to-end-all-models.html">The information model to end all information models</a> (2006)</p>
-      <p><a href="posts/does-my-digital-archives-need-a-digital-repository.html">Does my digital archives need a digital repository system?</a> (2006)</p>
+      <p><a href="https://medium.com/@peterVG/the-ideal-digital-archives-system-4e01d758fb75">The Ideal Digital Archives
+          System</a> (2024) Medium.com</p>
+      <p><a href="https://medium.com/@peterVG/orcfax-the-trust-machine-revisited-c475dbb0a5d6">Orcfax: the trust machine
+          revisited</a> (2023) Medium.com</p>
+      <p><a href="https://youtu.be/jOWsTt-RLBM">Connecting the Real World to Blockchain</a> (2023) Quantum Miami
+        Conference</p>
+      <p><a href="https://medium.com/@peterVG/why-cardano-in-2023-b481846028bc">Why Cardano in 2023?</a> (2023)
+        Medium.com</p>
+      <p><a href="https://www.youtube.com/live/f2UGAxRwrQk?feature=share&t=1475">Impact as an opportunity for Cardano:
+          Introducing Landano</a> (2022) Cardano Summit Switzerland</p>
+      <p><a href="https://www.landano.io/improving-land-tenure-security-in-mozambique/">Improving Land Security in
+          Mozambique</a> (2022) Landano.io</p>
+      <p><a href="https://www.landano.io/improving-land-records-to-fight-poverty">Improving land records to fight
+          poverty</a> (2022) Landano.io </p>
+      <p><a
+          href=" https://www.landano.io/implementing-decentralized-land-right-records-a-ghana-pilot-project/">Implementing
+          Landano in Ghana</a> (2022) Landano.io</p>
+      <p><a
+          href="https://medium.com/@peterVG/ten-web3-system-requirements-from-moxie-marlinspikes-post-e2313f4b7c6d">Ten
+          web3 system requirements from Moxie Marlinspike’s post</a> (2022) Medium.com</p>
+      <p><a href="posts/archivematica-original-design-principles.html">Archivematica's original design principles</a>
+        Archivematica architectural decision records (2021)</p>
+      <p><a href="https://www.youtube.com/watch?v=Yth7O6yeZRE&t=06h04m32s">Archival requirements for the decentralized
+          web</a> Decentralized Web Summit. San Francisco, U.S.A. (2016)</p>
+      <p><a href="posts/archives-technology-and-innovation.html">Archives, technology, and innovation</a> Association of
+        Canadian Archivists conference. Montreal, Canada (2016) <a href="https://zenodo.org/record/5002213"><img
+            src="assets/images/zenodo.5002213.svg"></a></p>
+      <p><a href="posts/decentralized-autonomous-collections.html">Decentralized autonomous collections</a> (2016) <a
+          href="https://zenodo.org/record/5001890"><img src="assets/images/zenodo.5001890.svg"></a></p>
+      <p><a href="http://www.slideshare.net/peterVG999/introduction-to-blockchain-and-recordkeeping">Introduction to
+          blockchain and recordkeeping</a> Recordkeeping Rountable. Sidney, Australia (2016)</p>
+      <p><a href="http://www.slideshare.net/peterVG999/archivatopia-the-akashic-record-what-if">Archivatopia: the
+          akashic record, what if?</a> Association of Canadian Archivists conference. Victoria, Canada (2014)</p>
+      <p><a href="assets/pdfs/iPres2013-Realizing_the_Archivematica_vision.pdf">Realizing the Archivematica vision:
+          delivering a comprehensive and free OAIS implementation</a> 10th International Conference on Preservation of
+        Digital Objects (iPres) Lisbon, Portugal (2013) <a href="https://zenodo.org/record/5000841"><img
+            src="assets/images/zenodo.5000841.svg"></a></p>
+      <p><a
+          href="http://blogs.loc.gov/digitalpreservation/2012/10/archivematica-and-the-open-source-mindset-for-digital-preservation-systems/">Archivematica
+          and the Open Source Mindset for Digital Preservation Systems</a> The Signal - Library of Congress (2012)</p>
+      <p><a href="assets/pdfs/iPres2012-The_Community_Driven_Evolution_Of_The_Archivematica_Project.pdf">The community
+          driven evolution of the Archivematica project</a> 9th International Conference on Preservation of Digital
+        Objects (iPres) Toronto, Canada (2012) <a href="https://zenodo.org/record/5000744"><img
+            src="assets/images/zenodo.5000744.svg"></a></p>
+      <p><a href="assets/pdfs/IDCC2010-Archivematica_concept_poster.pdf">Archivematica concept poster</a> International
+        Digital Curation Conference. Chicago, U.S.A. (2010) <a href="https://zenodo.org/record/5000691"><img
+            src="assets/images/zenodo.5000691.svg"></a></p>
+      <p><a href="assets/pdfs/iPres2010_Using_MicroServices_and_Open_Source_Software.pdf">Using micro-services and
+          open-source software to deliver a comprehensive digital curation solution</a> 7th International Conference on
+        Preservation of Digital Objects (iPres) Vienna, Austria (2010) <a href="https://zenodo.org/record/5000460"><img
+            src="assets/images/zenodo.5000460.svg"></a></p>
+      <p><a href="assets/pdfs/IST2010_LoweringTheBarrierToBestPracticeDigiPres.pdf">Lowering the barrier to best
+          practice digital preservation</a> IS&amp;T Archiving conference. The Hague, The Netherlands (2010) <a
+          href="https://zenodo.org/record/5000330"><img src="assets/images/zenodo.5000330.svg"></a></p>
+      <p><a href="http://www.youtube.com/watch?v=czQx4sCO88k">Creating a comprehensive digital preservation system</a>
+        (<a href="http://www.archives.gov/applied-research/events/archivematica-transcript.pdf">transcript</a>) The
+        National Archives Center for Advanced Systems and Technologies. Washington, U.S.A (2010)</p>
+      <p><a href="assets/pdfs/VanGarderen_TheICA-AtoMProjectAndTechnology_AAB_RioDeJaniero_16-17March2009.pdf">The
+          ICA-AtoM project and technology</a> Association of Brazilian Archives. Rio de Janeiro, Brazil (2009) <a
+          href="https://zenodo.org/record/4774722"><img src="assets/images/zenodo.4774722.svg"></a></p>
+      <p><a href="posts/the-anatomy-of-a-digital-information-object.html">The anatomy of a digital information
+          object</a> (2007)</p>
+      <p><a href="posts/what-is-information-anyway.html">What is information anyway?</a> (2007) <a
+          href="https://zenodo.org/record/5000022"><img src="assets/images/zenodo.5000022.svg"></a></p>
+      <p><a href="posts/archival-materials-a-practical-definition.html">Archival materials: a practical definition</a>
+        (2007) <a href="https://zenodo.org/record/4998947"><img src="assets/images/zenodo.4998947.svg"></a></p>
+      <p><a href="posts/the-information-model-to-end-all-models.html">The information model to end all information
+          models</a> (2006)</p>
+      <p><a href="posts/does-my-digital-archives-need-a-digital-repository.html">Does my digital archives need a digital
+          repository system?</a> (2006)</p>
       <p><a href="posts/web2.0-and-archival-institutions.html">Web 2.0 and archival institutions</a> (2006)</p>
     </div>
 
     <div id="contact" class="text-center py-5">
       <h2>Contact</h2>
       <p style="padding-top: 40px;">petervg [at] iona [dot] ltd</p>
-      <p><a href="https://www.linkedin.com/in/petervangarderen/"><img src="assets/images/linked-in-logo.png" class="img-fluid social-logo"/></a></p>
-      <p><a href="https://bsky.app/profile/peter-vg.bsky.social"><img src="assets/images/bluesky-logo.png" class="img-fluid social-logo"/></a></p>
-      <p><a href="https://github.com/peterVG"><img src="assets/images/github-logo.png" class="img-fluid social-logo"/></a></p>
+      <p><a href="https://www.linkedin.com/in/petervangarderen/"><img src="assets/images/linked-in-logo.png"
+            class="img-fluid social-logo" /></a></p>
+      <p><a href="https://bsky.app/profile/peter-vg.bsky.social"><img src="assets/images/bluesky-logo.png"
+            class="img-fluid social-logo" /></a></p>
+      <p><a href="https://github.com/peterVG"><img src="assets/images/github-logo.png"
+            class="img-fluid social-logo" /></a></p>
     </div>
 
-</div>
+  </div>
 
-<script src="assets/bootstrap-5.0.1/js/bootstrap.min.js"></script>
+  <script src="assets/bootstrap-5.0.1/js/bootstrap.min.js"></script>
 </body>
+
 </html>
