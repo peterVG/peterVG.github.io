@@ -1,0 +1,14 @@
+useful/hardy-taboo.html
+  h_10c93bba641ef0 1-139
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.20",
+  "base_commit_sha": "fd09327b1d5ebba7ea8254de2deb5d672176ebf8",
+  "prompts": {},
+  "humans": {
+    "h_10c93bba641ef0": {
+      "author": "Peter Van Garderen <vangarderen.peter@gmail.com>"
+    }
+  }
+}
