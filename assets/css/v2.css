@@ -1,0 +1,343 @@
+/* Arkrim profile theme. Tokens from the Arkrim UX guide.
+   Latin subsets, self-hosted: Hanken Grotesk, Inter, JetBrains Mono (OFL). */
+
+@font-face {
+  font-family: "Hanken Grotesk";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/arkrim/hanken-grotesk-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Inter";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("../fonts/arkrim/inter-latin.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "JetBrains Mono";
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: url("../fonts/arkrim/jetbrains-mono-latin.woff2") format("woff2");
+}
+
+:root,
+[data-theme="dark"] {
+  --background: #10131b;
+  --surface-container: #1c2027;
+  --surface-container-high: #262a32;
+  --on-surface: #e0e2ec;
+  --on-surface-variant: #c0c6d6;
+  --outline-variant: #404754;
+  --primary: #a9c7ff;
+  --on-primary: #003063;
+  --atproto-blue: #0085ff;
+  --link: #a9c7ff;
+  color-scheme: dark;
+}
+
+[data-theme="light"] {
+  --background: #f8f9fc;
+  --surface-container: #eceef4;
+  --surface-container-high: #e3e6ee;
+  --on-surface: #1a1c23;
+  --on-surface-variant: #454a56;
+  --outline-variant: #c5cad6;
+  --primary: #005db6;
+  --on-primary: #ffffff;
+  --atproto-blue: #0085ff;
+  --link: #005db6;
+  color-scheme: light;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--on-surface);
+  font-family: Inter, "Segoe UI", sans-serif;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+:focus-visible {
+  outline: 2px solid var(--atproto-blue);
+  outline-offset: 2px;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background: var(--surface-container);
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.site-header-inner {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 1.25rem;
+}
+
+.brand {
+  margin: 0;
+  margin-right: auto;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+}
+
+.brand a {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  color: var(--on-surface);
+  text-decoration: none;
+  font-family: "Hanken Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 28px;
+  letter-spacing: -0.01em;
+}
+
+.brand img {
+  width: 48px;
+  height: 48px;
+  object-fit: cover;
+  border-radius: 0.25rem;
+  border: 1px solid var(--outline-variant);
+  background: var(--surface-container-high);
+}
+
+.site-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem 1rem;
+}
+
+.site-nav a {
+  color: var(--on-surface-variant);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+}
+
+.site-nav a:hover {
+  color: var(--on-surface);
+}
+
+.scheme {
+  display: inline-flex;
+  border: 1px solid var(--outline-variant);
+  border-radius: 0.25rem;
+  background: var(--background);
+}
+
+.scheme button {
+  appearance: none;
+  margin: 0;
+  border: 0;
+  border-right: 1px solid var(--outline-variant);
+  background: transparent;
+  color: var(--on-surface-variant);
+  font-family: Inter, "Segoe UI", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 0.5rem 0.625rem;
+  cursor: pointer;
+}
+
+.scheme button:last-child {
+  border-right: 0;
+}
+
+.scheme button:hover {
+  background: var(--surface-container-high);
+  color: var(--on-surface);
+}
+
+.scheme button[aria-checked="true"] {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+.scheme button[aria-checked="true"]:hover {
+  background: var(--primary);
+  color: var(--on-primary);
+}
+
+main {
+  max-width: 46rem;
+  margin: 0 auto;
+  padding: 2rem 1.25rem 4rem;
+}
+
+section {
+  scroll-margin-top: 6rem;
+}
+
+section + section {
+  margin-top: 3rem;
+}
+
+h2 {
+  margin: 0 0 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--outline-variant);
+  font-family: "Hanken Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 32px;
+  letter-spacing: -0.01em;
+}
+
+.prose p {
+  margin: 0 0 1rem;
+}
+
+.prose p:last-child {
+  margin-bottom: 0;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+main a {
+  color: var(--link);
+  text-underline-offset: 0.18em;
+}
+
+.works {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.works li {
+  margin: 0;
+  padding: 0.875rem 0;
+  border-bottom: 1px solid var(--outline-variant);
+}
+
+.cite {
+  color: var(--on-surface-variant);
+}
+
+.doi {
+  display: inline-block;
+  height: 20px;
+  width: auto;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.address {
+  margin: 0;
+  font-family: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.social {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.25rem 1.5rem;
+  margin: 1.5rem 0 0;
+}
+
+.social a {
+  display: inline-flex;
+  align-items: center;
+  line-height: 0;
+}
+
+.social-logo {
+  display: block;
+  height: 28px;
+  width: auto;
+}
+
+[data-theme="dark"] .social-logo {
+  filter: invert(1);
+}
+
+@media (max-width: 767px) {
+  h2 {
+    font-size: 20px;
+    line-height: 28px;
+  }
+
+  .brand a {
+    font-size: 18px;
+    line-height: 24px;
+  }
+
+  section {
+    scroll-margin-top: 9rem;
+  }
+}
+
+@media print {
+  .scheme,
+  .site-nav {
+    display: none !important;
+  }
+
+  .site-header {
+    position: static;
+    background: #fff;
+    border: 0;
+  }
+
+  body,
+  .site-header {
+    background: #fff;
+    color: #1a1c23;
+  }
+
+  .cite,
+  .site-nav a,
+  .brand a {
+    color: #1a1c23;
+  }
+
+  main a {
+    color: #005db6;
+  }
+
+  .social-logo {
+    filter: none !important;
+  }
+}
