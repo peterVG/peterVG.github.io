@@ -89,7 +89,8 @@ body {
 .site-header {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 20;
+  overflow: visible;
   background: var(--surface-container);
   border-bottom: 1px solid var(--outline-variant);
 }
@@ -126,12 +127,22 @@ body {
 }
 
 .brand img {
-  width: 48px;
-  height: 48px;
+  width: 40px;
+  height: 40px;
   object-fit: cover;
-  border-radius: 0.25rem;
-  border: 1px solid var(--outline-variant);
+  border-radius: 50%;
+  border: 2px solid var(--on-surface);
   background: var(--surface-container-high);
+  position: relative;
+  z-index: 5;
+  transform-origin: center top;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.brand a:hover img,
+.brand a:focus-visible img {
+  transform: scale(8);
+  z-index: 30;
 }
 
 .site-nav {
@@ -152,47 +163,41 @@ body {
   color: var(--on-surface);
 }
 
-.scheme {
+.theme-toggle {
   display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  margin: 0;
+  padding: 0;
   border: 1px solid var(--outline-variant);
   border-radius: 0.25rem;
   background: var(--background);
-}
-
-.scheme button {
-  appearance: none;
-  margin: 0;
-  border: 0;
-  border-right: 1px solid var(--outline-variant);
-  background: transparent;
-  color: var(--on-surface-variant);
-  font-family: Inter, "Segoe UI", sans-serif;
-  font-size: 12px;
-  font-weight: 700;
-  line-height: 16px;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  padding: 0.5rem 0.625rem;
+  color: var(--on-surface);
   cursor: pointer;
 }
 
-.scheme button:last-child {
-  border-right: 0;
-}
-
-.scheme button:hover {
+.theme-toggle:hover {
   background: var(--surface-container-high);
-  color: var(--on-surface);
 }
 
-.scheme button[aria-checked="true"] {
-  background: var(--primary);
-  color: var(--on-primary);
+.theme-toggle svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
 }
 
-.scheme button[aria-checked="true"]:hover {
-  background: var(--primary);
-  color: var(--on-primary);
+.theme-toggle .theme-icon-sun {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .theme-icon-moon {
+  display: none;
+}
+
+[data-theme="dark"] .theme-toggle .theme-icon-sun {
+  display: block;
 }
 
 main {
@@ -202,7 +207,11 @@ main {
 }
 
 section {
-  scroll-margin-top: 6rem;
+  scroll-margin-top: 5.75rem;
+}
+
+#contact {
+  min-height: calc(100svh - 5.75rem);
 }
 
 section + section {
@@ -305,12 +314,34 @@ main a {
   }
 
   section {
-    scroll-margin-top: 9rem;
+    scroll-margin-top: 8rem;
+  }
+
+  #contact {
+    min-height: calc(100svh - 8rem);
+  }
+}
+
+@media (max-width: 576px) {
+  .brand a:hover img,
+  .brand a:focus-visible img {
+    transform: scale(5);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brand img {
+    transition: none;
+  }
+
+  .brand a:hover img,
+  .brand a:focus-visible img {
+    transform: none;
   }
 }
 
 @media print {
-  .scheme,
+  .theme-toggle,
   .site-nav {
     display: none !important;
   }

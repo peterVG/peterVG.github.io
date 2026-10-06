@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark" data-color-scheme="dark">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,13 +9,9 @@
       var key = "arkrim-color-scheme";
       var stored = null;
       try { stored = localStorage.getItem(key); } catch (e) {}
-      var mode = stored === "light" || stored === "dark" || stored === "system" ? stored : "dark";
-      var theme = mode === "system"
-        ? (window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark")
-        : mode;
+      var theme = stored === "light" ? "light" : "dark";
       var root = document.documentElement;
       root.setAttribute("data-theme", theme);
-      root.setAttribute("data-color-scheme", mode);
       root.style.colorScheme = theme;
     })();
   </script>
@@ -26,7 +22,7 @@
     <div class="site-header-inner">
       <h1 class="brand">
         <a href="#top">
-          <img src="assets/images/peter-profile.jpeg" alt="Peter" width="48" height="48">
+          <img src="assets/images/peter-profile.jpeg" alt="Peter" width="40" height="40">
           <span>Peter Van Garderen</span>
         </a>
       </h1>
@@ -35,11 +31,15 @@
         <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
       </nav>
-      <div class="scheme" role="radiogroup" aria-label="Color scheme">
-        <button type="button" role="radio" data-scheme="dark" aria-checked="true" aria-label="Dark mode" tabindex="0">Dark</button>
-        <button type="button" role="radio" data-scheme="light" aria-checked="false" aria-label="Light mode" tabindex="-1">Light</button>
-        <button type="button" role="radio" data-scheme="system" aria-checked="false" aria-label="System color scheme" tabindex="-1">System</button>
-      </div>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" aria-pressed="true">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.75" />
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+        </svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" />
+        </svg>
+      </button>
     </div>
   </header>
 
@@ -107,62 +107,45 @@
     (function () {
       var key = "arkrim-color-scheme";
       var root = document.documentElement;
-      var group = document.querySelector(".scheme");
-      var buttons = group.querySelectorAll("button");
-      var media = window.matchMedia("(prefers-color-scheme: light)");
+      var btn = document.getElementById("theme-toggle");
 
-      function mode() {
-        return root.getAttribute("data-color-scheme") || "dark";
-      }
-
-      function resolve(value) {
-        if (value === "system") return media.matches ? "light" : "dark";
-        return value;
+      function theme() {
+        return root.getAttribute("data-theme") === "light" ? "light" : "dark";
       }
 
       function apply(value, persist) {
-        var theme = resolve(value);
-        root.setAttribute("data-color-scheme", value);
-        root.setAttribute("data-theme", theme);
-        root.style.colorScheme = theme;
-        buttons.forEach(function (button) {
-          var on = button.getAttribute("data-scheme") === value;
-          button.setAttribute("aria-checked", on ? "true" : "false");
-          button.tabIndex = on ? 0 : -1;
-        });
+        root.setAttribute("data-theme", value);
+        root.style.colorScheme = value;
+        var toLight = value === "dark";
+        btn.setAttribute("aria-label", toLight ? "Switch to light mode" : "Switch to dark mode");
+        btn.setAttribute("aria-pressed", value === "dark" ? "true" : "false");
         if (persist) {
           try { localStorage.setItem(key, value); } catch (e) {}
         }
       }
 
-      buttons.forEach(function (button) {
-        button.addEventListener("click", function () {
-          apply(button.getAttribute("data-scheme"), true);
+      btn.addEventListener("click", function () {
+        apply(theme() === "dark" ? "light" : "dark", true);
+      });
+
+      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
+        link.addEventListener("click", function (event) {
+          var id = link.getAttribute("href");
+          var target = document.querySelector(id);
+          if (!target) return;
+          event.preventDefault();
+          if (id === "#top") {
+            window.scrollTo(0, 0);
+          } else {
+            var header = document.querySelector(".site-header").offsetHeight;
+            var top = target.getBoundingClientRect().top + window.scrollY - header - 12;
+            window.scrollTo(0, Math.max(0, top));
+          }
+          if (history.pushState) history.pushState(null, "", id);
         });
       });
 
-      group.addEventListener("keydown", function (event) {
-        var order = ["dark", "light", "system"];
-        var index = order.indexOf(mode());
-        var next = null;
-        if (event.key === "ArrowRight" || event.key === "ArrowDown") {
-          next = order[(index + 1) % order.length];
-        } else if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
-          next = order[(index + order.length - 1) % order.length];
-        }
-        if (!next) return;
-        event.preventDefault();
-        apply(next, true);
-        group.querySelector('[data-scheme="' + next + '"]').focus();
-      });
-
-      if (media.addEventListener) {
-        media.addEventListener("change", function () {
-          if (mode() === "system") apply("system", false);
-        });
-      }
-
-      apply(mode(), false);
+      apply(theme(), false);
     })();
   </script>
 </body>
