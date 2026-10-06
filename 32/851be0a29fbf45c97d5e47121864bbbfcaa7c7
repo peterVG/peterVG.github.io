@@ -1,0 +1,21 @@
+assets/css/v2.css
+  s_ba944b8bb0ab20::t_372ee7cd225707 1-343
+index.html
+  s_ba944b8bb0ab20::t_e0ea6e48532c05 2,6-22,25-41,44-57,59-116,118-121,123-136,138-163,165-167,169
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "32851be0a29fbf45c97d5e47121864bbbfcaa7c7",
+  "prompts": {},
+  "sessions": {
+    "s_ba944b8bb0ab20": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "01a111fd-cdad-7093-ae00-cc2a67178ea0",
+        "model": "unknown"
+      },
+      "human_author": null
+    }
+  }
+}
