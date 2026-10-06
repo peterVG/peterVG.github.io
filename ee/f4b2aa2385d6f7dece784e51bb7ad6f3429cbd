@@ -1,0 +1,16 @@
+assets/css/v2.css
+  h_10c93bba641ef0 142-153,333,344-345
+index.html
+  h_10c93bba641ef0 136-176
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "eef4b2aa2385d6f7dece784e51bb7ad6f3429cbd",
+  "prompts": {},
+  "humans": {
+    "h_10c93bba641ef0": {
+      "author": "Peter Van Garderen <vangarderen.peter@gmail.com>"
+    }
+  }
+}
