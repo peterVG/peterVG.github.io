@@ -1,0 +1,16 @@
+assets/css/v2.css
+  h_10c93bba641ef0 92-93,130-131,133-134,136-145,166,168-173,177-178,181-182,185-188,191-192,195-196,199-200,210-214,317-339,344
+index.html
+  h_10c93bba641ef0 2,12,25,34-42,110,112-113,117-121,127-128,131-144,146,148
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "b8ffd39ebc7aa17f0a66507462e4fb6fd9a7e3b3",
+  "prompts": {},
+  "humans": {
+    "h_10c93bba641ef0": {
+      "author": "Peter Van Garderen <vangarderen.peter@gmail.com>"
+    }
+  }
+}
