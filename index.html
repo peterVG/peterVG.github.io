@@ -1,204 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" data-theme="dark">
 <head>
-  <title>Peter Van Garderen</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="assets/bootstrap-5.0.1/css/bootstrap.min.css" type="text/css">
-  <link rel="stylesheet" href="assets/css/style.css" type="text/css">
-
-  <style>
-    /* Ensures content starts below the fixed navbar */
-    body {
-      padding-top: 100px;
-    }
-
-    /* Navbar Avatar Styling */
-    .nav-avatar {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 2px solid #fff;
-      margin-right: 12px;
-      vertical-align: middle;
-      /* Smooth transition for the expansion effect */
-      transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      position: relative;
-      z-index: 10;
-    }
-
-    /* Expand image on hover */
-    .navbar-brand:hover .nav-avatar {
-      /* Removes the blue border effect from before */
-      border-color: #fff;
-
-      /* Expand the image. 8x makes it roughly 320px wide on hover. */
-      /* Change '8' to '100' if you literally want it to fill the entire screen. */
-      transform: scale(8);
-
-      /* Ensure it appears above the navbar and text */
-      z-index: 9999;
-    }
-
-    /* Hard hack for Contact section padding */
-    #contact {
-      padding-top: 150px !important;
-      margin-top: 50px !important;
-    }
-
-    @media (max-width: 576px) {
-      body {
-        padding-top: 80px;
-      }
-
-      /* Slightly less zoom on mobile so it stays on screen */
-      .navbar-brand:hover .nav-avatar {
-        transform: scale(5);
-      }
-    }
-  </style>
+  <title>Peter Van Garderen</title>
+  <script>
+    (function () {
+      var key = "arkrim-color-scheme";
+      var stored = null;
+      try { stored = localStorage.getItem(key); } catch (e) {}
+      var theme = stored === "light" ? "light" : "dark";
+      var root = document.documentElement;
+      root.setAttribute("data-theme", theme);
+      root.style.colorScheme = theme;
+    })();
+  </script>
+  <link rel="stylesheet" href="assets/css/v2.css">
 </head>
-
 <body id="top">
-
-  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" style="background-color: #212529;">
-    <div class="container-fluid">
-      <a class="navbar-brand d-print-none d-flex align-items-center" href="#top">
-        <img src="assets/images/peter-profile.jpeg" alt="Peter" class="nav-avatar">
-        <span>Peter Van Garderen</span>
-      </a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+  <header class="site-header">
+    <div class="site-header-inner">
+      <h1 class="brand">
+        <a href="#top">
+          <img src="assets/images/peter-profile.jpeg" alt="Peter" width="40" height="40">
+          <span>Peter Van Garderen</span>
+        </a>
+      </h1>
+      <nav class="site-nav" aria-label="Sections">
+        <a href="#about">About</a>
+        <a href="#publications">Publications</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Dark mode. Switch to light mode">
+        <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
+          <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.75" />
+          <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
+        </svg>
+        <svg class="theme-icon theme-icon-moon" viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 14.5A8 8 0 1 1 9.5 4 6.5 6.5 0 0 0 20 14.5z" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linejoin="round" />
+        </svg>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#publications">Publications</a></li>
-          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
-        </ul>
-      </div>
     </div>
-  </nav>
+  </header>
 
-  <div class="container">
+  <main>
+    <section id="about" class="prose">
+      <h2>About</h2>
+      <p><strong>I am an AI researcher and consultant</strong>. My primary focus is on the implementation of AI provenance and governance frameworks, as well as the secure application of local, sovereign AI technologies to labour-intensive information management tasks.</p>
+      <p>Currently, much of this work is focussed on local model testing, <a href="https://c2pa.org/">C2PA</a> implementation, and the development of the <a href="https://arkrim.tech">Arkrim</a> platform, starting with the <a href="https://imagesquid.app">ImageSquid</a> photo manager app. For my consulting clients I am focussing my skillset experience on using and enhancing <a href="https://hermes-agent.nousresearch.com/">Hermes Agent</a> for multi-agent workflows and enterprise business process ownership.</p>
+      <p><strong>I am also an archivist</strong>. I have been working with technology for archival collections since earning my Master's degree in Archival Science in 1997. I am a Distinguished Alumnus of the University of British Columbia's iSchool.</p>
+      <p>I am the founder of <a href="https://artefactual.com">Artefactual Systems</a> and the creator of the open-source <a href="https://archivematica.org">Archivematica</a> and <a href="https://accesstomemory.org">AtoM</a> (AccessToMemory) software applications, the most widely-deployed digital archives stack in the world.</p>
+      <p>I have worked with public sector institutions for three decades, ranging in size from municipal archives to global organizations such as the United Nations, World Bank, and NATO. I've provided industry-standard record-keeping technology and digital archiving services that range from writing strategy reports, analyzing system requirements, designing system architectures, developing software, and managing open-source projects. I have been a frequent conference speaker on these topics.</p>
+      <p><strong>I am also a decentralizationalist</strong>. I have been working with technology for decentralized systems since 2016 when I wrote my vision piece: <a href="https://tinyurl.com/decentralized-collections">Decentralized Autonomous Collections</a>. This includes projects using ATProto, Arweave, IPFS, Cardano, and Polygon. See for example <a href="https://landano.io">Landano</a> and <a href="https://orcfax.io">Orcfax</a>.</p>
+    </section>
 
-    <div id="about" class="mt-4">
-      <h2 class="fw-bold" style="font-size: 2.5rem;">About</h2>
-      <hr>
-<p><strong>I am an AI researcher and consultant</strong>. My primary focus is on the implementation of AI provenance and governance frameworks, as well as the secure application of local, sovereign AI technologies to labour-intensive information management tasks.</p>
-<p>Currently, much of this work is focussed on local model testing, <a href="https://c2pa.org/">C2PA</a> implementation, and the development of the <a href="https://arkrim.tech">Arkrim</a> platform, starting with the <a href="https://imagesquid.app">ImageSquid</a> photo manager app. For my consulting clients I am focussing my skillset experience on using and enhancing <a href="https://hermes-agent.nousresearch.com/">Hermes Agent</a> for multi-agent workflows and enterprise business process ownership.</p>
-
-<p><strong>I am also an archivist</strong>. I have been working with technology for archival collections since earning my Master's degree in Archival Science in 1997. I am a Distinguished Alumnus of the University of British Columbia's iSchool.</p>
-
-<p>I am the founder of <a href="https://artefactual.com">Artefactual Systems</a> and the creator of the open-source <a href="https://archivematica.org">Archivematica</a> and <a href="https://accesstomemory.org">AtoM</a> (AccessToMemory) software applications, the most widely-deployed digital archives stack in the world.</p>
-
-<p>I have worked with public sector institutions for three decades, ranging in size from municipal archives to global organizations such as the United Nations, World Bank, and NATO. I've provided industry-standard record-keeping technology and digital archiving services that range from writing strategy reports, analyzing system requirements, designing system architectures, developing software, and managing open-source projects. I have been a frequent conference speaker on these topics.</p>
-
-<p><strong>I am also a decentralizationalist</strong>. I have been working with technology for decentralized systems since 2016 when I wrote my vision piece: <a href="https://tinyurl.com/decentralized-collections">Decentralized Autonomous Collections</a>. This includes projects using ATProto, Arweave, IPFS, Cardano, and Polygon. See for example <a href="https://landano.io">Landano</a> and <a href="https://orcfax.io">Orcfax</a>.
-   
-</div>
-
-    <div id="publications" class="mt-5">
+    <section id="publications">
       <h2>Selected publications and presentations</h2>
-      <hr>
+      <ul class="works">
+        <li><a href="assets/pdfs/BC+AI--AI-Transparency--VanGarderen--30Sept2026.pdf">AI Transparency</a> <span class="cite">BC+AI Vancouver meetup (2026)</span></li>
+        <li><a href="https://www.linkedin.com/pulse/sovereign-local-ai-records-management-peter-van-garderen-el13c">Sovereign, Local AI for Records Management</a> <span class="cite">(2026) LinkedIn.com</span></li>
+        <li><a href="https://www.linkedin.com/pulse/bridging-trust-gap-rwas-ai-provenance-core-set-peter-van-garderen-hlgwc">Bridging the Evidence Gap for RWAs and AI Provenance: A Core Set of ISO-Based Digital Records Requirements</a> <span class="cite">(2026) LinkedIn.com</span></li>
+        <li><a href="https://medium.com/@peterVG/the-ideal-digital-archives-system-4e01d758fb75">The Ideal Digital Archives System</a> <span class="cite">(2024) Medium.com</span></li>
+        <li><a href="https://medium.com/@peterVG/orcfax-the-trust-machine-revisited-c475dbb0a5d6">Orcfax: the trust machine revisited</a> <span class="cite">(2023) Medium.com</span></li>
+        <li><a href="https://youtu.be/jOWsTt-RLBM">Connecting the Real World to Blockchain</a> <span class="cite">(2023) Quantum Miami Conference</span></li>
+        <li><a href="https://medium.com/@peterVG/why-cardano-in-2023-b481846028bc">Why Cardano in 2023?</a> <span class="cite">(2023) Medium.com</span></li>
+        <li><a href="https://www.youtube.com/live/f2UGAxRwrQk?feature=share&amp;t=1475">Impact as an opportunity for Cardano: Introducing Landano</a> <span class="cite">(2022) Cardano Summit Switzerland</span></li>
+        <li><a href="https://www.landano.io/improving-land-tenure-security-in-mozambique/">Improving Land Security in Mozambique</a> <span class="cite">(2022) Landano.io</span></li>
+        <li><a href="https://www.landano.io/improving-land-records-to-fight-poverty">Improving land records to fight poverty</a> <span class="cite">(2022) Landano.io</span></li>
+        <li><a href="https://www.landano.io/implementing-decentralized-land-right-records-a-ghana-pilot-project/">Implementing Landano in Ghana</a> <span class="cite">(2022) Landano.io</span></li>
+        <li><a href="https://medium.com/@peterVG/ten-web3-system-requirements-from-moxie-marlinspikes-post-e2313f4b7c6d">Ten web3 system requirements from Moxie Marlinspike’s post</a> <span class="cite">(2022) Medium.com</span></li>
+        <li><a href="posts/archivematica-original-design-principles.html">Archivematica's original design principles</a> <span class="cite">Archivematica architectural decision records (2021)</span></li>
+        <li><a href="https://www.youtube.com/watch?v=Yth7O6yeZRE&amp;t=06h04m32s">Archival requirements for the decentralized web</a> <span class="cite">Decentralized Web Summit. San Francisco, U.S.A. (2016)</span></li>
+        <li><a href="posts/archives-technology-and-innovation.html">Archives, technology, and innovation</a> <span class="cite">Association of Canadian Archivists conference. Montreal, Canada (2016)</span> <a href="https://zenodo.org/record/5002213"><img class="doi" src="assets/images/zenodo.5002213.svg" alt="DOI 10.5281/zenodo.5002213"></a></li>
+        <li><a href="posts/decentralized-autonomous-collections.html">Decentralized autonomous collections</a> <span class="cite">(2016)</span> <a href="https://zenodo.org/record/5001890"><img class="doi" src="assets/images/zenodo.5001890.svg" alt="DOI 10.5281/zenodo.5001890"></a></li>
+        <li><a href="http://www.slideshare.net/peterVG999/introduction-to-blockchain-and-recordkeeping">Introduction to blockchain and recordkeeping</a> <span class="cite">Recordkeeping Rountable. Sidney, Australia (2016)</span></li>
+        <li><a href="assets/pdfs/2014-Archivatopia-ACA-Van-Garderen--The-Akashic-Record.pdf">Archivatopia: the akashic record, what if?</a> <span class="cite">Association of Canadian Archivists conference. Victoria, Canada (2014)</span></li>
+        <li><a href="assets/pdfs/iPres2013-Realizing_the_Archivematica_vision.pdf">Realizing the Archivematica vision: delivering a comprehensive and free OAIS implementation</a> <span class="cite">10th International Conference on Preservation of Digital Objects (iPres) Lisbon, Portugal (2013)</span> <a href="https://zenodo.org/record/5000841"><img class="doi" src="assets/images/zenodo.5000841.svg" alt="DOI 10.5281/zenodo.5000841"></a></li>
+        <li><a href="http://blogs.loc.gov/digitalpreservation/2012/10/archivematica-and-the-open-source-mindset-for-digital-preservation-systems/">Archivematica and the Open Source Mindset for Digital Preservation Systems</a> <span class="cite">The Signal - Library of Congress (2012)</span></li>
+        <li><a href="assets/pdfs/iPres2012-The_Community_Driven_Evolution_Of_The_Archivematica_Project.pdf">The community driven evolution of the Archivematica project</a> <span class="cite">9th International Conference on Preservation of Digital Objects (iPres) Toronto, Canada (2012)</span> <a href="https://zenodo.org/record/5000744"><img class="doi" src="assets/images/zenodo.5000744.svg" alt="DOI 10.5281/zenodo.5000744"></a></li>
+        <li><a href="assets/pdfs/IDCC2010-Archivematica_concept_poster.pdf">Archivematica concept poster</a> <span class="cite">International Digital Curation Conference. Chicago, U.S.A. (2010)</span> <a href="https://zenodo.org/record/5000691"><img class="doi" src="assets/images/zenodo.5000691.svg" alt="DOI 10.5281/zenodo.5000691"></a></li>
+        <li><a href="assets/pdfs/iPres2010_Using_MicroServices_and_Open_Source_Software.pdf">Using micro-services and open-source software to deliver a comprehensive digital curation solution</a> <span class="cite">7th International Conference on Preservation of Digital Objects (iPres) Vienna, Austria (2010)</span> <a href="https://zenodo.org/record/5000460"><img class="doi" src="assets/images/zenodo.5000460.svg" alt="DOI 10.5281/zenodo.5000460"></a></li>
+        <li><a href="assets/pdfs/IST2010_LoweringTheBarrierToBestPracticeDigiPres.pdf">Lowering the barrier to best practice digital preservation</a> <span class="cite">IS&amp;T Archiving conference. The Hague, The Netherlands (2010)</span> <a href="https://zenodo.org/record/5000330"><img class="doi" src="assets/images/zenodo.5000330.svg" alt="DOI 10.5281/zenodo.5000330"></a></li>
+        <li><a href="http://www.youtube.com/watch?v=czQx4sCO88k">Creating a comprehensive digital preservation system</a> (<a href="http://www.archives.gov/applied-research/events/archivematica-transcript.pdf">transcript</a>) <span class="cite">The National Archives Center for Advanced Systems and Technologies. Washington, U.S.A (2010)</span></li>
+        <li><a href="assets/pdfs/VanGarderen_TheICA-AtoMProjectAndTechnology_AAB_RioDeJaniero_16-17March2009.pdf">The ICA-AtoM project and technology</a> <span class="cite">Association of Brazilian Archives. Rio de Janeiro, Brazil (2009)</span> <a href="https://zenodo.org/record/4774722"><img class="doi" src="assets/images/zenodo.4774722.svg" alt="DOI 10.5281/zenodo.4774722"></a></li>
+        <li><a href="posts/the-anatomy-of-a-digital-information-object.html">The anatomy of a digital information object</a> <span class="cite">(2007)</span></li>
+        <li><a href="posts/what-is-information-anyway.html">What is information anyway?</a> <span class="cite">(2007)</span> <a href="https://zenodo.org/record/5000022"><img class="doi" src="assets/images/zenodo.5000022.svg" alt="DOI 10.5281/zenodo.5000022"></a></li>
+        <li><a href="posts/archival-materials-a-practical-definition.html">Archival materials: a practical definition</a> <span class="cite">(2007)</span> <a href="https://zenodo.org/record/4998947"><img class="doi" src="assets/images/zenodo.4998947.svg" alt="DOI 10.5281/zenodo.4998947"></a></li>
+        <li><a href="posts/the-information-model-to-end-all-models.html">The information model to end all information models</a> <span class="cite">(2006)</span></li>
+        <li><a href="posts/does-my-digital-archives-need-a-digital-repository.html">Does my digital archives need a digital repository system?</a> <span class="cite">(2006)</span></li>
+        <li><a href="posts/web2.0-and-archival-institutions.html">Web 2.0 and archival institutions</a> <span class="cite">(2006)</span></li>
+      </ul>
+    </section>
 
-
-
-      <p><a href="assets/pdfs/BC+AI--AI-Transparency--VanGarderen--30Sept2026.pdf">AI Transparency</a> BC+AI Vancouver meetup (2026)</p>
-      <p><a href="https://www.linkedin.com/pulse/sovereign-local-ai-records-management-peter-van-garderen-el13c">Sovereign, Local AI for Records Management</a> (2026) LinkedIn.com</p>
-      <p><a
-          href="https://www.linkedin.com/pulse/bridging-trust-gap-rwas-ai-provenance-core-set-peter-van-garderen-hlgwc"">Bridging the Evidence Gap for RWAs and AI Provenance: A Core Set of ISO-Based Digital Records Requirements</a> (2026) LinkedIn.com</p>
-      <p><a href=" https://medium.com/@peterVG/the-ideal-digital-archives-system-4e01d758fb75">The Ideal Digital
-          Archives
-          System</a> (2024) Medium.com</p>
-      <p><a href="https://medium.com/@peterVG/orcfax-the-trust-machine-revisited-c475dbb0a5d6">Orcfax: the trust machine
-          revisited</a> (2023) Medium.com</p>
-      <p><a href="https://youtu.be/jOWsTt-RLBM">Connecting the Real World to Blockchain</a> (2023) Quantum Miami
-        Conference</p>
-      <p><a href="https://medium.com/@peterVG/why-cardano-in-2023-b481846028bc">Why Cardano in 2023?</a> (2023)
-        Medium.com</p>
-      <p><a href="https://www.youtube.com/live/f2UGAxRwrQk?feature=share&t=1475">Impact as an opportunity for Cardano:
-          Introducing Landano</a> (2022) Cardano Summit Switzerland</p>
-      <p><a href="https://www.landano.io/improving-land-tenure-security-in-mozambique/">Improving Land Security in
-          Mozambique</a> (2022) Landano.io</p>
-      <p><a href="https://www.landano.io/improving-land-records-to-fight-poverty">Improving land records to fight
-          poverty</a> (2022) Landano.io </p>
-      <p><a
-          href=" https://www.landano.io/implementing-decentralized-land-right-records-a-ghana-pilot-project/">Implementing
-          Landano in Ghana</a> (2022) Landano.io</p>
-      <p><a
-          href="https://medium.com/@peterVG/ten-web3-system-requirements-from-moxie-marlinspikes-post-e2313f4b7c6d">Ten
-          web3 system requirements from Moxie Marlinspike’s post</a> (2022) Medium.com</p>
-      <p><a href="posts/archivematica-original-design-principles.html">Archivematica's original design principles</a>
-        Archivematica architectural decision records (2021)</p>
-      <p><a href="https://www.youtube.com/watch?v=Yth7O6yeZRE&t=06h04m32s">Archival requirements for the decentralized
-          web</a> Decentralized Web Summit. San Francisco, U.S.A. (2016)</p>
-      <p><a href="posts/archives-technology-and-innovation.html">Archives, technology, and innovation</a> Association of
-        Canadian Archivists conference. Montreal, Canada (2016) <a href="https://zenodo.org/record/5002213"><img
-            src="assets/images/zenodo.5002213.svg"></a></p>
-      <p><a href="posts/decentralized-autonomous-collections.html">Decentralized autonomous collections</a> (2016) <a
-          href="https://zenodo.org/record/5001890"><img src="assets/images/zenodo.5001890.svg"></a></p>
-      <p><a href="http://www.slideshare.net/peterVG999/introduction-to-blockchain-and-recordkeeping">Introduction to
-          blockchain and recordkeeping</a> Recordkeeping Rountable. Sidney, Australia (2016)</p>
-      <p><a href="assets/pdfs/2014-Archivatopia-ACA-Van-Garderen--The-Akashic-Record.pdf">Archivatopia: the
-          akashic record, what if?</a> Association of Canadian Archivists conference. Victoria, Canada (2014)</p>
-      <p><a href="assets/pdfs/iPres2013-Realizing_the_Archivematica_vision.pdf">Realizing the Archivematica vision:
-          delivering a comprehensive and free OAIS implementation</a> 10th International Conference on Preservation of
-        Digital Objects (iPres) Lisbon, Portugal (2013) <a href="https://zenodo.org/record/5000841"><img
-            src="assets/images/zenodo.5000841.svg"></a></p>
-      <p><a
-          href="http://blogs.loc.gov/digitalpreservation/2012/10/archivematica-and-the-open-source-mindset-for-digital-preservation-systems/">Archivematica
-          and the Open Source Mindset for Digital Preservation Systems</a> The Signal - Library of Congress (2012)</p>
-      <p><a href="assets/pdfs/iPres2012-The_Community_Driven_Evolution_Of_The_Archivematica_Project.pdf">The community
-          driven evolution of the Archivematica project</a> 9th International Conference on Preservation of Digital
-        Objects (iPres) Toronto, Canada (2012) <a href="https://zenodo.org/record/5000744"><img
-            src="assets/images/zenodo.5000744.svg"></a></p>
-      <p><a href="assets/pdfs/IDCC2010-Archivematica_concept_poster.pdf">Archivematica concept poster</a> International
-        Digital Curation Conference. Chicago, U.S.A. (2010) <a href="https://zenodo.org/record/5000691"><img
-            src="assets/images/zenodo.5000691.svg"></a></p>
-      <p><a href="assets/pdfs/iPres2010_Using_MicroServices_and_Open_Source_Software.pdf">Using micro-services and
-          open-source software to deliver a comprehensive digital curation solution</a> 7th International Conference on
-        Preservation of Digital Objects (iPres) Vienna, Austria (2010) <a href="https://zenodo.org/record/5000460"><img
-            src="assets/images/zenodo.5000460.svg"></a></p>
-      <p><a href="assets/pdfs/IST2010_LoweringTheBarrierToBestPracticeDigiPres.pdf">Lowering the barrier to best
-          practice digital preservation</a> IS&amp;T Archiving conference. The Hague, The Netherlands (2010) <a
-          href="https://zenodo.org/record/5000330"><img src="assets/images/zenodo.5000330.svg"></a></p>
-      <p><a href="http://www.youtube.com/watch?v=czQx4sCO88k">Creating a comprehensive digital preservation system</a>
-        (<a href="http://www.archives.gov/applied-research/events/archivematica-transcript.pdf">transcript</a>) The
-        National Archives Center for Advanced Systems and Technologies. Washington, U.S.A (2010)</p>
-      <p><a href="assets/pdfs/VanGarderen_TheICA-AtoMProjectAndTechnology_AAB_RioDeJaniero_16-17March2009.pdf">The
-          ICA-AtoM project and technology</a> Association of Brazilian Archives. Rio de Janeiro, Brazil (2009) <a
-          href="https://zenodo.org/record/4774722"><img src="assets/images/zenodo.4774722.svg"></a></p>
-      <p><a href="posts/the-anatomy-of-a-digital-information-object.html">The anatomy of a digital information
-          object</a> (2007)</p>
-      <p><a href="posts/what-is-information-anyway.html">What is information anyway?</a> (2007) <a
-          href="https://zenodo.org/record/5000022"><img src="assets/images/zenodo.5000022.svg"></a></p>
-      <p><a href="posts/archival-materials-a-practical-definition.html">Archival materials: a practical definition</a>
-        (2007) <a href="https://zenodo.org/record/4998947"><img src="assets/images/zenodo.4998947.svg"></a></p>
-      <p><a href="posts/the-information-model-to-end-all-models.html">The information model to end all information
-          models</a> (2006)</p>
-      <p><a href="posts/does-my-digital-archives-need-a-digital-repository.html">Does my digital archives need a digital
-          repository system?</a> (2006)</p>
-      <p><a href="posts/web2.0-and-archival-institutions.html">Web 2.0 and archival institutions</a> (2006)</p>
-    </div>
-
-    <div id="contact" class="text-center py-5">
+    <section id="contact">
       <h2>Contact</h2>
-      <p style="padding-top: 40px;">petervg [at] iona [dot] ltd</p>
-      <p><a href="https://www.linkedin.com/in/petervangarderen/"><img src="assets/images/linked-in-logo.png"
-            class="img-fluid social-logo" /></a></p>
-      <p><a href="https://bsky.app/profile/vangarderen.net"><img src="assets/images/bluesky-logo.png"
-            class="img-fluid social-logo" /></a></p>
-      <p><a href="https://github.com/peterVG"><img src="assets/images/github-logo.png"
-            class="img-fluid social-logo" /></a></p>
-    </div>
+      <p class="address">petervg [at] iona [dot] ltd</p>
+      <p class="social">
+        <a href="https://www.linkedin.com/in/petervangarderen/"><img src="assets/images/linked-in-logo.png" class="social-logo" alt="LinkedIn"></a>
+        <a href="https://bsky.app/profile/vangarderen.net"><img src="assets/images/bluesky-logo.png" class="social-logo" alt="Bluesky"></a>
+        <a href="https://github.com/peterVG"><img src="assets/images/github-logo.png" class="social-logo" alt="GitHub"></a>
+      </p>
+    </section>
+  </main>
 
-  </div>
+  <script>
+    (function () {
+      var key = "arkrim-color-scheme";
+      var root = document.documentElement;
+      var btn = document.getElementById("theme-toggle");
 
-  <script src="assets/bootstrap-5.0.1/js/bootstrap.min.js"></script>
+      function theme() {
+        return root.getAttribute("data-theme") === "light" ? "light" : "dark";
+      }
+
+      function apply(value, persist) {
+        root.setAttribute("data-theme", value);
+        root.style.colorScheme = value;
+        btn.setAttribute("aria-label", value === "dark"
+          ? "Dark mode. Switch to light mode"
+          : "Light mode. Switch to dark mode");
+        if (persist) {
+          try { localStorage.setItem(key, value); } catch (e) {}
+        }
+      }
+
+      btn.addEventListener("click", function () {
+        apply(theme() === "dark" ? "light" : "dark", true);
+      });
+
+      apply(theme(), false);
+    })();
+  </script>
 </body>
-
 </html>
