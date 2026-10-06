@@ -139,9 +139,18 @@ body {
   transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.brand a:hover img {
-  transform: scale(8);
-  z-index: 30;
+@media (hover: hover) and (pointer: fine) {
+  .brand a:hover img {
+    transform: scale(8);
+    z-index: 30;
+  }
+}
+
+@media (hover: none), (pointer: coarse) {
+  .brand a.is-portrait-zoomed img {
+    transform: scale(5);
+    z-index: 30;
+  }
 }
 
 .site-nav {
@@ -321,7 +330,7 @@ main a {
   }
 }
 
-@media (max-width: 576px) {
+@media (hover: hover) and (pointer: fine) and (max-width: 576px) {
   .brand a:hover img {
     transform: scale(5);
   }
@@ -332,7 +341,8 @@ main a {
     transition: none;
   }
 
-  .brand a:hover img {
+  .brand a:hover img,
+  .brand a.is-portrait-zoomed img {
     transform: none;
   }
 }

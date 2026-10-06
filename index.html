@@ -133,6 +133,47 @@
 
       apply(theme(), false);
     })();
+
+    (function () {
+      var link = document.querySelector(".brand a");
+      var img = link && link.querySelector("img");
+      var touch = window.matchMedia("(hover: none), (pointer: coarse)");
+      if (!link || !img || !touch.matches) return;
+
+      var origin = null;
+
+      function inside(x, y) {
+        return origin && x >= origin.left && x <= origin.right && y >= origin.top && y <= origin.bottom;
+      }
+
+      function stop() {
+        link.classList.remove("is-portrait-zoomed");
+        origin = null;
+        window.removeEventListener("pointermove", move);
+        window.removeEventListener("pointerup", stop);
+        window.removeEventListener("pointercancel", stop);
+      }
+
+      function move(event) {
+        if (!inside(event.clientX, event.clientY)) stop();
+      }
+
+      img.addEventListener("pointerdown", function (event) {
+        if (event.pointerType === "mouse") return;
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        if (!link.classList.contains("is-portrait-zoomed")) {
+          var rect = img.getBoundingClientRect();
+          origin = { left: rect.left, right: rect.right, top: rect.top, bottom: rect.bottom };
+        }
+        if (!inside(event.clientX, event.clientY)) return;
+        link.classList.add("is-portrait-zoomed");
+        window.addEventListener("pointermove", move);
+        window.addEventListener("pointerup", stop);
+        window.addEventListener("pointercancel", stop);
+      });
+
+      window.addEventListener("scroll", stop, { passive: true });
+    })();
   </script>
 </body>
 </html>
