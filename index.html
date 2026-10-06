@@ -31,7 +31,7 @@
         <a href="#publications">Publications</a>
         <a href="#contact">Contact</a>
       </nav>
-      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light mode" aria-pressed="true">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Dark mode. Switch to light mode">
         <svg class="theme-icon theme-icon-sun" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.75" />
           <path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.1 5.1l1.6 1.6M17.3 17.3l1.6 1.6M18.9 5.1l-1.6 1.6M6.7 17.3l-1.6 1.6" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" />
@@ -116,9 +116,9 @@
       function apply(value, persist) {
         root.setAttribute("data-theme", value);
         root.style.colorScheme = value;
-        var toLight = value === "dark";
-        btn.setAttribute("aria-label", toLight ? "Switch to light mode" : "Switch to dark mode");
-        btn.setAttribute("aria-pressed", value === "dark" ? "true" : "false");
+        btn.setAttribute("aria-label", value === "dark"
+          ? "Dark mode. Switch to light mode"
+          : "Light mode. Switch to dark mode");
         if (persist) {
           try { localStorage.setItem(key, value); } catch (e) {}
         }
@@ -126,23 +126,6 @@
 
       btn.addEventListener("click", function () {
         apply(theme() === "dark" ? "light" : "dark", true);
-      });
-
-      document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-        link.addEventListener("click", function (event) {
-          var id = link.getAttribute("href");
-          var target = document.querySelector(id);
-          if (!target) return;
-          event.preventDefault();
-          if (id === "#top") {
-            window.scrollTo(0, 0);
-          } else {
-            var header = document.querySelector(".site-header").offsetHeight;
-            var top = target.getBoundingClientRect().top + window.scrollY - header - 12;
-            window.scrollTo(0, Math.max(0, top));
-          }
-          if (history.pushState) history.pushState(null, "", id);
-        });
       });
 
       apply(theme(), false);
