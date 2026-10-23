@@ -1,0 +1,1856 @@
+@prefix dipl: <https://authenticmemory.org/vocab/diplomatics#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dct:  <http://purl.org/dc/terms/> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix rico: <https://www.ica.org/standards/RiC/ontology#> .
+@prefix sdo:  <https://schema.org/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl:  <http://www.w3.org/2002/07/owl#> .
+@prefix xsd:  <http://www.w3.org/2001/XMLSchema#> .
+
+# One concept scheme per facet of archival diplomatics as Luciana Duranti set it out
+# in Archivaria 28-33 (1989-1992), revised where InterPARES 1 (1999-2001) refined,
+# demoted or replaced a concept for electronic records, and extended with the
+# findings of Victoria Lemieux on distributed ledgers as recordkeeping systems and
+# of Peter Van Garderen on access-based archival materials and decentralized
+# collections, which shape what the Custodian Attestation Record (CAR) attests.
+#
+# Citations. Every concept carries one or more dct:source literals. "Duranti ... Part N,
+# p. X" cites the printed Archivaria page. "InterPARES 1, The InterPARES Glossary
+# (December 2001), p. X" cites the glossary page; the task force reports are cited by
+# their own printed pages. Where InterPARES 1 revised a Duranti concept, the Duranti
+# wording is kept in skos:historyNote and the revision is stated in skos:scopeNote.
+#
+# Concepts are also typed with the matching ICA RiC-O 1.1 Type subclass, which is how
+# RiC-O records categories; rdfs:seeAlso points to the PROV-O, DCMI or schema.org
+# terms that carry the concept in a Custodian Attestation Record. On a concept scheme,
+# rdfs:seeAlso names the properties its concepts are values of.
+
+<https://authenticmemory.org/vocab/diplomatics>
+    a owl:Ontology ;
+    dct:title "Diplomatics vocabulary for the Custodian Attestation Record"@en ;
+    dct:description "SKOS concepts from archival diplomatics, InterPARES 1 and the archival-science critique of distributed ledgers, used as values of PROV-O, DCMI Terms and schema.org properties in Authentic Memory's Custodian Attestation Record."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992)" ,
+        "InterPARES 1, The Long-term Preservation of Authentic Electronic Records: Findings of the InterPARES Project (1999-2001): Authenticity, Appraisal, Preservation and Strategy Task Force Reports and The InterPARES Glossary (December 2001)" ,
+        "Lemieux, V. L. Trusting Records: Is Blockchain Technology the Answer? Records Management Journal 26(2) (2016), doi:10.1108/RMJ-12-2015-0042" ,
+        "Lemieux, V. L. Blockchain and Distributed Ledgers as Trusted Recordkeeping Systems: An Archival Theoretic Evaluation Framework, Future Technologies Conference (2017)" ,
+        "Lemieux, V. L. and Sporny, M. Preserving the Archival Bond in Distributed Ledgers: A Data Model and Syntax, WWW 2017 Companion (2017), doi:10.1145/3041021.3053896" ,
+        "Lemieux, V. L. A Typology of Blockchain Recordkeeping Solutions and Some Reflections on Their Implications for the Future of Archival Preservation, IEEE Big Data (2017), doi:10.1109/bigdata.2017.8258180" ,
+        "Lemieux, V. L., Hofman, D., Batista, D. and Joo, A. Blockchain Technology and Recordkeeping, ARMA International Educational Foundation (2019)" ,
+        "Lemieux, V. L. Blockchain and Public Record Keeping: Of Temples, Prisons, and the (Re)Configuration of Power, Frontiers in Blockchain 2:5 (2019), doi:10.3389/fbloc.2019.00005" ,
+        "Van Garderen, P. Archival Materials: A Practical Definition, archivemati.ca (2007-01-22), doi:10.5281/zenodo.4998947" ,
+        "Van Garderen, P. Decentralized Autonomous Collections, Medium: On Archivy (2016-04-11), doi:10.5281/zenodo.5001890" ,
+        "Van Garderen, P. Archives, Technology, and Innovation, Association of Canadian Archivists plenary, Montreal (2016-06-16), doi:10.5281/zenodo.5002213" ;
+    dct:creator "Authentic Memory" ;
+    dct:issued "2026-10-19"^^xsd:date ;
+    dct:modified "2026-10-22"^^xsd:date ;
+    owl:versionInfo "0.3.0" ;
+    skos:changeNote "0.3.0 (2026-10-22): applied the InterPARES 1 gap report edits V1-V13. Added the core term, authenticity assessment, record quality, context, extrinsic element, intrinsic element, annotation, ledger recordkeeping pattern and trust layer schemes; added originator, receiver, version, vidimus, date of transmission and archival date; revised the status of transmission and function concepts to the InterPARES 1 wording with the Duranti wording kept as history notes; moved authentic copy out from under copy; added page-level citations to every concept. 0.2.0 (2026-10-19): Duranti-only vocabulary, 11 schemes, 59 concepts."@en ;
+    rdfs:seeAlso <https://www.ica.org/standards/RiC/ontology> .
+
+# ---------------------------------------------------------------------------
+# Core terms: the record, its bond and components, and the persons and systems
+# that keep it. InterPARES 1 made these explicit; Van Garderen widened the
+# definition of what archives keep.
+# ---------------------------------------------------------------------------
+
+dipl:CoreTermScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Core terms"@en , "Grundbegriffe"@de ;
+    skos:definition "The record, the relationships and components that constitute it, and the persons, systems and controls that keep it authentic, as InterPARES 1 defined them for electronic records."@en ;
+    skos:scopeNote "These concepts name what a Custodian Attestation Record is about: the certified file is a digital component of a record kept in the custody of a preserver, and the record's identity includes its archival bond. They are documentation terms, not values of a CAR property, except where rdfs:seeAlso says otherwise."@en ;
+    skos:hasTopConcept dipl:Record , dipl:ElectronicRecord , dipl:Action , dipl:ArchivalBond , dipl:DigitalComponent , dipl:ArchivalFonds , dipl:File , dipl:Creator , dipl:Preserver , dipl:Custodian , dipl:TrustedCustodian , dipl:TrustedRecordKeepingSystem , dipl:ChainOfPreservation , dipl:Custody , dipl:Reproduction , dipl:ArchivalMaterials , dipl:DecentralizedAutonomousCollection ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001)" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 3, Principle 1" ,
+        "Van Garderen, P. Archival Materials: A Practical Definition, archivemati.ca (2007-01-22), doi:10.5281/zenodo.4998947" .
+
+dipl:Record
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "record"@en , "Unterlage (Record)"@de ;
+    skos:definition "A document made or received and set aside in the course of a practical activity."@en ;
+    skos:historyNote "Duranti: the archival document, that is a document created or received by a physical or juridical person in the course of a practical activity (Part I, p. 15); a document created in the usual and ordinary course of business (Part II). InterPARES 1 made 'set aside', for action or reference, constitutive."@en ;
+    skos:scopeNote "InterPARES 1 gives a record six characteristics: a fixed documentary form, a stable content, an archival bond, an identifiable context, participation in an action, and three persons (author, writer, addressee). A Custodian Attestation Record is itself a record of the issuing institution; the file it certifies is a digital component of a record, not the record."@en ;
+    rdfs:seeAlso prov:Entity ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'record'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 5" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 15" .
+
+dipl:ElectronicRecord
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "electronic record"@en , "elektronische Unterlage"@de ;
+    skos:definition "A record that is created (made or received and set aside) in electronic form."@en ;
+    skos:historyNote "Duranti applied the same theory to electronic records: an electronic document comes into existence as a draft when its maker first saves it and as an original when its addressee first saves it (Part VI, p. 10)."@en ;
+    skos:scopeNote "An electronic record is stored as one or more digital components and cannot be preserved as an object; only the ability to reproduce it can be preserved (Preservation Task Force Report, p. 5)."@en ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'electronic record'" ,
+        "InterPARES 1, Preservation Task Force Report (2001), p. 5" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part VI, p. 10" .
+
+dipl:Action
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "action"@en , "Handlung"@de ;
+    skos:definition "The conscious exercise of will by an officer of the records creator or by an external person aimed to create, maintain, modify or extinguish situations."@en ;
+    skos:historyNote "Duranti distinguished the transaction, the juridical act and the mere act (Parts II and VI). InterPARES 1 uses 'action' throughout; mere act and transaction do not appear in its glossary."@en ;
+    skos:related dipl:ActTypeScheme ;
+    rdfs:seeAlso prov:Activity ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'action'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" .
+
+dipl:ArchivalBond
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "archival bond"@en , "archivische Bindung"@de ;
+    skos:definition "The relationship that links each record, incrementally, to the previous and subsequent ones and to all those which participate in the same activity. It is originary (it comes into existence when a record is made or received and set aside), necessary (it exists for every record) and determined (it is characterized by the purpose of the record)."@en ;
+    skos:scopeNote "The expression of the archival bond, such as a classification code or other unique identifier, is an attribute of a record's identity (Authenticity Task Force Report, p. 20). Lemieux and Sporny showed that a blockchain links blocks by time, not by shared procedural origin, so the bond must be made explicit and interpretable in the ledger entry itself; Lemieux's evaluation framework holds that the unique identity of a record as a record is established by the instantiation and maintenance of the archival bond. A Custodian Attestation Record carries the bond of the certified file in its declared context, through dct:isPartOf and dct:identifier, interpreted through its JSON-LD context."@en ;
+    rdfs:seeAlso dct:isPartOf , dct:identifier ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'archival bond'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" ,
+        "Lemieux, V. L. and Sporny, M. Preserving the Archival Bond in Distributed Ledgers: A Data Model and Syntax, WWW 2017 Companion (2017), doi:10.1145/3041021.3053896" ,
+        "Lemieux, V. L. Blockchain and Distributed Ledgers as Trusted Recordkeeping Systems: An Archival Theoretic Evaluation Framework, Future Technologies Conference (2017)" .
+
+dipl:DigitalComponent
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "digital component"@en , "digitale Komponente"@de ;
+    skos:definition "A digital object that is part of an electronic record, or of a reproduced electronic record, or that contains one or more electronic records, or reproduced electronic records, and that requires specific methods for preservation."@en ;
+    skos:scopeNote "Digital components have no necessary relation to elements of documentary form (Strategy Task Force Report, Principle 7). The file a Custodian Attestation Record certifies is a digital component: its hash proves the component's bit-level integrity, which is sufficient evidence that the component is unchanged but not necessary for the integrity of the record, which InterPARES 1 judges at the level of the message. A migrated or normalized file is a new component and needs a new certification."@en ;
+    rdfs:seeAlso dct:hasPart ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'digital component'" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 4, Principle 7" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" .
+
+dipl:ArchivalFonds
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "archival fonds"@en , "Archivbestand (Fonds)"@de ;
+    skos:definition "The whole of the records of a creator."@en ;
+    skos:scopeNote "The fonds to which a record belongs, and its internal structure, is the record's documentary context. Archival description of the fonds serves as a collective attestation of the authenticity of its records (Strategy Task Force Report, Principle 10)."@en ;
+    skos:related dipl:DocumentaryContext ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'archival fonds'" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 5, Principle 10" .
+
+dipl:File
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "file"@en , "Akte"@de ;
+    skos:definition "An integrated aggregation of records, constituted according to the person, action or matter to which it refers."@en ;
+    skos:scopeNote "A signing batch of Custodian Attestation Records is not a file in this sense; it is a continuative act (dipl:ContinuativeAct). In the CAR schema the word 'file' otherwise means the certified digital component."@en ;
+    rdfs:seeAlso prov:Collection ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 4, 'file'" .
+
+dipl:Creator
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "creator"@en , "Registraturbildner"@de ;
+    skos:definition "The physical or juridical person in whose archival fonds the record exists; it may differ from the author."@en ;
+    skos:scopeNote "The creator's records should be made and maintained in a trusted record-keeping system; its practices are what the benchmark requirements measure. For a Custodian Attestation Record the issuing institution is author, creator and preserver at once."@en ;
+    skos:related dipl:Author , dipl:Preserver ;
+    rdfs:seeAlso prov:wasAttributedTo ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of creator'" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 4, Principle 5" .
+
+dipl:Preserver
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "preserver"@en , "Bewahrer (Archiv)"@de ;
+    skos:definition "The juridical person whose primary responsibility is the long-term preservation of authentic records."@en ;
+    skos:scopeNote "The preserver assesses authenticity during appraisal against the benchmark requirements and maintains it after transfer against the baseline requirements; it is the only person who may issue a certificate of authenticity. Duranti's archivist as public official plays this part for machine-readable records (Part I, p. 23)."@en ;
+    skos:related dipl:Author , dipl:Creator , dipl:TrustedCustodian , dipl:CertificateOfAuthenticity ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'preserver'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 20, 23" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 23" .
+
+dipl:Custodian
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "custodian"@en , "Verwahrer"@de ;
+    skos:definition "The juridical person that has custody of a record or digital component: physical and legal control over its existence, authenticity, location and accessibility."@en ;
+    skos:scopeNote "Van Garderen's Decentralized Autonomous Collection removed the exclusive custodian and so placed 'additional burden on the proof of authenticity'. The Custodian Attestation Record keeps the custodian: an address is not a juridical person, so the institution in whose custody the file sits issues and signs the record, while the proof travels without it. Authority derives from the custodian's juridical standing, as for the medieval vidimus."@en ;
+    skos:related dipl:Custody , dipl:TrustedCustodian , dipl:Author , dipl:Vidimus ;
+    rdfs:seeAlso dct:creator , sdo:holdingArchive ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'custody'" ,
+        "Van Garderen, P. Decentralized Autonomous Collections, Medium: On Archivy (2016-04-11), doi:10.5281/zenodo.5001890" ,
+        "Lemieux, V. L. Blockchain and Public Record Keeping: Of Temples, Prisons, and the (Re)Configuration of Power, Frontiers in Blockchain 2:5 (2019), doi:10.3389/fbloc.2019.00005" .
+
+dipl:TrustedCustodian
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "trusted custodian"@en , "vertrauenswürdiger Verwahrer"@de ;
+    skos:definition "A preserver that can demonstrate that it has no reason to alter the preserved records, or to allow others to alter them, and that it is capable of implementing the baseline requirements."@en ;
+    skos:scopeNote "The trust basis of the baseline requirements. InterPARES 1 traces the role to the Roman Tabularium, where citizens deposited private records to render them authentic; Duranti notes the same principle, that authenticity was accorded by preservation in a designated place (Part I, p. 12). The Bitcoin ledger reached through OpenTimestamps is read in the CAR design as a public register whose irreversibility supplies 'no reason to alter' architecturally."@en ;
+    skos:broader dipl:Preserver ;
+    skos:related dipl:BaselineRequirements ;
+    dct:source "InterPARES 1, Authenticity Task Force Report (2001), p. 21" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 4, Principle 5" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 12; Part III, p. 14" .
+
+dipl:TrustedRecordKeepingSystem
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "trusted record-keeping system"@en , "vertrauenswürdiges Schriftgutverwaltungssystem"@de ;
+    skos:definition "A system where rules govern which documents are eligible for inclusion in the record-keeping system, who may place records in the system and retrieve records from it, what may be done to and with a record, how long records remain in the system, and how records are removed from it. It provides a circumstantial probability of the authenticity of the records within it."@en ;
+    skos:scopeNote "The trust basis of the benchmark requirements. Lemieux's evaluation framework asks whether a blockchain or distributed ledger can be such a system and finds that it protects integrity but cannot establish reliability or carry the archival bond; the trustworthy repository therefore stays off-chain."@en ;
+    skos:related dipl:BenchmarkRequirements , dipl:MirrorPattern ;
+    dct:source "InterPARES 1, Authenticity Task Force Report (2001), p. 21" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 4, Principle 5" ,
+        "Lemieux, V. L. Blockchain and Distributed Ledgers as Trusted Recordkeeping Systems: An Archival Theoretic Evaluation Framework, Future Technologies Conference (2017)" .
+
+dipl:ChainOfPreservation
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "chain of preservation"@en , "Erhaltungskette"@de ;
+    skos:definition "A system of controls that extends over the entire life cycle of records and ensures their identity and integrity in any action that affects the way the records are represented in storage or presented for use."@en ;
+    skos:scopeNote "The benchmark requirements evidence the creator's part of the chain; the baseline requirements cover the preserver's part. The fixity history and custodial history a Custodian Attestation Record declares are evidence of this chain, and documentation of the whole process is itself a means of protection (Strategy Task Force Report, Principle 11)."@en ;
+    rdfs:seeAlso dct:provenance ;
+    dct:source "InterPARES 1, Strategy Task Force Report (2001), p. 4, Principle 4; p. 5, Principle 11" .
+
+dipl:Custody
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "custody"@en , "Verwahrung (Gewahrsam)"@de ;
+    skos:definition "The physical and legal control over the existence, authenticity, location and accessibility of records."@en ;
+    skos:scopeNote "What a Custodian Attestation Record attests: that the certified file existed, in this exact form, in the issuing institution's custody at the date of authentication."@en ;
+    skos:related dipl:Custodian ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'custody'" .
+
+dipl:Reproduction
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "reproduction"@en , "Reproduktion"@de ;
+    skos:definition "The process of reconstituting an electronic record from its digital components and presenting it in proper form; a copy is its result."@en ;
+    skos:scopeNote "It is not possible to preserve an electronic record, only the ability to reproduce it. Baseline requirement B.1 requires that the content of the record remains unchanged after reproduction and B.2 that the effects of the reproduction process on form, content, accessibility and use are documented. Van Garderen drew the same conclusion from Thibodeau in 2007: only the ability to reproduce a digital object can be preserved, which 'raises important issues about verifying the authenticity of digital information objects when they are reproduced at some later place and time'. A Custodian Attestation Record lets a later reproduction be verified against the sealed component."@en ;
+    skos:related dipl:Copy ;
+    rdfs:seeAlso prov:wasDerivedFrom , dct:hasFormat ;
+    dct:source "InterPARES 1, Preservation Task Force Report (2001), pp. 5-6, 8, 13" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 7, 'reproduce electronic record'" ,
+        "Van Garderen, P. The Anatomy of a Digital Information Object, archivemati.ca (2007-02-12)" .
+
+dipl:ArchivalMaterials
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "archival materials"@en , "Archivgut (zugangsbasiert)"@de ;
+    skos:definition "Objects in any form that record information which is preserved for future access and use as a memory aid or proxy for a past event."@en ;
+    skos:scopeNote "Van Garderen's definition is access-based rather than evidence-based: an object qualifies when it records information, can serve as a memory aid or proxy, is preserved, and is made available for access. Authenticity and evidence remain 'critical to the historical and legal value of archival materials' but are not criteria of the definition, since unreliable materials 'might still contain information that someone wants to use'. This is why a Custodian Attestation Record is a label, not a gate: it attests existence, custody and integrity, never the truth of content, and the custodian issues it only for what it preserves and makes available. Compare dipl:Record, which InterPARES 1 defines by the practical activity that produced it."@en ;
+    skos:related dipl:Record , dipl:HistoricalAuthenticity ;
+    dct:source "Van Garderen, P. Archival Materials: A Practical Definition, archivemati.ca (2007-01-22), doi:10.5281/zenodo.4998947" .
+
+dipl:DecentralizedAutonomousCollection
+    a skos:Concept ;
+    skos:inScheme dipl:CoreTermScheme ;
+    skos:topConceptOf dipl:CoreTermScheme ;
+    skos:prefLabel "decentralized autonomous collection"@en , "dezentrale autonome Sammlung"@de ;
+    skos:definition "A set of digital information objects stored for ongoing re-use with the means and incentives for independent parties to participate in the contribution, presentation and curation of the information objects outside the control of an exclusive custodian."@en ;
+    skos:scopeNote "Van Garderen proposed that the absent custodian's burden of proof be met 'through the registration of cryptographic hashes of information objects and their provenance metadata (expressed in machine-readable W3C PROV) on a blockchain database'. Lemieux asked in 2019 whether current platforms could deliver such collections without 'record keeping prisons' of lost portability, interoperability and persistence. The Custodian Attestation Record applies two corrections to the 2016 vision: the ledger holds only the timestamp commitment, and provenance stays in the signed record; it keeps a custodian and makes the proof portable."@en ;
+    skos:related dipl:Custodian , dipl:MirrorPattern ;
+    dct:source "Van Garderen, P. Decentralized Autonomous Collections, Medium: On Archivy (2016-04-11), doi:10.5281/zenodo.5001890" ,
+        "Lemieux, V. L. Blockchain and Public Record Keeping: Of Temples, Prisons, and the (Re)Configuration of Power, Frontiers in Blockchain 2:5 (2019), doi:10.3389/fbloc.2019.00005" .
+
+# ---------------------------------------------------------------------------
+# Function, nature and documentary form of a document
+# ---------------------------------------------------------------------------
+
+dipl:FunctionScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Function of a document"@en , "Funktion des Schriftstücks"@de ;
+    skos:definition "Categories of a document by the relationship between the document and the action it records, and by whether the juridical system requires its written form."@en ;
+    skos:scopeNote "InterPARES 1 extended these categories from the single record to the smallest indivisible aggregation (the file unit) and then found that function does not predict which elements of form or annotations are required: 'the fact that written form is not required does not necessarily translate into an absence or reduction of specific required elements'. Function may therefore be declared but must not be used to derive authenticity requirements."@en ;
+    skos:hasTopConcept dipl:Dispositive , dipl:Probative , dipl:Supporting , dipl:Narrative ;
+    rdfs:seeAlso dct:type , sdo:additionalType ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 15" .
+
+dipl:Dispositive
+    a skos:Concept ;
+    skos:inScheme dipl:FunctionScheme ;
+    skos:topConceptOf dipl:FunctionScheme ;
+    skos:prefLabel "dispositive"@en , "dispositiv (Geschäftsurkunde)"@de ;
+    skos:definition "A document whose written form is required by the juridical system as the essence and substance of an action: the document is the act (ad substantiam). Examples: contracts, wills, appointments."@en ;
+    skos:historyNote "Duranti: a document in which the written form is the essence of the act it embodies (Part II)."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 15" .
+
+dipl:Probative
+    a skos:Concept ;
+    skos:inScheme dipl:FunctionScheme ;
+    skos:topConceptOf dipl:FunctionScheme ;
+    skos:prefLabel "probative"@en , "probatorisch (Beweisurkunde)"@de ;
+    skos:definition "A document whose written form is required by the juridical system as proof that an action has taken place prior to its documentation (ad probationem). Examples: certificates, receipts, register entries."@en ;
+    skos:historyNote "Duranti: a document that gives evidence of an act that was complete before it was written down (Part II)."@en ;
+    skos:scopeNote "The Custodian Attestation Record is declared probative under the reading that the issuing institution's adopted certification procedure is a juridical system in Duranti's broad sense (Part II) and requires the record as proof of the completed certification act. Under InterPARES 1's stricter criterion a reader may instead classify it as supporting; the declaration does not change which elements the record must carry (see the scheme note)."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 15" .
+
+dipl:Supporting
+    a skos:Concept ;
+    skos:inScheme dipl:FunctionScheme ;
+    skos:topConceptOf dipl:FunctionScheme ;
+    skos:prefLabel "supporting"@en , "unterstützend"@de ;
+    skos:definition "A document whose written form is discretionary; it is created to provide support for, and is procedurally linked to, an action."@en ;
+    skos:historyNote "Duranti: a document constituting written evidence of an activity that is juridically relevant but does not result in a juridical act (Part II)."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 15" .
+
+dipl:Narrative
+    a skos:Concept ;
+    skos:inScheme dipl:FunctionScheme ;
+    skos:topConceptOf dipl:FunctionScheme ;
+    skos:prefLabel "narrative"@en , "erzählend"@de ;
+    skos:definition "A document whose written form is discretionary; it does not participate procedurally in the action but is created as part of the process of setting oneself to work."@en ;
+    skos:historyNote "Duranti: a document constituting written evidence of a juridically irrelevant activity (Part II)."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 15" .
+
+dipl:NatureScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Nature of a document"@en , "Natur des Schriftstücks"@de ;
+    skos:definition "Public or private character of a document, determined by the nature of its author's will, not by its content or medium."@en ;
+    skos:hasTopConcept dipl:PublicDocument , dipl:PrivateDocument ;
+    rdfs:seeAlso dct:type , sdo:additionalType ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III" .
+
+dipl:PublicDocument
+    a skos:Concept ;
+    skos:inScheme dipl:NatureScheme ;
+    skos:topConceptOf dipl:NatureScheme ;
+    skos:prefLabel "public document"@en , "öffentliche Urkunde"@de ;
+    skos:definition "A document produced by a public person performing public functions."@en ;
+    skos:scopeNote "In Roman law a public document gave full faith and credit to the facts it attested and had to be given to the Tabularium, the public archives, as a condition for its effectiveness (Part III, p. 14). A Custodian Attestation Record issued by a public institution is a public document; InterPARES 1's trusted custodian descends from the same Tabularium (Authenticity Task Force Report, p. 21)."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III, p. 14" .
+
+dipl:PrivateDocument
+    a skos:Concept ;
+    skos:inScheme dipl:NatureScheme ;
+    skos:topConceptOf dipl:NatureScheme ;
+    skos:prefLabel "private document"@en , "Privaturkunde"@de ;
+    skos:definition "A document whose author does not act as a public person performing public functions."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III" .
+
+dipl:FormScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Documentary form"@en , "Urkundenform"@de ;
+    skos:definition "Names of documentary forms, identified by their extrinsic and intrinsic elements. InterPARES 1: the rules of representation according to which the content of a record, its administrative and documentary context, and its authority are communicated."@en ;
+    skos:scopeNote "The elements themselves are in dipl:ExtrinsicElementScheme and dipl:IntrinsicElementScheme; this scheme names whole forms."@en ;
+    skos:hasTopConcept dipl:Certificate , dipl:RegisterEntry , dipl:Vidimus ;
+    rdfs:seeAlso dct:type , sdo:additionalType ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'documentary form'" .
+
+dipl:Certificate
+    a skos:Concept , rico:DocumentaryFormType ;
+    skos:inScheme dipl:FormScheme ;
+    skos:topConceptOf dipl:FormScheme ;
+    skos:prefLabel "certificate"@en , "Bescheinigung"@de ;
+    skos:definition "A probative documentary form in which an author attests, in the third person and with the operative verb 'certifies', to a fact that already exists. The Custodian Attestation Record is a certificate of existence and integrity."@en ;
+    skos:scopeNote "A Custodian Attestation Record certifies that a digital component with a given hash existed in the issuing institution's custody at the date of authentication. It is not InterPARES 1's certificate of authenticity (dipl:CertificateOfAuthenticity), which only a preserver that meets every baseline requirement may issue and which declares a reproduced record authentic. In InterPARES 1 terms the CAR is an authentication together with evidence toward a presumption of authenticity; the verifier, not the record, weighs that evidence."@en ;
+    skos:related dipl:Vidimus , dipl:Authentication , dipl:CertificateOfAuthenticity ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II; Part V" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 2, 'certificate of authenticity'" .
+
+dipl:RegisterEntry
+    a skos:Concept , rico:DocumentaryFormType ;
+    skos:inScheme dipl:FormScheme ;
+    skos:topConceptOf dipl:FormScheme ;
+    skos:prefLabel "register entry"@en , "Registereintrag"@de ;
+    skos:definition "The transcription of a document, or of its essential data, in a register kept by an office entrusted with that function."@en ;
+    skos:scopeNote "InterPARES 1 retains registers of incoming and outgoing records as a source for verifying authenticity (Authenticity Task Force Report, p. 22). A blockchain, Lemieux argues, is a register in this sense, 'a recordkeeping technology, in the archival science sense of the term, as much as it is a value transfer technology'."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 9" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 22" ,
+        "Lemieux, V. L. Blockchain Technology for Recordkeeping: Help or Hype? SSHRC Knowledge Synthesis report (2016)" .
+
+dipl:Vidimus
+    a skos:Concept , rico:DocumentaryFormType ;
+    skos:inScheme dipl:FormScheme ;
+    skos:topConceptOf dipl:FormScheme ;
+    skos:prefLabel "vidimus"@en , "Vidimus (Transsumpt)"@de ;
+    skos:altLabel "inspeximus"@en , "digital vidimus"@en ;
+    skos:definition "An authentic act issued by a public authority, ecclesiastic or lay, which contains an unabridged transcription of a previous act, taking care to announce the insertion through a formula that indicates the beginning and the end of the transcription. The author declares to have seen the document transcribed; the transcribed document preserves the legal nature it had at its origin."@en ;
+    skos:scopeNote "A vidimus only guarantees the conformity of the copy to the original text: it is an authentic copy in the diplomatic and legal sense but not an authentic document (Part I, p. 21). The Custodian Attestation Record is a digital vidimus: a new act of the custodian that embeds a cryptographic representation of the file in place of a transcription, declares inspection, and is sealed under the institution's key. It guarantees formal conformity only and never the historical truth of the file's content."@en ;
+    skos:related dipl:Certificate , dipl:AuthenticCopy , dipl:Custodian ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 21; p. 26, notes 38-39" ,
+        "Authentic Memory. The Custodian Attestation Record as a Digital Vidimus: A Third Path, framework paper (2026-10-21)" .
+
+# ---------------------------------------------------------------------------
+# Status of transmission. InterPARES 1 revised four of Duranti's concepts for
+# electronic records; the Duranti wording stays in the history notes.
+# ---------------------------------------------------------------------------
+
+dipl:TransmissionStatusScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Status of transmission"@en , "Überlieferungsstufe"@de ;
+    skos:definition "Degree of perfection of a document: draft, original or one of the kinds of copy, and whether it is attested."@en ;
+    skos:scopeNote "In an electronic environment no original survives: every faithful copy of a record's content and documentary form is a copy in the form of the original and equivalent to it in its consequences (Strategy Task Force Report, Principle 8). This is why the status is recorded only in the custodian's graph and never inside a signed Custodian Attestation Record. Reproduction is the process; a copy is its result."@en ;
+    skos:hasTopConcept dipl:Draft , dipl:Original , dipl:Copy , dipl:AuthenticCopy , dipl:PseudoOriginal , dipl:Version ;
+    rdfs:seeAlso sdo:creativeWorkStatus ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, pp. 19-21; Part VI, pp. 8-10" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 5, Principle 8" .
+
+dipl:Draft
+    a skos:Concept , rico:RecordState ;
+    skos:inScheme dipl:TransmissionStatusScheme ;
+    skos:topConceptOf dipl:TransmissionStatusScheme ;
+    skos:prefLabel "draft"@en , "Entwurf (Konzept)"@de ;
+    skos:definition "A record made for purposes of correction."@en ;
+    skos:historyNote "Duranti: a sketch or outline of the definitive text, prepared for purposes of correction and meant to be provisional; it has no legal validity on its own (Part I, p. 20). An electronic document comes into existence as a draft when its maker first saves it (Part VI, p. 10)."@en ;
+    skos:scopeNote "Successive drafts and the original they lead to are linked with prov:wasRevisionOf; the draft number is a record management annotation. A signed Custodian Attestation Record is never a draft."@en ;
+    rdfs:seeAlso prov:wasRevisionOf , sdo:creativeWorkStatus ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'draft', 'draft number'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 20; Part VI, p. 10" .
+
+dipl:Original
+    a skos:Concept , rico:RecordState ;
+    skos:inScheme dipl:TransmissionStatusScheme ;
+    skos:topConceptOf dipl:TransmissionStatusScheme ;
+    skos:prefLabel "original"@en , "Original (Ausfertigung)"@de ;
+    skos:definition "The first complete and effective record. It is primitive (the first issued in that form by its creator), complete and effective; perfection, meaning complete, finished, without defect and enforceable, is conferred on it by its form."@en ;
+    skos:historyNote "Duranti: an electronic record becomes an original when its addressee first saves it, because information not affixed to a medium is not a document (Part VI, p. 10); the machine-readable record is the original if it is complete, without defect and able to produce consequences, otherwise the enforceable printout is (Part I)."@en ;
+    skos:scopeNote "InterPARES 1: in principle an original electronic record is the first complete and effective record, but in an electronic environment no original survives; setting a record aside and retrieving it already moves it across technological boundaries. What a Custodian Attestation Record certifies is therefore a copy in the form of the original, and the CAR itself is the original of the certification act."@en ;
+    rdfs:seeAlso sdo:creativeWorkStatus ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'original'" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 5, Principle 8" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 22" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 19; Part VI, pp. 9-10" .
+
+dipl:Copy
+    a skos:Concept , rico:RecordState ;
+    skos:inScheme dipl:TransmissionStatusScheme ;
+    skos:topConceptOf dipl:TransmissionStatusScheme ;
+    skos:prefLabel "copy"@en , "Abschrift (Kopie)"@de ;
+    skos:definition "An entity that is generated from and resembles a record: a reproduction of an original, a draft or another copy."@en ;
+    skos:scopeNote "The kinds of copy differ in how much of the original they reproduce; whether a copy is attested (dipl:AuthenticCopy) is independent of its kind. Duranti's rules for electronic copies: a copy of a current original is a copy in the form of original; a copy of a non-current record made with the same software is an imitative copy; a software-independent transfer that does not capture the form is a simple copy (Part VI, p. 10)."@en ;
+    skos:related dipl:Reproduction ;
+    rdfs:seeAlso prov:wasDerivedFrom , prov:hadPrimarySource ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 2, 'copy'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 23" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, pp. 20-21; Part VI, p. 10" .
+
+dipl:CopyInFormOfOriginal
+    a skos:Concept , rico:RecordState ;
+    skos:inScheme dipl:TransmissionStatusScheme ;
+    skos:broader dipl:Copy ;
+    skos:prefLabel "copy in the form of original"@en , "Abschrift in Form des Originals"@de ;
+    skos:definition "A copy that is identical to the original although generated subsequently: it reproduces content and form completely and lacks only primitiveness. It is the most reliable kind of copy and is equivalent to the original as to its consequences."@en ;
+    skos:historyNote "Duranti: a document legally as perfect and enforceable as an original but lacking the quality of primitiveness that only the first attestation has (Part I, p. 19)."@en ;
+    rdfs:seeAlso prov:alternateOf ;
+    dct:source "InterPARES 1, Authenticity Task Force Report (2001), p. 23" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 5, Principle 8" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 19; Part VI, p. 10" .
+
+dipl:ImitativeCopy
+    a skos:Concept , rico:RecordState ;
+    skos:inScheme dipl:TransmissionStatusScheme ;
+    skos:broader dipl:Copy ;
+    skos:prefLabel "imitative copy"@en , "Nachzeichnung"@de ;
+    skos:definition "A copy that reproduces both the content and the form of the record, but in such a way that it is always possible to tell the copy from the original."@en ;
+    skos:historyNote "Duranti: a copy which reproduces, completely or partially, not only the content but also the forms, including the external ones (layout, script, special signs, medium), of the original; a modern example is the photocopy (Part I, pp. 20-21)."@en ;
+    dct:source "InterPARES 1, Authenticity Task Force Report (2001), p. 23" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, pp. 20-21" .
+
+dipl:SimpleCopy
+    a skos:Concept , rico:RecordState ;
+    skos:inScheme dipl:TransmissionStatusScheme ;
+    skos:broader dipl:Copy ;
+    skos:prefLabel "simple copy"@en , "einfache Abschrift"@de ;
+    skos:definition "A copy that only reproduces the content of the original, not its form."@en ;
+    skos:historyNote "Duranti: constituted by the mere transcription of the content of the original, prepared by whomever, and cannot have legal effects (Part I, p. 21)."@en ;
+    dct:source "InterPARES 1, Authenticity Task Force Report (2001), p. 23" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 21" .
+
+dipl:AuthenticCopy
+    a skos:Concept , rico:RecordState ;
+    skos:inScheme dipl:TransmissionStatusScheme ;
+    skos:topConceptOf dipl:TransmissionStatusScheme ;
+    skos:prefLabel "authentic copy"@en , "beglaubigte Abschrift"@de ;
+    skos:definition "A copy of any kind that is attested to be authentic by the official preserver; by virtue of that attestation it is deemed to conform to the record it reproduces until proof to the contrary is shown, and is equivalent to the original."@en ;
+    skos:historyNote "Duranti treated the authentic copy as a fourth kind of copy: a copy certified by officials authorized to execute such a function, so as to render it legally admissible in evidence; the vidimus is its perfect form (Part I, p. 21). Version 0.2.0 of this vocabulary placed it under dipl:Copy."@en ;
+    skos:scopeNote "An attestation status, orthogonal to the kind of copy, which is why it is a top concept rather than narrower than dipl:Copy. The attestation guarantees conformity to the original, not the original's genuineness: if the original was inauthentic or false in whatever sense, the copy remains an authenticated copy of an inauthentic or false document (Part I, p. 21). InterPARES 1 requires every baseline requirement to be met before the preserver attests a copy; the instrument of attestation is the certificate of authenticity."@en ;
+    skos:related dipl:CertificateOfAuthenticity , dipl:Vidimus , dipl:Copy ;
+    dct:source "InterPARES 1, Authenticity Task Force Report (2001), p. 23" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 5, Principle 8" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 21" .
+
+dipl:PseudoOriginal
+    a skos:Concept , rico:RecordState ;
+    skos:inScheme dipl:TransmissionStatusScheme ;
+    skos:topConceptOf dipl:TransmissionStatusScheme ;
+    skos:prefLabel "pseudo-original"@en , "Pseudo-Original"@de ;
+    skos:definition "A copy made with fraudulent intention, in which the maker of the copy tries to imitate perfectly the original in order to deceive."@en ;
+    skos:scopeNote "Not used by InterPARES 1, which treats falsification as a loss of integrity (tampering or corruption). Kept for Duranti's diplomatic criticism of copies."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 21" .
+
+dipl:Version
+    a skos:Concept , rico:RecordState ;
+    skos:inScheme dipl:TransmissionStatusScheme ;
+    skos:topConceptOf dipl:TransmissionStatusScheme ;
+    skos:prefLabel "version"@en , "Fassung (Version)"@de ;
+    skos:definition "One of two or more forms in which a record is issued."@en ;
+    skos:scopeNote "Distinct from a draft: each version is issued. The sequential drafts of one record are told apart by the draft number, a record management annotation. A corrected or renewed Custodian Attestation Record is a new record linked to the earlier one, not a version of it."@en ;
+    skos:related dipl:Draft , dipl:Correction ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 7, 'version'; p. 3, 'draft number'" .
+
+# ---------------------------------------------------------------------------
+# Acts and procedures. InterPARES 1 tried function and procedure category as
+# bases for a typology of authenticity requirements and rejected both; the
+# concepts stay as descriptive categories.
+# ---------------------------------------------------------------------------
+
+dipl:ActTypeScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Type of act"@en , "Art der Handlung"@de ;
+    skos:definition "Acts classified by the number and nature of the persons concurring in them, plus the acts of the Custodian Attestation Record procedure."@en ;
+    skos:scopeNote "Descriptive only. InterPARES 1 did not use Duranti's types of act and found that no typology of authenticity requirements could be built from the function of records or the category of procedure; a creator-specific typology based on its own acts, procedures and functions is the likeliest route (Authenticity Task Force Report, pp. 15-16, 32). Do not derive required elements from a value of this scheme."@en ;
+    skos:hasTopConcept dipl:SimpleAct , dipl:CollegialAct , dipl:Contract , dipl:CollectiveAct , dipl:MultipleAct , dipl:ContinuativeAct , dipl:ComplexAct , dipl:ActOnProcedure ;
+    rdfs:seeAlso dct:type , sdo:additionalType ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 15-16, 32" .
+
+dipl:SimpleAct
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:topConceptOf dipl:ActTypeScheme ;
+    skos:prefLabel "simple act"@en , "einfache Handlung"@de ;
+    skos:definition "An act performed by one person or organ."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" .
+
+dipl:CollegialAct
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:topConceptOf dipl:ActTypeScheme ;
+    skos:prefLabel "collegial act"@en , "Kollegialhandlung"@de ;
+    skos:definition "An act resulting from the deliberation of a group."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" .
+
+dipl:Contract
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:topConceptOf dipl:ActTypeScheme ;
+    skos:prefLabel "contract"@en , "Vertrag"@de ;
+    skos:definition "A bilateral act between two interacting parties."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" .
+
+dipl:CollectiveAct
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:topConceptOf dipl:ActTypeScheme ;
+    skos:prefLabel "collective act"@en , "Kollektivhandlung"@de ;
+    skos:definition "An act of several parties pursuing the same aim."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" .
+
+dipl:MultipleAct
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:topConceptOf dipl:ActTypeScheme ;
+    skos:prefLabel "multiple act"@en , "mehrfache Handlung"@de ;
+    skos:definition "An act that produces several originals, one for each party."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" .
+
+dipl:ContinuativeAct
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:topConceptOf dipl:ActTypeScheme ;
+    skos:prefLabel "continuative act"@en , "fortgesetzte Handlung"@de ;
+    skos:definition "A sequence of identical acts by the same person or organ, such as the records of one signing batch."@en ;
+    skos:scopeNote "A signing batch is a continuative act, not an InterPARES 1 file, which is an aggregation by person, action or matter (dipl:File)."@en ;
+    rdfs:seeAlso prov:Collection ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" .
+
+dipl:ComplexAct
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:topConceptOf dipl:ActTypeScheme ;
+    skos:prefLabel "complex act"@en , "komplexe Handlung"@de ;
+    skos:definition "A sequence of different acts, by the same or different persons, toward a common aim."@en ;
+    rdfs:seeAlso prov:wasInformedBy ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" .
+
+dipl:ActOnProcedure
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:topConceptOf dipl:ActTypeScheme ;
+    skos:prefLabel "act on procedure"@en , "Verfahrenshandlung"@de ;
+    skos:definition "An act that derives from an established procedural sequence."@en ;
+    rdfs:seeAlso prov:Plan ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II; Part IV" .
+
+dipl:Certification
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:broader dipl:ActOnProcedure ;
+    skos:prefLabel "certification"@en , "Bescheinigung (Handlung)"@de ;
+    skos:definition "The act by which an institution attests that it holds a digital component in an exact form at a point in time; the act a Custodian Attestation Record documents."@en ;
+    skos:scopeNote "In InterPARES 1 terms the act is an authentication (dipl:Authentication): a point-in-time declaration by a juridical person entrusted to make it. It is not the issue of a certificate of authenticity."@en ;
+    skos:related dipl:Authentication ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'authentication'" .
+
+dipl:Correction
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:broader dipl:ActOnProcedure ;
+    skos:prefLabel "correction"@en , "Berichtigung"@de ;
+    skos:definition "A later act that annuls and replaces an earlier record's statements. The earlier record stays genuine as created; the new record links to it with dct:replaces."@en ;
+    rdfs:seeAlso dct:replaces ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I" .
+
+dipl:Withdrawal
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:broader dipl:ActOnProcedure ;
+    skos:prefLabel "withdrawal"@en , "Rücknahme"@de ;
+    skos:definition "A later act that ends the effect of an earlier record without destroying it; the act links to the earlier record with prov:invalidated."@en ;
+    rdfs:seeAlso prov:invalidated ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I" .
+
+dipl:Renewal
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ActTypeScheme ;
+    skos:broader dipl:ActOnProcedure ;
+    skos:prefLabel "renewal"@en , "Erneuerung"@de ;
+    skos:definition "A later act that re-attests existing records under stronger algorithms or anchors, without changing their content."@en ;
+    skos:scopeNote "A partial answer to the question InterPARES 1 left open: how authenticated records survive when a certification authority ceases to exist and the PKI chain of trust breaks (Authenticity Task Force Report, p. 33)."@en ;
+    rdfs:seeAlso dct:references ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 33" .
+
+dipl:ProcedurePhaseScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Phase of procedure"@en , "Verfahrensphase"@de ;
+    skos:definition "The six phases of the integrated procedure that generates a record; every transaction passes through them, which constitute a closed logical system."@en ;
+    skos:scopeNote "Descriptive only. InterPARES 1 replaced the ideal six-phase structure in practice with the procedural context of the record and the IDEF(0) selection and preservation function models; it does not use the phases as a basis for authenticity requirements."@en ;
+    skos:hasTopConcept dipl:Initiative , dipl:Inquiry , dipl:Consultation , dipl:Deliberation , dipl:DeliberationControl , dipl:Execution ;
+    skos:related dipl:ProceduralContext ;
+    rdfs:seeAlso dct:type ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV, pp. 14-15" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'procedure', 'procedural context'" .
+
+dipl:Initiative
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ProcedurePhaseScheme ;
+    skos:topConceptOf dipl:ProcedurePhaseScheme ;
+    skos:prefLabel "initiative"@en , "Initiative"@de ;
+    skos:definition "The phase that starts the procedure with a request or proposal."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:Inquiry
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ProcedurePhaseScheme ;
+    skos:topConceptOf dipl:ProcedurePhaseScheme ;
+    skos:prefLabel "inquiry"@en , "Ermittlung"@de ;
+    skos:definition "The phase that collects the elements needed to evaluate the situation."@en ;
+    rdfs:seeAlso prov:used ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:Consultation
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ProcedurePhaseScheme ;
+    skos:topConceptOf dipl:ProcedurePhaseScheme ;
+    skos:prefLabel "consultation"@en , "Konsultation"@de ;
+    skos:definition "The phase that collects opinions and advice once the data are assembled."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:Deliberation
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ProcedurePhaseScheme ;
+    skos:topConceptOf dipl:ProcedurePhaseScheme ;
+    skos:prefLabel "deliberation"@en , "Beschlussfassung"@de ;
+    skos:definition "The phase of final decision; the moment of documentation begins here."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:DeliberationControl
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ProcedurePhaseScheme ;
+    skos:topConceptOf dipl:ProcedurePhaseScheme ;
+    skos:prefLabel "deliberation control"@en , "Kontrolle der Beschlussfassung"@de ;
+    skos:definition "The phase in which a physical or juridical person different from the author of the document controls the substance of the deliberation and/or its forms; sometimes necessary to ensure the effectiveness and enforceability of the deliberation."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV, p. 14" .
+
+dipl:Execution
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:ProcedurePhaseScheme ;
+    skos:topConceptOf dipl:ProcedurePhaseScheme ;
+    skos:prefLabel "execution"@en , "Ausführung"@de ;
+    skos:definition "The phase of all the actions which give formal character to the transaction: validation, communication, notification, publication. The documents created in this phase are the originals of those embodying the transactions."@en ;
+    skos:related dipl:ExecutionAnnotation ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV, p. 15" .
+
+dipl:DocumentationStepScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Step of documentation"@en , "Schritt der Beurkundung"@de ;
+    skos:definition "Steps of the moment of documentation (conscriptio), from draft to inclusion in the file."@en ;
+    skos:hasTopConcept dipl:DraftCompilation , dipl:FairCopy , dipl:Validation , dipl:Registration , dipl:Delivery , dipl:InclusionInFile ;
+    rdfs:seeAlso dct:type ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:DraftCompilation
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:DocumentationStepScheme ;
+    skos:topConceptOf dipl:DocumentationStepScheme ;
+    skos:prefLabel "compilation of the draft"@en , "Abfassung des Entwurfs"@de ;
+    skos:definition "Compilation of one or more drafts of the document."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:FairCopy
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:DocumentationStepScheme ;
+    skos:topConceptOf dipl:DocumentationStepScheme ;
+    skos:prefLabel "preparation of the fair copy"@en , "Reinschrift"@de ;
+    skos:definition "Preparation of the definitive text after control of the draft."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:Validation
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:DocumentationStepScheme ;
+    skos:topConceptOf dipl:DocumentationStepScheme ;
+    skos:prefLabel "validation"@en , "Beglaubigung (Validierung)"@de ;
+    skos:altLabel "roboratio"@en ;
+    skos:definition "The step that makes the document effective: granting official sanction by marking, typically through the attestation of the author or its agent; its date is the date of authentication."@en ;
+    skos:scopeNote "Duranti's roboratio was made by the subscription or sign of the author, the subscription of the highest chancery official, the intervention of witnesses, special signs, or seals (Part IV, p. 13). The attestation is the means generally used, but some documents are validated by their process of creation, and electronic records typically present their validation in the protocol (Part V, pp. 14-15). In a Custodian Attestation Record validation is the signature under the institution's key, an electronic seal."@en ;
+    skos:related dipl:Attestation , dipl:ElectronicSeal ;
+    rdfs:seeAlso dct:issued ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV, p. 13; Part V, pp. 14-15" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 7, 'validate'" .
+
+dipl:Registration
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:DocumentationStepScheme ;
+    skos:topConceptOf dipl:DocumentationStepScheme ;
+    skos:prefLabel "registration"@en , "Registrierung"@de ;
+    skos:definition "The action of transcribing a document in a register, carried out by an office different from that issuing the document and specifically entrusted with that function; the number assigned in the register is included in the document with a formula attesting to that action. Not a formal requirement."@en ;
+    skos:scopeNote "The anchors of a Custodian Attestation Record are registrations: an RFC 3161 token is also InterPARES 1's digital time-stamp issued by a trusted third party; an OpenTimestamps proof has no third party, so the record names its trust basis instead."@en ;
+    skos:related dipl:DigitalTimeStamp , dipl:RegistrationOffice ;
+    rdfs:seeAlso dct:dateAccepted ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 9" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'digital time-stamp issued by a trusted third party'" .
+
+dipl:Delivery
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:DocumentationStepScheme ;
+    skos:topConceptOf dipl:DocumentationStepScheme ;
+    skos:prefLabel "delivery"@en , "Aushändigung (Zustellung)"@de ;
+    skos:definition "Delivery of the document to the persons concerned, or its publication."@en ;
+    skos:related dipl:DateOfTransmission ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:InclusionInFile
+    a skos:Concept , rico:ActivityType ;
+    skos:inScheme dipl:DocumentationStepScheme ;
+    skos:topConceptOf dipl:DocumentationStepScheme ;
+    skos:prefLabel "inclusion in the file"@en , "Aufnahme in die Akte"@de ;
+    skos:definition "Inclusion of the document in the file of the procedure; in InterPARES 1 terms, setting the record aside, which fixes its archival date."@en ;
+    skos:related dipl:ArchivalDate , dipl:File ;
+    rdfs:seeAlso prov:hadMember ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'archival date'" .
+
+dipl:ProcedureCategoryScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Category of procedure"@en , "Verfahrenskategorie"@de ;
+    skos:definition "Procedures classified by their general purpose."@en ;
+    skos:scopeNote "Descriptive only. InterPARES 1 tried this categorization as the basis of a typology of authenticity requirements and rejected it (Authenticity Task Force Report, pp. 15-16)."@en ;
+    skos:hasTopConcept dipl:OrganizationalProcedure , dipl:InstrumentalProcedure , dipl:ExecutiveProcedure , dipl:ConstitutiveProcedure ;
+    rdfs:seeAlso dct:type ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 15-16" .
+
+dipl:OrganizationalProcedure
+    a skos:Concept ;
+    skos:inScheme dipl:ProcedureCategoryScheme ;
+    skos:topConceptOf dipl:ProcedureCategoryScheme ;
+    skos:prefLabel "organizational procedure"@en , "Organisationsverfahren"@de ;
+    skos:definition "A procedure that establishes, maintains, modifies or extinguishes an organizational structure or internal procedure."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:InstrumentalProcedure
+    a skos:Concept ;
+    skos:inScheme dipl:ProcedureCategoryScheme ;
+    skos:topConceptOf dipl:ProcedureCategoryScheme ;
+    skos:prefLabel "instrumental procedure"@en , "instrumentelles Verfahren"@de ;
+    skos:definition "A procedure that expresses opinions or advice."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" .
+
+dipl:ExecutiveProcedure
+    a skos:Concept ;
+    skos:inScheme dipl:ProcedureCategoryScheme ;
+    skos:topConceptOf dipl:ProcedureCategoryScheme ;
+    skos:prefLabel "executive procedure"@en , "Vollzugsverfahren"@de ;
+    skos:definition "A procedure that allows for the regular transaction of affairs according to established rules."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 15" .
+
+dipl:ConstitutiveProcedure
+    a skos:Concept ;
+    skos:inScheme dipl:ProcedureCategoryScheme ;
+    skos:topConceptOf dipl:ProcedureCategoryScheme ;
+    skos:prefLabel "constitutive procedure"@en , "konstitutives Verfahren"@de ;
+    skos:definition "A procedure that creates, extinguishes or modifies the exercise of power; subdivided into procedures of concession, of limitation and of authorization."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 15" .
+
+# ---------------------------------------------------------------------------
+# Persons. Duranti's three necessary persons and the attesting persons, plus
+# the originator and receiver InterPARES 1 added as identity attributes.
+# ---------------------------------------------------------------------------
+
+dipl:RoleScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Role in the formation of a document"@en , "Rolle bei der Entstehung des Schriftstücks"@de ;
+    skos:definition "Functions that persons, and software acting for them, perform in creating a document. The names of the author, writer, addressee and originator are attributes of a record's identity."@en ;
+    skos:scopeNote "Only author, writer, signatory, countersigner, witness and registration office may be the role of a prov:qualifiedAssociation in a Custodian Attestation Record. The addressee is expressed with dct:audience, the originator by the key identifier that signed, and the receiver, like the addressee, is never an association. Persons appear by role and capacity, not by name. Software belongs to the technological context and acts only on behalf of a person."@en ;
+    skos:hasTopConcept dipl:Author , dipl:Writer , dipl:Addressee , dipl:Originator , dipl:Receiver , dipl:Signatory , dipl:Countersigner , dipl:Witness , dipl:RegistrationOffice ;
+    rdfs:seeAlso prov:hadRole ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III, p. 5" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" .
+
+dipl:Author
+    a skos:Concept , rico:RoleType , prov:Role ;
+    skos:inScheme dipl:RoleScheme ;
+    skos:topConceptOf dipl:RoleScheme ;
+    skos:prefLabel "author"@en , "Aussteller"@de ;
+    skos:definition "The physical or juridical person having the authority and capacity to issue the document, in whose name or by whose command it is issued, and whose will it expresses. Only a physical or juridical person can be author; software never can."@en ;
+    skos:scopeNote "Competence, the authority and capacity of accomplishing an act, is distinct from responsibility, the obligation to answer for it (Part III, p. 8). InterPARES 1 found that the author may be recorded in the provenancial context, such as the owner of the system, rather than on the face of an electronic record, so it must be made explicit (Appraisal Task Force Report, p. 9). In a Custodian Attestation Record the author is the issuing institution, identified by its key."@en ;
+    skos:related dipl:Creator , dipl:Preserver , dipl:NameOfAuthor ;
+    rdfs:seeAlso prov:wasAttributedTo , sdo:author , sdo:creator ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III, pp. 5, 8" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of author'" ,
+        "InterPARES 1, Appraisal Task Force Report (2001), p. 9" .
+
+dipl:Writer
+    a skos:Concept , rico:RoleType , prov:Role ;
+    skos:inScheme dipl:RoleScheme ;
+    skos:topConceptOf dipl:RoleScheme ;
+    skos:prefLabel "writer"@en , "Verfasser"@de ;
+    skos:definition "The physical or juridical person having the authority and capacity to articulate the content of the document, responsible for its tenor and articulation. Software that compiles the document holds this role only as a chancery would: on behalf of the person it serves."@en ;
+    skos:related dipl:NameOfWriter ;
+    rdfs:seeAlso prov:SoftwareAgent , prov:actedOnBehalfOf ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III, p. 5" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of writer'" .
+
+dipl:Addressee
+    a skos:Concept , rico:RoleType , prov:Role ;
+    skos:inScheme dipl:RoleScheme ;
+    skos:topConceptOf dipl:RoleScheme ;
+    skos:prefLabel "addressee"@en , "Empfänger"@de ;
+    skos:definition "The physical or juridical person to whom the document is directed or for whom it is intended; may differ from the addressee of the act. For a general inscription ('to all to whom these presents shall come') use dct:audience."@en ;
+    skos:related dipl:NameOfAddressee ;
+    rdfs:seeAlso dct:audience , sdo:recipient , sdo:audience ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III, p. 5" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of addressee'" .
+
+dipl:Originator
+    a skos:Concept , rico:RoleType , prov:Role ;
+    skos:inScheme dipl:RoleScheme ;
+    skos:topConceptOf dipl:RoleScheme ;
+    skos:prefLabel "originator"@en , "Absender (Urheber der Übermittlung)"@de ;
+    skos:definition "The person assigned the electronic address in which the record has been generated and/or sent."@en ;
+    skos:scopeNote "Added by InterPARES 1 for electronic records; its name is an identity attribute. In a Custodian Attestation Record the originator is expressed by the verification method, the institution's key identifier, and is not a separate association."@en ;
+    skos:related dipl:NameOfOriginator ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of originator'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" .
+
+dipl:Receiver
+    a skos:Concept , rico:RoleType , prov:Role ;
+    skos:inScheme dipl:RoleScheme ;
+    skos:topConceptOf dipl:RoleScheme ;
+    skos:prefLabel "receiver"@en , "Mitempfänger (zur Kenntnis)"@de ;
+    skos:definition "The physical or juridical person to whom the record is copied for information purposes."@en ;
+    skos:scopeNote "Added by InterPARES 1. Like the addressee, never an association in a Custodian Attestation Record."@en ;
+    skos:related dipl:NameOfReceiver ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of receiver'" .
+
+dipl:Signatory
+    a skos:Concept , rico:RoleType , prov:Role ;
+    skos:inScheme dipl:RoleScheme ;
+    skos:topConceptOf dipl:RoleScheme ;
+    skos:prefLabel "signatory"@en , "Unterzeichner"@de ;
+    skos:definition "The person whose subscription validates the document on behalf of the author and who, by an electronic signature, takes responsibility for or gives consent to its content; the qualification of signature states their title and capacity. Never software."@en ;
+    skos:related dipl:ElectronicSignature , dipl:QualificationOfSignature ;
+    rdfs:seeAlso sdo:jobTitle ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 14-15" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 4, 'electronic signature'" .
+
+dipl:Countersigner
+    a skos:Concept , rico:RoleType , prov:Role ;
+    skos:inScheme dipl:RoleScheme ;
+    skos:topConceptOf dipl:RoleScheme ;
+    skos:prefLabel "countersigner"@en , "Gegenzeichner"@de ;
+    skos:definition "A person whose signature validates the physical and intellectual form of the document and guarantees that it was created according to the established procedure and signed by the appropriate person; responsible for the regularity of formation and the forms, not for the content."@en ;
+    skos:related dipl:Attestation ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III, p. 7" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'attestation'" .
+
+dipl:Witness
+    a skos:Concept , rico:RoleType , prov:Role ;
+    skos:inScheme dipl:RoleScheme ;
+    skos:topConceptOf dipl:RoleScheme ;
+    skos:prefLabel "witness"@en , "Zeuge"@de ;
+    skos:definition "A person whose signature confers solemnity on the document, authenticates the signature of the author, validates the content or its compilation, or affirms that an act took place in their presence; affects effectiveness, not nature."@en ;
+    skos:scopeNote "For electronic records InterPARES 1's functional counterpart is the trusted third party whose digital time-stamp attests receipt at a point in time."@en ;
+    skos:related dipl:Attestation , dipl:DigitalTimeStamp ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III, p. 8" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'attestation'" .
+
+dipl:RegistrationOffice
+    a skos:Concept , rico:RoleType , prov:Role ;
+    skos:inScheme dipl:RoleScheme ;
+    skos:topConceptOf dipl:RoleScheme ;
+    skos:prefLabel "registration office"@en , "Registrierstelle"@de ;
+    skos:altLabel "trusted third party"@en ;
+    skos:definition "An office, other than the issuing one, entrusted with registering documents. May be a trusted third party that issues digital time-stamps, a qualified time-stamping authority, or software acting on behalf of its operator."@en ;
+    skos:scopeNote "InterPARES 1's trusted third party issues digital time-stamps and authentication certificates for public keys, and may give testimony during verification (Authenticity Task Force Report, p. 22); the continuity of its chain of trust was left an open question (p. 33). For an OpenTimestamps anchor the Bitcoin ledger stands in for the office: no single party operates it, and the record names its trust basis."@en ;
+    skos:related dipl:Registration , dipl:DigitalTimeStamp ;
+    rdfs:seeAlso prov:SoftwareAgent ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 9" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'authentication certificate of trusted third party'; p. 3, 'digital time-stamp issued by a trusted third party'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 22, 33" .
+
+# ---------------------------------------------------------------------------
+# Dates. Duranti's four chronological dates and the topical date, plus the
+# dates of transmission and the archival date that InterPARES 1 added.
+# ---------------------------------------------------------------------------
+
+dipl:DateTypeScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Type of date"@en , "Art des Datums"@de ;
+    skos:definition "The kinds of date diplomatics keeps apart. InterPARES 1 counts the dates a record was made, received and set aside, and its dates of transmission, among the attributes of its identity."@en ;
+    skos:hasTopConcept dipl:DateOfAction , dipl:DateOfCompilation , dipl:DateOfAuthentication , dipl:DateOfRegistration , dipl:DateOfTransmission , dipl:ArchivalDate , dipl:TopicalDate ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" .
+
+dipl:DateOfAction
+    a skos:Concept , rico:DateType ;
+    skos:inScheme dipl:DateTypeScheme ;
+    skos:topConceptOf dipl:DateTypeScheme ;
+    skos:prefLabel "date of action"@en , "Handlungsdatum (actum)"@de ;
+    skos:definition "The time of the action the document concerns (actio)."@en ;
+    rdfs:seeAlso prov:startedAtTime , prov:endedAtTime , sdo:startTime , sdo:endTime ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:DateOfCompilation
+    a skos:Concept , rico:DateType ;
+    skos:inScheme dipl:DateTypeScheme ;
+    skos:topConceptOf dipl:DateTypeScheme ;
+    skos:prefLabel "date of compilation"@en , "Beurkundungsdatum (datum)"@de ;
+    skos:altLabel "chronological date"@en ;
+    skos:definition "The time the document was compiled (conscriptio): the date, and possibly the time of day, included in the record by its author, or by the electronic system on the author's behalf, in the course of its compilation."@en ;
+    skos:scopeNote "InterPARES 1 allows the system to add the chronological date for the author; in a Custodian Attestation Record the compiling software does so as writer, on behalf of the institution."@en ;
+    skos:related dipl:ChronologicalDate ;
+    rdfs:seeAlso dct:created , prov:generatedAtTime , sdo:dateCreated ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 2, 'chronological date'" .
+
+dipl:DateOfAuthentication
+    a skos:Concept , rico:DateType ;
+    skos:inScheme dipl:DateTypeScheme ;
+    skos:topConceptOf dipl:DateTypeScheme ;
+    skos:prefLabel "date of authentication"@en , "Beglaubigungsdatum"@de ;
+    skos:definition "The time the document was validated. When it differs from the date of compilation it is the effective date of the document, for the legal purposes of avoiding fraud."@en ;
+    skos:scopeNote "InterPARES 1's authentication is a declaration 'at a specific point in time'; this date is that point. In a Custodian Attestation Record it is dct:issued, inside the signed bytes."@en ;
+    skos:related dipl:Authentication ;
+    rdfs:seeAlso dct:issued ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 22, note 14" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'authentication'" .
+
+dipl:DateOfRegistration
+    a skos:Concept , rico:DateType ;
+    skos:inScheme dipl:DateTypeScheme ;
+    skos:topConceptOf dipl:DateTypeScheme ;
+    skos:prefLabel "date of registration"@en , "Registrierungsdatum"@de ;
+    skos:definition "The time the document was transcribed in a register; for a digital time-stamp, the point in time at which a trusted third party attests that it received the record."@en ;
+    skos:related dipl:DigitalTimeStamp ;
+    rdfs:seeAlso dct:dateAccepted ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 9" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'digital time-stamp issued by a trusted third party'" .
+
+dipl:DateOfTransmission
+    a skos:Concept , rico:DateType ;
+    skos:inScheme dipl:DateTypeScheme ;
+    skos:topConceptOf dipl:DateTypeScheme ;
+    skos:prefLabel "date of transmission"@en , "Übermittlungsdatum"@de ;
+    skos:definition "The time at which a record was sent to its addressee or receiver; an attribute of the record's identity and, on an e-mail, an execution annotation."@en ;
+    skos:related dipl:Delivery , dipl:ExecutionAnnotation ;
+    dct:source "InterPARES 1, Authenticity Task Force Report (2001), p. 20" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'mode of transmission'" .
+
+dipl:ArchivalDate
+    a skos:Concept , rico:DateType ;
+    skos:inScheme dipl:DateTypeScheme ;
+    skos:topConceptOf dipl:DateTypeScheme ;
+    skos:prefLabel "archival date"@en , "Archivierungsdatum"@de ;
+    skos:definition "The date on which a record is officially incorporated into the creator's records: the date it was set aside."@en ;
+    skos:scopeNote "The archival bond comes into existence at this date. For the file a Custodian Attestation Record certifies, the declared date of creation in its public metadata may carry it; the CAR's own dates never do."@en ;
+    skos:related dipl:InclusionInFile , dipl:ArchivalBond ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'archival date', 'archival bond'" .
+
+dipl:TopicalDate
+    a skos:Concept , rico:DateType ;
+    skos:inScheme dipl:DateTypeScheme ;
+    skos:topConceptOf dipl:DateTypeScheme ;
+    skos:prefLabel "topical date"@en , "Ortsangabe (Ausstellungsort)"@de ;
+    skos:altLabel "place of origin"@en ;
+    skos:definition "The place where the document was compiled or the action took place; InterPARES 1's name of place of origin, included by the author or by the system on the author's behalf."@en ;
+    skos:related dipl:NameOfPlaceOfOrigin ;
+    rdfs:seeAlso prov:atLocation , sdo:locationCreated ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of place of origin'" .
+
+# ---------------------------------------------------------------------------
+# Authenticity. Duranti's three independent kinds stay as a scheme for reading
+# a document; InterPARES 1's assessment concepts are what a verifier applies.
+# Neither is ever asserted inside a signed Custodian Attestation Record.
+# ---------------------------------------------------------------------------
+
+dipl:AuthenticityScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Kind of authenticity"@en , "Art der Echtheit"@de ;
+    skos:definition "Duranti's three independent kinds of authenticity. A document is 'authentic' when it presents all the elements designed to provide it with authenticity, and 'genuine' when it is truly what it purports to be; a document can be authentic but not genuine, or the reverse."@en ;
+    skos:scopeNote "InterPARES 1 uses one concept of authenticity (dipl:Authenticity), tested as identity plus integrity, in which 'authentic' is synonymous with 'genuine': its authentic record is Duranti's genuine record plus integrity. Duranti's kinds are kept for diplomatic criticism and for the verifier's output; they are never asserted in the record."@en ;
+    skos:hasTopConcept dipl:DiplomaticAuthenticity , dipl:LegalAuthenticity , dipl:HistoricalAuthenticity ;
+    skos:related dipl:AuthenticityAssessmentScheme ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, pp. 17-18; p. 26, note 30" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 2" .
+
+dipl:DiplomaticAuthenticity
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityScheme ;
+    skos:topConceptOf dipl:AuthenticityScheme ;
+    skos:prefLabel "diplomatic authenticity"@en , "diplomatische Echtheit"@de ;
+    skos:definition "The quality of a document written according to the practice of the time and place indicated in the text, and signed with the names of the persons competent to create it."@en ;
+    skos:scopeNote "Demoted by InterPARES 1: not a kind of authenticity but evidence for the presumption of authenticity, through benchmark requirement A.5 (documentary forms established by the juridical system or the creator) and the rules of a trusted record-keeping system. Duranti already warned that for modern documents diplomatic authenticity deduced from forms gives no reasonable expectation of genuineness (Part I, p. 23)."@en ;
+    skos:related dipl:PresumptionOfAuthenticity , dipl:BenchmarkRequirements ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, pp. 17, 23" ,
+        "InterPARES 1, Preservation Task Force Report (2001), p. 13" .
+
+dipl:LegalAuthenticity
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityScheme ;
+    skos:topConceptOf dipl:AuthenticityScheme ;
+    skos:prefLabel "legal authenticity"@en , "rechtliche Echtheit"@de ;
+    skos:definition "The quality of a document that bears witness on its own because of the intervention, during or after its creation, of a representative of a public authority guaranteeing its genuineness."@en ;
+    skos:scopeNote "InterPARES 1 reframes this as authentication (dipl:Authentication): a point-in-time declaration by an entrusted juridical person, distinct from authenticity. A Custodian Attestation Record confers this and no other kind."@en ;
+    skos:related dipl:Authentication ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 17" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'authentication'" .
+
+dipl:HistoricalAuthenticity
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityScheme ;
+    skos:topConceptOf dipl:AuthenticityScheme ;
+    skos:prefLabel "historical authenticity"@en , "historische Echtheit"@de ;
+    skos:definition "The quality of a document that attests to events that actually took place or to information that is true. Never established by a Custodian Attestation Record."@en ;
+    skos:scopeNote "Outside InterPARES 1's concept of authenticity, which concerns identity and integrity only. Van Garderen's access-based definition of archival materials likewise keeps truth and reliability out of the definition while leaving them critical to historical and legal value: the CAR is a label about custody and integrity, not a verdict on content. Van Garderen's reading of C2PA applies to the CAR too: 'a signed history of a file. It is not a verdict that the picture is true.'"@en ;
+    skos:related dipl:ArchivalMaterials ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 17" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" ,
+        "Van Garderen, P. Archival Materials: A Practical Definition, archivemati.ca (2007-01-22), doi:10.5281/zenodo.4998947" ,
+        "Van Garderen, P. AI Transparency, BC+AI Vancouver meetup (2026-09-30)" .
+
+dipl:AuthenticityAssessmentScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Assessment of authenticity"@en , "Beurteilung der Echtheit"@de ;
+    skos:definition "InterPARES 1's concepts for proving, presuming, verifying and declaring the authenticity of an electronic record."@en ;
+    skos:scopeNote "For verifier and custodian graphs only; never asserted in a signed Custodian Attestation Record. The CAR is an authentication and supplies evidence (identity attributes, archival bond, fixity history, custodial history) toward a presumption; the verifier weighs it. Benchmark evidence is cumulative; baseline controls are all-or-nothing."@en ;
+    skos:hasTopConcept dipl:Identity , dipl:Integrity , dipl:PresumptionOfAuthenticity , dipl:VerificationOfAuthenticity , dipl:Authentication , dipl:CertificateOfAuthenticity , dipl:BenchmarkRequirements , dipl:BaselineRequirements ;
+    skos:related dipl:AuthenticityScheme ;
+    dct:source "InterPARES 1, Authenticity Task Force Report (2001), pp. 20-23" ,
+        "InterPARES 1, Strategy Task Force Report (2001), pp. 3-5, Principles 2, 13, 14" .
+
+dipl:Identity
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityAssessmentScheme ;
+    skos:topConceptOf dipl:AuthenticityAssessmentScheme ;
+    skos:prefLabel "identity"@en , "Identität"@de ;
+    skos:definition "The distinguishing character of a record: the attributes that uniquely characterize it and distinguish it from other records. They include the names of the persons concurring in its formation (author, addressee, writer, originator), its dates of creation (made, received, set aside) and of transmission, an indication of the action or matter in which it participates, the expression of its archival bond, and an indication of any attachment."@en ;
+    skos:scopeNote "Identity attributes are often implicit in electronic systems and must be made explicit before records leave the system that created them (Authenticity Task Force Report, p. 24). Lemieux: a blockchain protects integrity but cannot carry identity, because it cannot carry the archival bond. A Custodian Attestation Record declares the certified file's identity attributes in its public metadata (Tier 2); it proves nothing about them beyond their being declared by the custodian."@en ;
+    skos:related dipl:ArchivalBond , dipl:Integrity , dipl:NameOfAuthor , dipl:IndicationOfAttachment ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'record identity'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 20, 24" ,
+        "Lemieux, V. L. Blockchain and Distributed Ledgers as Trusted Recordkeeping Systems: An Archival Theoretic Evaluation Framework, Future Technologies Conference (2017)" .
+
+dipl:Integrity
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityAssessmentScheme ;
+    skos:topConceptOf dipl:AuthenticityAssessmentScheme ;
+    skos:prefLabel "integrity"@en , "Integrität"@de ;
+    skos:definition "The quality or state of being a complete and uncorrupted record: its wholeness and soundness. An electronic record is essentially complete and uncorrupted if the message that it is meant to communicate in order to achieve its purpose is unaltered; its physical integrity, such as the number of bit strings, may be compromised provided the articulation of the content and any required elements of form remain the same."@en ;
+    skos:historyNote "Duranti expresses the same quality as perfection and completeness: an original must be perfect, meaning complete, finished, without defect and enforceable (Part I, p. 19)."@en ;
+    skos:scopeNote "Judged at the level of the message, not the bits. The hash in a Custodian Attestation Record proves bit-level integrity of one digital component, which is sufficient evidence that the component is unchanged but not necessary for record integrity. Lemieux: integrity is the one precondition of authenticity a blockchain delivers natively, and integrity is not authenticity."@en ;
+    skos:related dipl:Identity , dipl:DigitalComponent ;
+    rdfs:seeAlso <http://www.loc.gov/premis/rdf/v3/Fixity> ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'record integrity'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 19" ,
+        "Lemieux, V. L. Evaluating the Use of Blockchain in Land Transactions: An Archival Science Perspective, European Property Law Journal 6(3) (2017), doi:10.1515/eplj-2017-0019" .
+
+dipl:PresumptionOfAuthenticity
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityAssessmentScheme ;
+    skos:topConceptOf dipl:AuthenticityAssessmentScheme ;
+    skos:prefLabel "presumption of authenticity"@en , "Echtheitsvermutung"@de ;
+    skos:definition "An inference as to the fact of a record's authenticity that is drawn from known facts about the manner in which that record has been created and maintained. It rests on the benchmark requirements and is cumulative: the higher the number of satisfied requirements, and the greater the degree to which each is satisfied, the stronger the presumption."@en ;
+    skos:historyNote "Duranti's nearest concept: on certified diplomatic genuineness a judge infers historical authenticity until evidence to the contrary is produced (Part I, p. 20)."@en ;
+    skos:scopeNote "Future users must know how well founded the presumption is and what information it is based on (Appraisal Task Force Report, p. 10). A verifier of a Custodian Attestation Record reports the evidence the record supplies toward a presumption; the record itself asserts none."@en ;
+    skos:related dipl:BenchmarkRequirements , dipl:VerificationOfAuthenticity ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'presumption of authenticity'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 22" ,
+        "InterPARES 1, Appraisal Task Force Report (2001), p. 10" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 20" .
+
+dipl:VerificationOfAuthenticity
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityAssessmentScheme ;
+    skos:topConceptOf dipl:AuthenticityAssessmentScheme ;
+    skos:prefLabel "verification of authenticity"@en , "Echtheitsprüfung"@de ;
+    skos:definition "The act or process of establishing a correspondence of known facts about the record itself and the various contexts in which it has been created and maintained with the proposed fact of the record's authenticity. Undertaken when the presumption is absent or weak."@en ;
+    skos:historyNote "Duranti's method is diplomatic criticism: a fixed sequence of analysis from the extrinsic and intrinsic elements through the persons, act and procedure to the type of document, from the specific to the general (Part V, pp. 16-17)."@en ;
+    skos:scopeNote "Methods include comparison with copies preserved elsewhere or back-up tapes, comparison with registers of incoming and outgoing records, textual analysis, forensic analysis of medium and script, study of audit trails, and the testimony of a trusted third party. A Custodian Attestation Record and its anchors serve the first two and the last."@en ;
+    skos:related dipl:PresumptionOfAuthenticity , dipl:RegisterEntry ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 7, 'verification of authenticity'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 22" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 16-17" .
+
+dipl:Authentication
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityAssessmentScheme ;
+    skos:topConceptOf dipl:AuthenticityAssessmentScheme ;
+    skos:prefLabel "authentication"@en , "Authentifizierung (Beglaubigung)"@de ;
+    skos:definition "A declaration of a record's authenticity at a specific point in time by a juridical person entrusted with the authority to make such a declaration; an authoritative statement, in words or symbols, added to or inserted in the record."@en ;
+    skos:historyNote "Duranti: the legal recognition that a signature is affixed by and belongs to the person whose name it expresses, that a document is what it purports to be, or that a copy conforms to the original; an execution-phase annotation (Part V, p. 9). It provides a copy with the validity and effects of the original, not with its forms, and does not influence diplomatic, legal or historical genuineness (Part I, p. 21)."@en ;
+    skos:scopeNote "Distinct from authenticity, which is a quality of the record preserved over time (Strategy Task Force Report, Principle 14). Digital signatures can support authentication but are not sufficient to establish identity and demonstrate integrity over the long term. A Custodian Attestation Record is an authentication of the existence and integrity of a digital component in the custodian's custody at a point in time; its signature and anchors are authentication technology."@en ;
+    skos:related dipl:LegalAuthenticity , dipl:Certification , dipl:DateOfAuthentication , dipl:ElectronicSeal ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'authentication'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 2" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 5, Principle 14" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, p. 21; Part V, p. 9" .
+
+dipl:CertificateOfAuthenticity
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityAssessmentScheme ;
+    skos:topConceptOf dipl:AuthenticityAssessmentScheme ;
+    skos:prefLabel "certificate of authenticity"@en , "Echtheitszertifikat"@de ;
+    skos:definition "A declaration by the preserver that one or more reproduced or reproducible electronic records is authentic. It is produced when a requester demands tangible evidence that a reproduced record is authentic, and may be issued only when every baseline requirement is met."@en ;
+    skos:scopeNote "Not what a Custodian Attestation Record is. The CAR certifies existence and integrity of a digital component (dipl:Certificate); it does not declare the record authentic. Archival description of the fonds serves as the collective form of this certificate (Strategy Task Force Report, Principle 10)."@en ;
+    skos:related dipl:AuthenticCopy , dipl:Certificate , dipl:Preserver , dipl:BaselineRequirements ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 2, 'certificate of authenticity'" ,
+        "InterPARES 1, Preservation Task Force Report (2001), p. 6" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 23" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 5, Principle 10" .
+
+dipl:BenchmarkRequirements
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityAssessmentScheme ;
+    skos:topConceptOf dipl:AuthenticityAssessmentScheme ;
+    skos:prefLabel "benchmark requirements"@en , "Benchmark-Anforderungen"@de ;
+    skos:definition "The conditions that serve as a basis for the preserver's assessment of the authenticity of electronic records (Requirement Set A, A.1-A.8). They are met by the creator in a trusted record-keeping system, applied during appraisal before transfer, and cumulative."@en ;
+    skos:scopeNote "The full requirement texts are in Appendix 2 of the InterPARES book, which this repository does not hold; only A.1 (expression of record attributes and linkage to record), A.5 (documentary forms), A.6 (authentication of records) and A.7 (identification of authoritative record) are titled in the task force reports. Do not invent the others."@en ;
+    skos:related dipl:PresumptionOfAuthenticity , dipl:TrustedRecordKeepingSystem ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 2, 'Benchmark Requirements Supporting the Presumption of Authenticity of Electronic Records'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 22, 28-29" .
+
+dipl:BaselineRequirements
+    a skos:Concept ;
+    skos:inScheme dipl:AuthenticityAssessmentScheme ;
+    skos:topConceptOf dipl:AuthenticityAssessmentScheme ;
+    skos:prefLabel "baseline requirements"@en , "Basisanforderungen"@de ;
+    skos:definition "The minimum conditions necessary to enable the preserver to attest to the authenticity of copies of electronic records (Requirement Set B): controls over records transfer, maintenance and reproduction (B.1), documentation of the reproduction process and its effects (B.2) and archival description (B.3). All must be met before the preserver attests a copy authentic."@en ;
+    skos:related dipl:CertificateOfAuthenticity , dipl:TrustedCustodian , dipl:Reproduction ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 2, 'Baseline Requirements Supporting the Production of Authentic Copies of Electronic Records'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 23, 29" ,
+        "InterPARES 1, Preservation Task Force Report (2001), pp. 8, 13" .
+
+# ---------------------------------------------------------------------------
+# Qualities of a trustworthy record, as Lemieux's evaluation framework applies
+# them to distributed ledgers.
+# ---------------------------------------------------------------------------
+
+dipl:RecordQualityScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Qualities of a trustworthy record"@en , "Eigenschaften einer vertrauenswürdigen Unterlage"@de ;
+    skos:definition "A record is trustworthy if it is accurate, reliable and authentic. Lemieux's archival-theoretic framework evaluates a blockchain or distributed ledger as a recordkeeping system against these three qualities."@en ;
+    skos:scopeNote "Lemieux's finding: a blockchain does not improve accuracy or reliability, which are settled before anything is anchored; it protects integrity, which is only one of authenticity's two preconditions; and it cannot carry the other, identity. The Custodian Attestation Record therefore anchors only a timestamp commitment and keeps identity, bond, procedure and authority in the record and in the custodian."@en ;
+    skos:hasTopConcept dipl:Accuracy , dipl:Reliability , dipl:Authenticity ;
+    skos:related dipl:AuthenticityAssessmentScheme ;
+    dct:source "Lemieux, V. L. Blockchain and Distributed Ledgers as Trusted Recordkeeping Systems: An Archival Theoretic Evaluation Framework, Future Technologies Conference (2017)" ,
+        "Lemieux, V. L. Evaluating the Use of Blockchain in Land Transactions: An Archival Science Perspective, European Property Law Journal 6(3) (2017), doi:10.1515/eplj-2017-0019" .
+
+dipl:Accuracy
+    a skos:Concept ;
+    skos:inScheme dipl:RecordQualityScheme ;
+    skos:topConceptOf dipl:RecordQualityScheme ;
+    skos:prefLabel "accuracy"@en , "Genauigkeit"@de ;
+    skos:definition "The quality of a record whose content is correct and precise; a matter of the facts recorded, settled at creation and outside what a hash, signature or ledger can establish."@en ;
+    skos:related dipl:HistoricalAuthenticity ;
+    dct:source "Lemieux, V. L. Blockchain and Distributed Ledgers as Trusted Recordkeeping Systems: An Archival Theoretic Evaluation Framework, Future Technologies Conference (2017)" .
+
+dipl:Reliability
+    a skos:Concept ;
+    skos:inScheme dipl:RecordQualityScheme ;
+    skos:topConceptOf dipl:RecordQualityScheme ;
+    skos:prefLabel "reliability"@en , "Verlässlichkeit"@de ;
+    skos:definition "The trustworthiness of a record as a statement of fact, resting on the competence of its author, the controls on its creation and its completeness. Settled before a record is anchored; a blockchain does not make a record reliable."@en ;
+    skos:historyNote "Duranti, through Raffel: bureaucracy decides whether record-writers are reliable rather than whether records mirror facts, and assesses records by their completeness; the signature makes the writer responsible, so 'the signature is the fact' (Part II, pp. 11-12). InterPARES 1 pairs reliability with authenticity under integrity and leaves it undefined (Authenticity Task Force Report, p. 4)."@en ;
+    skos:related dipl:Signatory , dipl:TrustedRecordKeepingSystem ;
+    dct:source "Lemieux, V. L. Trusting Records: Is Blockchain Technology the Answer? Records Management Journal 26(2) (2016), doi:10.1108/RMJ-12-2015-0042" ,
+        "Lemieux, V. L. Blockchain and Distributed Ledgers as Trusted Recordkeeping Systems: An Archival Theoretic Evaluation Framework, Future Technologies Conference (2017)" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II, pp. 11-12" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 4" .
+
+dipl:Authenticity
+    a skos:Concept ;
+    skos:inScheme dipl:RecordQualityScheme ;
+    skos:topConceptOf dipl:RecordQualityScheme ;
+    skos:prefLabel "authenticity"@en , "Echtheit (Authentizität)"@de ;
+    skos:definition "The quality of being authentic, or entitled to acceptance: being authoritative or duly authorized, being what it professes in origin or authorship, being genuine. An authentic record is a record that is what it purports to be and that is free from tampering or corruption; proving it involves establishing identity and demonstrating integrity."@en ;
+    skos:historyNote "Duranti separates 'authentic' (presents all the elements designed to provide authenticity) from 'genuine' (is truly what it purports to be) and distinguishes diplomatic, legal and historical authenticity (Part I, pp. 17-18; dipl:AuthenticityScheme). InterPARES 1 treats authentic as synonymous with genuine and bona fide."@en ;
+    skos:scopeNote "Most at risk when records cross space or time (Authenticity Task Force Report, p. 2). Lemieux: authenticity has two preconditions, identity and integrity; a ledger supplies the second only. Never asserted by a Custodian Attestation Record, which records an authentication."@en ;
+    skos:related dipl:Identity , dipl:Integrity , dipl:Authentication , dipl:AuthenticityScheme ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'authentic record', 'authenticity'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 2, 20" ,
+        "InterPARES 1, Strategy Task Force Report (2001), p. 3, Principle 2" ,
+        "Lemieux, V. L. Blockchain and Distributed Ledgers as Trusted Recordkeeping Systems: An Archival Theoretic Evaluation Framework, Future Technologies Conference (2017)" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part I, pp. 17-18" .
+
+# ---------------------------------------------------------------------------
+# The five contexts of a record (InterPARES 1 Template for Analysis).
+# ---------------------------------------------------------------------------
+
+dipl:ContextScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Context of a record"@en , "Kontext der Unterlage"@de ;
+    skos:definition "The framework in which the action in which the record participates takes place, in five layers from the general to the specific."@en ;
+    skos:scopeNote "The contexts were the most useful part of the Template for Analysis and the least developed. Identity information lives more in context than on the face of an electronic record. A Custodian Attestation Record declares context for the certified file in its public metadata; this scheme says which context each declared key belongs to."@en ;
+    skos:hasTopConcept dipl:JuridicalAdministrativeContext , dipl:ProvenancialContext , dipl:ProceduralContext , dipl:DocumentaryContext , dipl:TechnologicalContext ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 2, 'context'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 24, 26" .
+
+dipl:JuridicalAdministrativeContext
+    a skos:Concept ;
+    skos:inScheme dipl:ContextScheme ;
+    skos:topConceptOf dipl:ContextScheme ;
+    skos:prefLabel "juridical-administrative context"@en , "rechtlich-administrativer Kontext"@de ;
+    skos:definition "The legal and organizational system in which the creating body belongs."@en ;
+    skos:historyNote "Duranti's juridical system: the social group organized on the basis of a system of rules, from which the document draws its reality (Part II; Part VI, p. 18)."@en ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'juridical-administrative context'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part II; Part VI, p. 18" .
+
+dipl:ProvenancialContext
+    a skos:Concept ;
+    skos:inScheme dipl:ContextScheme ;
+    skos:topConceptOf dipl:ContextScheme ;
+    skos:prefLabel "provenancial context"@en , "Provenienzkontext"@de ;
+    skos:definition "The creating body, its mandate, structure and functions."@en ;
+    skos:scopeNote "The author of an electronic record may be found here, as the owner of the system, rather than on the face of the record (Appraisal Task Force Report, p. 9). A Custodian Attestation Record names the custodian institution and its holding archive."@en ;
+    rdfs:seeAlso dct:provenance , sdo:holdingArchive ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'provenancial context'" ,
+        "InterPARES 1, Appraisal Task Force Report (2001), p. 9" .
+
+dipl:ProceduralContext
+    a skos:Concept ;
+    skos:inScheme dipl:ContextScheme ;
+    skos:topConceptOf dipl:ContextScheme ;
+    skos:prefLabel "procedural context"@en , "Verfahrenskontext"@de ;
+    skos:definition "The business procedure in the course of which the record is created."@en ;
+    skos:scopeNote "Lemieux and Sporny's example: two records reading 'press the red button', one from an elevator repair procedure and one from a nuclear launch procedure, have identical bits and different identities as records by virtue of this context, which a time-ordered ledger discards. A Custodian Attestation Record names the procedure its act followed with dct:conformsTo."@en ;
+    skos:related dipl:ProcedurePhaseScheme , dipl:ArchivalBond ;
+    rdfs:seeAlso dct:conformsTo ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'procedural context', 'procedure'" ,
+        "Lemieux, V. L. and Sporny, M. Preserving the Archival Bond in Distributed Ledgers: A Data Model and Syntax, WWW 2017 Companion (2017), doi:10.1145/3041021.3053896" .
+
+dipl:DocumentaryContext
+    a skos:Concept ;
+    skos:inScheme dipl:ContextScheme ;
+    skos:topConceptOf dipl:ContextScheme ;
+    skos:prefLabel "documentary context"@en , "dokumentarischer Kontext"@de ;
+    skos:definition "The archival fonds to which a record belongs, and its internal structure."@en ;
+    skos:related dipl:ArchivalFonds , dipl:ArchivalBond ;
+    rdfs:seeAlso dct:isPartOf ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'documentary context'" .
+
+dipl:TechnologicalContext
+    a skos:Concept ;
+    skos:inScheme dipl:ContextScheme ;
+    skos:topConceptOf dipl:ContextScheme ;
+    skos:prefLabel "technological context"@en , "technologischer Kontext"@de ;
+    skos:definition "The characteristics of the technical components of an electronic computing system in which records are created."@en ;
+    skos:scopeNote "InterPARES 1 moved the medium here: affixing a bitstream to a medium is a precondition for a record to exist but neutral to its authenticity (Authenticity Task Force Report, p. 7). Software, which Duranti treated as an instrument and never a person, also belongs here. In a Custodian Attestation Record the file size, format and the compiling software's version are technological context."@en ;
+    skos:related dipl:Medium , dipl:Writer ;
+    rdfs:seeAlso dct:format , sdo:softwareVersion ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 7, 'technological context'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 7" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III" .
+
+# ---------------------------------------------------------------------------
+# Elements of documentary form. Built from the InterPARES 1 Template for
+# Analysis, with Duranti's elements kept as concepts or alternative labels and
+# the medieval-only formulae marked.
+# ---------------------------------------------------------------------------
+
+dipl:ExtrinsicElementScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Extrinsic elements of form"@en , "Äußere Merkmale der Form"@de ;
+    skos:definition "Elements of a record that constitute its external appearance: perceivable features instrumental in achieving the purpose for which it was created. For electronic records they are presentation features, electronic signatures, electronic seals, digital time-stamps issued by a trusted third party, and special signs."@en ;
+    skos:historyNote "Duranti: those which constitute the material make-up of the document and its external appearance, examinable without reading it and integrally present only in the original: the medium, the script, the language, the special signs, the seals and the annotations; extrinsic elements make a document perfect (Part V, pp. 6-7)."@en ;
+    skos:scopeNote "InterPARES 1 found that no element of form predicted authenticity across its case studies (Authenticity Task Force Report, pp. 14, 16). Annotations are in dipl:AnnotationScheme. The elements of a Custodian Attestation Record: its signature is an electronic seal, its WebAuthn signature an electronic signature, and an RFC 3161 anchor a digital time-stamp."@en ;
+    skos:hasTopConcept dipl:PresentationFeatures , dipl:ElectronicSignature , dipl:DigitalTimeStamp , dipl:SpecialSign , dipl:Medium , dipl:Script , dipl:Language , dipl:Seal ;
+    skos:related dipl:AnnotationScheme ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 4, 'extrinsic elements'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 6, 14, 16" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 6-7" .
+
+dipl:PresentationFeatures
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:topConceptOf dipl:ExtrinsicElementScheme ;
+    skos:prefLabel "presentation features"@en , "Darstellungsmerkmale"@de ;
+    skos:definition "A set of perceivable features (graphic, aural, visual), generated by means of encoding and program instructions, and capable, when used individually or in combination, to present a message to our senses."@en ;
+    skos:scopeNote "The successor of Duranti's script for electronic records. In a Custodian Attestation Record the declared format, duration and frame size of the certified file are presentation features."@en ;
+    skos:narrower dipl:OverallPresentation , dipl:SpecificPresentationFeatures ;
+    skos:related dipl:Script ;
+    rdfs:seeAlso dct:format ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'presentation features'" .
+
+dipl:OverallPresentation
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:broader dipl:PresentationFeatures ;
+    skos:prefLabel "overall presentation"@en , "Gesamtdarstellung"@de ;
+    skos:definition "The record's overall information configuration: the manner in which content is presented to the senses, using text, image or sound, either alone or in combination."@en ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'overall presentation'" .
+
+dipl:SpecificPresentationFeatures
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:broader dipl:PresentationFeatures ;
+    skos:prefLabel "specific presentation features"@en , "besondere Darstellungsmerkmale"@de ;
+    skos:definition "The specific aspects of the record's formal presentation that are necessary for it to achieve the purpose for which it was created, such as layouts, hyperlinks, colours or sample rate."@en ;
+    rdfs:seeAlso sdo:duration , sdo:videoFrameSize ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 7, 'specific presentation features'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 6" .
+
+dipl:ElectronicSignature
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:topConceptOf dipl:ExtrinsicElementScheme ;
+    skos:prefLabel "electronic signature"@en , "elektronische Signatur"@de ;
+    skos:definition "A digital mark that has the function of a signature in, is attached to, or is logically associated with a record, and is used by a signatory to take responsibility for, or to give consent to, the content of the record."@en ;
+    skos:scopeNote "The signatory's personal WebAuthn signature in a Custodian Attestation Record is an electronic signature. Duranti's attestation, the subscription of those who took part in issuing the document, is the intrinsic element the signature carries."@en ;
+    skos:narrower dipl:ElectronicSeal ;
+    skos:related dipl:Signatory , dipl:Attestation ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 4, 'electronic signature'" .
+
+dipl:ElectronicSeal
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:broader dipl:ElectronicSignature ;
+    skos:prefLabel "electronic seal"@en , "elektronisches Siegel"@de ;
+    skos:definition "A specific means of authenticating a record or ensuring that it is opened only by the intended addressee; a type of electronic signature."@en ;
+    skos:scopeNote "The institution's signature over a Custodian Attestation Record, made under its key, is an electronic seal: the successor of Duranti's seal, which identified the author or office and validated the document. Its authority rests on the continuity of the key's chain of trust, which InterPARES 1 left open for PKI; the institution's verifiable key history and the renewal act answer it in part."@en ;
+    skos:narrower dipl:DigitalSignature ;
+    skos:related dipl:Seal , dipl:Authentication , dipl:Validation ;
+    rdfs:seeAlso <https://w3id.org/security#proof> ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'electronic seal'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 6, 33" .
+
+dipl:DigitalSignature
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:broader dipl:ElectronicSeal ;
+    skos:prefLabel "digital signature"@en , "digitale Signatur"@de ;
+    skos:definition "An electronic signature based on public key cryptography; an example of an electronic seal. It identifies the sender of a data object and verifies that it has not been altered in transmission."@en ;
+    skos:scopeNote "Can support authentication but is not sufficient to establish the identity and demonstrate the integrity of an electronic record over the long term (Authenticity Task Force Report, p. 2). Lemieux: the same limit applies to a hash anchored in a ledger."@en ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'electronic seal'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), pp. 2, 33" .
+
+dipl:DigitalTimeStamp
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:topConceptOf dipl:ExtrinsicElementScheme ;
+    skos:prefLabel "digital time-stamp"@en , "digitaler Zeitstempel"@de ;
+    skos:altLabel "digital time-stamp issued by a trusted third party"@en ;
+    skos:definition "An attestation by a trusted third party that a record was received at a certain point in time."@en ;
+    skos:scopeNote "The anchors of a Custodian Attestation Record are its digital time-stamps: a seal appended to the vidimus, which is where Lemieux's finding that a ledger delivers integrity only puts it. An RFC 3161 token has a third party; an OpenTimestamps proof has none, so the record names its trust basis and the Bitcoin ledger's irreversibility stands in for the third party's disinterest. Its date is the date of registration."@en ;
+    skos:related dipl:Registration , dipl:RegistrationOffice , dipl:DateOfRegistration , dipl:Witness ;
+    rdfs:seeAlso dct:dateAccepted ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'digital time-stamp issued by a trusted third party'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 6" ,
+        "Authentic Memory. The Bitcoin Ledger as a Diplomatic Trust Anchor, position paper (2026-10-21)" .
+
+dipl:SpecialSign
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:topConceptOf dipl:ExtrinsicElementScheme ;
+    skos:prefLabel "special sign"@en , "besonderes Zeichen"@de ;
+    skos:definition "A symbol, such as a digital watermark, or a logo or crest of an organization, that identifies one or more persons involved in the compilation, receipt or execution of a record."@en ;
+    skos:historyNote "Duranti: monograms, the rota and similar signs drawn in the validation of medieval documents (Part IV, p. 13); special signs identify the author or office and validate the document (Part V)."@en ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 7, 'special sign'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part IV, p. 13; Part V, pp. 6-7" .
+
+dipl:Medium
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:topConceptOf dipl:ExtrinsicElementScheme ;
+    skos:prefLabel "medium"@en , "Beschreibstoff (Medium)"@de ;
+    skos:definition "The physical carrier of a document."@en ;
+    skos:scopeNote "Duranti's first extrinsic element, important for dating medieval documents, establishing their provenance and testing their authenticity (Part V, p. 7). InterPARES 1 removed it from the record: the medium belongs to the technological context and is neutral to authenticity (Authenticity Task Force Report, p. 7). Kept for Duranti's diplomatic criticism; do not use it for electronic records."@en ;
+    skos:related dipl:TechnologicalContext ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 6-7" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'medium'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 7" .
+
+dipl:Script
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:topConceptOf dipl:ExtrinsicElementScheme ;
+    skos:prefLabel "script"@en , "Schrift"@de ;
+    skos:definition "The writing of a document: its layout, formatting and the articulation of the discourse. Computer software may be considered part of the script, because it determines the layout and articulation of the discourse and can provide information about provenance, procedures, uses, modes of transmission and authenticity."@en ;
+    skos:scopeNote "Duranti only. InterPARES 1 replaces it with presentation features and places the software in the technological context."@en ;
+    skos:related dipl:PresentationFeatures , dipl:TechnologicalContext ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 7" .
+
+dipl:Language
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:topConceptOf dipl:ExtrinsicElementScheme ;
+    skos:prefLabel "language"@en , "Sprache"@de ;
+    skos:definition "The language, vocabulary, style and composition of the document."@en ;
+    skos:scopeNote "Duranti only; not among InterPARES 1's extrinsic elements. A Custodian Attestation Record may declare the language of the certified file as descriptive metadata."@en ;
+    rdfs:seeAlso dct:language ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 6-7" .
+
+dipl:Seal
+    a skos:Concept ;
+    skos:inScheme dipl:ExtrinsicElementScheme ;
+    skos:topConceptOf dipl:ExtrinsicElementScheme ;
+    skos:prefLabel "seal"@en , "Siegel"@de ;
+    skos:definition "The most important extrinsic element of medieval documents, and the least common and relevant in contemporary ones: examined for its material, shape, size, typology, legend and method of affixing, to ascertain the degree of authority and solemnity of a document, its provenance and function, and its authenticity."@en ;
+    skos:scopeNote "Duranti only; its electronic successor is dipl:ElectronicSeal. The medieval seal derived its authority from the difficulty of counterfeiting the seal matrix; a digital time-stamp anchored in a ledger derives its authority from the computational difficulty of counterfeiting the block hash chain."@en ;
+    skos:related dipl:ElectronicSeal ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 9" ,
+        "Authentic Memory. The Bitcoin Ledger as a Diplomatic Trust Anchor, position paper (2026-10-21)" .
+
+dipl:IntrinsicElementScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Intrinsic elements of form"@en , "Innere Merkmale der Form"@de ;
+    skos:definition "The elements of a record that constitute its internal composition and convey the action in which it participates and its immediate context: name of author, name of originator, chronological date, name of place of origin, name of addressee, name of receiver, indication of action, name of writer, corroboration, attestation and qualification of signature."@en ;
+    skos:historyNote "Duranti: the intrinsic elements make a document complete and are arranged as protocol (administrative context), text (the act) and eschatocol (documentation context), each a sequence of formulae (Part V, pp. 6, 10-15). The three parts are kept as collections below."@en ;
+    skos:scopeNote "InterPARES 1 groups the elements functionally: those conveying the juridical-administrative context of the action (names of author, addressee, receiver, originator; chronological date; place of origin), the action itself (indication and description of action), and the documentary context and means of validation (name of writer, attestation, corroboration, qualification of signature). Medieval formulae that InterPARES 1 does not use carry a scope note."@en ;
+    skos:hasTopConcept dipl:NameOfAuthor , dipl:NameOfOriginator , dipl:ChronologicalDate , dipl:NameOfPlaceOfOrigin , dipl:NameOfAddressee , dipl:NameOfReceiver , dipl:IndicationOfAction , dipl:DescriptionOfAction , dipl:IndicationOfAttachment , dipl:NameOfWriter , dipl:Corroboration , dipl:Attestation , dipl:QualificationOfSignature , dipl:Title , dipl:Invocation , dipl:Salutation , dipl:SecretarialNotes ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'intrinsic elements'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 5" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 6, 10-15" .
+
+dipl:ProtocolCollection
+    a skos:Collection ;
+    skos:prefLabel "protocol"@en , "Protokoll"@de ;
+    skos:definition "Duranti's first part of the intrinsic elements: the administrative context of the action, from the entitling to the subject."@en ;
+    skos:member dipl:NameOfAuthor , dipl:Title , dipl:ChronologicalDate , dipl:NameOfPlaceOfOrigin , dipl:Invocation , dipl:NameOfAddressee , dipl:Salutation , dipl:IndicationOfAction ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 10-12" .
+
+dipl:TextCollection
+    a skos:Collection ;
+    skos:prefLabel "text"@en , "Text (Kontext)"@de ;
+    skos:definition "Duranti's second part of the intrinsic elements: the act, from the preamble to the final clauses, with the disposition at its centre."@en ;
+    skos:member dipl:Preamble , dipl:Notification , dipl:Exposition , dipl:Disposition , dipl:FinalClauses ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 12-14" .
+
+dipl:EschatocolCollection
+    a skos:Collection ;
+    skos:prefLabel "eschatocol"@en , "Eschatokoll"@de ;
+    skos:definition "Duranti's third part of the intrinsic elements: the documentation context and the means of validation, from the corroboration to the secretarial notes."@en ;
+    skos:member dipl:Corroboration , dipl:Attestation , dipl:QualificationOfSignature , dipl:SecretarialNotes ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 14-15" .
+
+dipl:NameOfAuthor
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "name of author"@en , "Name des Ausstellers"@de ;
+    skos:altLabel "entitling"@en , "superscription"@en ;
+    skos:definition "The name of the physical or juridical person having the authority and capacity to issue the record, or in whose name or by whose command it has been issued; an attribute of the record's identity."@en ;
+    skos:historyNote "Duranti's entitling (letterhead: name, title, capacity and address of the author) and superscription (name of the first party in contractual documents, 'I' in declarative ones) in the protocol (Part V)."@en ;
+    skos:related dipl:Author ;
+    rdfs:seeAlso dct:creator , sdo:name ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of author'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:NameOfOriginator
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "name of originator"@en , "Name des Absenders"@de ;
+    skos:definition "The name of the person assigned the electronic address in which the record has been generated and/or sent; an attribute of the record's identity."@en ;
+    skos:related dipl:Originator ;
+    rdfs:seeAlso <https://w3id.org/security#verificationMethod> ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of originator'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" .
+
+dipl:ChronologicalDate
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "chronological date"@en , "Datum"@de ;
+    skos:definition "The date (and, possibly, the time of day) of a record, included in the record by its author, or by the electronic system on the author's behalf, in the course of its compilation."@en ;
+    skos:scopeNote "The element; the kinds of date it may carry are in dipl:DateTypeScheme."@en ;
+    skos:related dipl:DateOfCompilation , dipl:DateOfAction ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 2, 'chronological date'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:NameOfPlaceOfOrigin
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "name of place of origin"@en , "Ausstellungsort"@de ;
+    skos:definition "The name of the geographic place where the record was generated, included in the content of the record by the author or in the electronic system on the author's behalf."@en ;
+    skos:related dipl:TopicalDate ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of place of origin'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:NameOfAddressee
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "name of addressee"@en , "Name des Empfängers"@de ;
+    skos:altLabel "inscription"@en ;
+    skos:definition "The name of the physical or juridical person(s) to whom the record is directed or for whom the record is intended; an attribute of the record's identity."@en ;
+    skos:historyNote "Duranti's inscription: the addressee's name, title and address, nominal or general (Part V)."@en ;
+    skos:related dipl:Addressee ;
+    rdfs:seeAlso dct:audience ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of addressee'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:NameOfReceiver
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "name of receiver"@en , "Name des Mitempfängers"@de ;
+    skos:definition "The name of the physical or juridical person(s) to whom the record is copied for information purposes."@en ;
+    skos:related dipl:Receiver ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of receiver'" .
+
+dipl:IndicationOfAction
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "indication of action"@en , "Betreff (Angabe der Handlung)"@de ;
+    skos:altLabel "subject"@en , "indication of action (matter)"@en ;
+    skos:definition "The subject line(s) and/or the title at the top of a record; an indication of the action or matter in which the record participates, and an attribute of its identity."@en ;
+    skos:historyNote "Duranti's subject: a statement signifying what the document is about, the modern introductory line (Part V)."@en ;
+    rdfs:seeAlso dct:subject , dct:title ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 4, 'indication of action'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:DescriptionOfAction
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "description of action"@en , "Beschreibung der Handlung"@de ;
+    skos:definition "A presentation of the ideal motivation (the preamble) and the concrete reason (the exposition) for an action, as well as the action or matter itself (the disposition)."@en ;
+    skos:narrower dipl:Preamble , dipl:Notification , dipl:Exposition , dipl:Disposition , dipl:FinalClauses ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'description of action'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 12-14" .
+
+dipl:Preamble
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:broader dipl:DescriptionOfAction ;
+    skos:prefLabel "preamble"@en , "Arenga"@de ;
+    skos:definition "The ideal motivation of the action: an ethical or juridical principle. It indicates solemnity and is not essential."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'description of action'" .
+
+dipl:Notification
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:broader dipl:DescriptionOfAction ;
+    skos:prefLabel "notification"@en , "Publicatio (Promulgatio)"@de ;
+    skos:definition "The publication of the purport of a dispositive document: 'notum sit', 'be it known', 'know you'."@en ;
+    skos:scopeNote "Medieval and early modern formula; not used by InterPARES 1."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:Exposition
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:broader dipl:DescriptionOfAction ;
+    skos:prefLabel "exposition"@en , "Narratio"@de ;
+    skos:definition "The narration of the concrete and immediate circumstances generating the act: the history of the case."@en ;
+    skos:scopeNote "In a Custodian Attestation Record, the declared context of the certified file and the fixity history play this part."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'description of action'" .
+
+dipl:Disposition
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:broader dipl:DescriptionOfAction ;
+    skos:prefLabel "disposition"@en , "Dispositio"@de ;
+    skos:definition "The act itself: the expression of will or judgement by the author, expressly enunciated by an operative verb such as 'authorize', 'decree', 'certify', 'agree' or 'request'."@en ;
+    skos:scopeNote "The disposition of a Custodian Attestation Record is the certification: the institution certifies that it holds the file with the stated hash."@en ;
+    skos:related dipl:Certification ;
+    rdfs:seeAlso prov:wasGeneratedBy ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" ,
+        "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'description of action'" .
+
+dipl:FinalClauses
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:broader dipl:DescriptionOfAction ;
+    skos:prefLabel "final clauses"@en , "Schlussformeln"@de ;
+    skos:definition "Clauses that close the text: injunction, prohibition, derogation, exception, obligation, renunciation, warning, promissory and corroboration clauses."@en ;
+    skos:scopeNote "Duranti only. The clauses of corroboration among them enunciate the means used to validate the document (Part V, p. 14); see dipl:Corroboration. The 'formula perpetuitatis', declaring rights not circumscribed by time, is a medieval and early modern clause not used by InterPARES 1."@en ;
+    skos:related dipl:Corroboration ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 14" .
+
+dipl:IndicationOfAttachment
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "indication of attachment"@en , "Anlagenvermerk"@de ;
+    skos:definition "The mention of autonomous items that have been linked inextricably to the record before transmission, in order for it to accomplish its purpose. An attachment is an integral part of a record, so its indication is an attribute of the record's identity."@en ;
+    skos:scopeNote "The subject hash of a Custodian Attestation Record is the indication, and the fixity, of the attached digital component; the glossary also lists it among execution annotations."@en ;
+    skos:related dipl:DigitalComponent , dipl:ExecutionAnnotation ;
+    rdfs:seeAlso dct:subject ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 4, 'indication of attachment'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" .
+
+dipl:NameOfWriter
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "name of writer"@en , "Name des Verfassers"@de ;
+    skos:definition "The name of the physical or juridical person having the authority and capacity to articulate the content of the record; an attribute of the record's identity."@en ;
+    skos:related dipl:Writer ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 5, 'name of writer'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" .
+
+dipl:Corroboration
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "corroboration"@en , "Korroboration"@de ;
+    skos:definition "The explicit mention of the means used to validate the record and guarantee its authenticity, usually formulaic and fixed: 'I have hereunto set my Hand and Seal of Office', 'Signed and Sealed'."@en ;
+    skos:scopeNote "The proof entries of a Custodian Attestation Record are its corroboration: they name the signature suite, the key and the anchoring method used to validate it."@en ;
+    skos:related dipl:FinalClauses , dipl:Validation ;
+    rdfs:seeAlso <https://w3id.org/security#cryptosuite> ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 3, 'corroboration'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 14" ,
+        "Authentic Memory. The Custodian Attestation Record as a Digital Vidimus: A Third Path, framework paper (2026-10-21)" .
+
+dipl:Attestation
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "attestation"@en , "Unterfertigung (Attestation)"@de ;
+    skos:altLabel "subscription"@en ;
+    skos:definition "The written validation of a record by those who took part in the issuing of it (author, writer, countersigner) and by witnesses to the action or to the signing of the record."@en ;
+    skos:historyNote "Duranti: the substance and core of the eschatocol; usually a signature but not always, as telegrams and electronic mail show; the means generally used to validate a document, though some documents are validated by their process of creation and electronic records typically present their validation in the protocol (Part V, pp. 14-15)."@en ;
+    skos:scopeNote "The signature block of a Custodian Attestation Record is its attestation, carried by an electronic seal (the institution's key) or an electronic signature (the signatory's)."@en ;
+    skos:related dipl:Validation , dipl:ElectronicSignature , dipl:ElectronicSeal , dipl:Signatory , dipl:Countersigner , dipl:Witness ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'attestation'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, pp. 14-15" .
+
+dipl:QualificationOfSignature
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "qualification of signature"@en , "Unterschriftsqualifikation"@de ;
+    skos:definition "The mention of the title, capacity and/or address of the persons signing a record: the title of the signer, or their position, or their function with respect to the subject of the document."@en ;
+    skos:related dipl:Signatory ;
+    rdfs:seeAlso sdo:jobTitle ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 6, 'qualification of signature'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part III, p. 19, note 9" .
+
+dipl:Title
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "title"@en , "Titel (Urkundenbezeichnung)"@de ;
+    skos:definition "The name of the document type in the protocol: 'Indenture', 'Agreement', 'Minutes', 'Last Will and Testament'."@en ;
+    skos:scopeNote "Duranti only; InterPARES 1 folds the title at the top of a record into the indication of action. The form name of a Custodian Attestation Record ('certificate') is its title."@en ;
+    skos:related dipl:IndicationOfAction , dipl:FormScheme ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:Invocation
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "invocation"@en , "Invocatio"@de ;
+    skos:definition "The mention of God or of a higher authority in whose name the action is done."@en ;
+    skos:scopeNote "Medieval and early modern formula, rare in modern documents; not used by InterPARES 1."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:Salutation
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "salutation"@en , "Salutatio"@de ;
+    skos:definition "The greeting in letters; in modern documents often moved to the eschatocol as the complimentary clause."@en ;
+    skos:scopeNote "Duranti only; not used by InterPARES 1."@en ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+dipl:SecretarialNotes
+    a skos:Concept ;
+    skos:inScheme dipl:IntrinsicElementScheme ;
+    skos:topConceptOf dipl:IntrinsicElementScheme ;
+    skos:prefLabel "secretarial notes"@en , "Kanzleivermerke"@de ;
+    skos:definition "Notes closing the eschatocol: the initials of the typist, the mention of enclosures, the copy distribution list."@en ;
+    skos:scopeNote "Duranti only. InterPARES 1 treats the indication of attachments as an intrinsic element and the distribution of copies as receivers."@en ;
+    skos:related dipl:IndicationOfAttachment , dipl:NameOfReceiver ;
+    dct:source "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V" .
+
+# ---------------------------------------------------------------------------
+# Annotations: additions made to a record after it has been created.
+# ---------------------------------------------------------------------------
+
+dipl:AnnotationScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Annotations"@en , "Vermerke"@de ;
+    skos:definition "Additions made to a record after it has been created, by the phase in which they are made."@en ;
+    skos:historyNote "Duranti counted annotations among the extrinsic elements and distinguished the execution phase (authentication and registration marks), the handling phase (signs beside the text, cross-references, dates, transmission and disposition notes) and the management phase (registry and classification numbers, date and office of receipt, archival identifiers) (Part V, p. 9). InterPARES 1 gives them their own category of the Template and renames the last two."@en ;
+    skos:hasTopConcept dipl:ExecutionAnnotation , dipl:BusinessMatterAnnotation , dipl:RecordManagementAnnotation ;
+    skos:related dipl:ExtrinsicElementScheme ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 1, 'annotation'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 6" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 9" .
+
+dipl:ExecutionAnnotation
+    a skos:Concept ;
+    skos:inScheme dipl:AnnotationScheme ;
+    skos:topConceptOf dipl:AnnotationScheme ;
+    skos:prefLabel "execution annotation"@en , "Ausführungsvermerk"@de ;
+    skos:definition "An addition made to a record, after its creation, as part of the document execution phase of an administrative procedure: for example the date and time of transmission on an e-mail, or the indication of attachments."@en ;
+    skos:historyNote "Duranti: authentication and registration marks (Part V, p. 9)."@en ;
+    skos:scopeNote "The anchors of a Custodian Attestation Record are execution annotations: registrations with their dates."@en ;
+    skos:related dipl:Execution , dipl:Registration , dipl:Authentication ;
+    rdfs:seeAlso dct:dateAccepted ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 4, 'execution annotation'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 9" .
+
+dipl:BusinessMatterAnnotation
+    a skos:Concept ;
+    skos:inScheme dipl:AnnotationScheme ;
+    skos:topConceptOf dipl:AnnotationScheme ;
+    skos:prefLabel "business matter annotation"@en , "Bearbeitungsvermerk"@de ;
+    skos:altLabel "handling annotation"@en ;
+    skos:definition "An addition made to a record in the course of handling the business matter in which the record participates, reflecting actions taken subsequent to its creation for the purpose of handling the activity or matter: comments, dates of transmission to other offices."@en ;
+    skos:historyNote "Duranti's handling-phase annotations (Part V, p. 9)."@en ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 2, 'business matter annotation'" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 9" .
+
+dipl:RecordManagementAnnotation
+    a skos:Concept ;
+    skos:inScheme dipl:AnnotationScheme ;
+    skos:topConceptOf dipl:AnnotationScheme ;
+    skos:prefLabel "record management annotation"@en , "Schriftgutverwaltungsvermerk"@de ;
+    skos:altLabel "management annotation"@en ;
+    skos:definition "An addition to a record made in the course of handling the record itself, reflecting actions taken subsequent to its creation for the purpose of managing it as part of an agency's records: classification code, file number, draft or version number, cross-references, scheduling actions."@en ;
+    skos:historyNote "Duranti's management-phase annotations: registry number, classification number, cross-references, date and office of receipt, archival identifiers (Part V, p. 9)."@en ;
+    skos:scopeNote "The identifier a Custodian Attestation Record declares for the certified file is a record management annotation and an expression of the archival bond; the fixity history is a record management annotation and evidence of the chain of preservation."@en ;
+    skos:related dipl:ArchivalBond , dipl:ChainOfPreservation ;
+    rdfs:seeAlso dct:identifier ;
+    dct:source "InterPARES 1, The InterPARES Glossary (December 2001), p. 7, 'record management annotation'" ,
+        "InterPARES 1, Authenticity Task Force Report (2001), p. 20" ,
+        "Duranti, L. Diplomatics: New Uses for an Old Science, Archivaria 28-33 (1989-1992), Part V, p. 9" .
+
+# ---------------------------------------------------------------------------
+# Distributed ledgers as recordkeeping systems (Lemieux). These schemes place
+# the Custodian Attestation Record's anchoring in the archival-science critique
+# of blockchain recordkeeping.
+# ---------------------------------------------------------------------------
+
+dipl:LedgerRecordkeepingPatternScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Blockchain recordkeeping pattern"@en , "Muster der Schriftgutverwaltung mit Distributed Ledgers"@de ;
+    skos:definition "Lemieux's typology of the ways a blockchain or distributed ledger is used to keep records: as a mirror of records held elsewhere, as the store of the digital record itself, or as a tokenized representation."@en ;
+    skos:scopeNote "A blockchain is a recordkeeping technology, in the archival science sense of the term, as much as it is a value transfer technology, and must be judged as one. The Custodian Attestation Record uses the mirror pattern only."@en ;
+    skos:hasTopConcept dipl:MirrorPattern , dipl:DigitalRecordPattern , dipl:TokenizedPattern ;
+    dct:source "Lemieux, V. L. A Typology of Blockchain Recordkeeping Solutions and Some Reflections on Their Implications for the Future of Archival Preservation, IEEE Big Data (2017), doi:10.1109/bigdata.2017.8258180" ,
+        "Lemieux, V. L. Blockchain Technology for Recordkeeping: Help or Hype? SSHRC Knowledge Synthesis report (2016)" .
+
+dipl:MirrorPattern
+    a skos:Concept ;
+    skos:inScheme dipl:LedgerRecordkeepingPatternScheme ;
+    skos:topConceptOf dipl:LedgerRecordkeepingPatternScheme ;
+    skos:prefLabel "mirror pattern"@en , "Spiegelmuster"@de ;
+    skos:definition "A blockchain recordkeeping pattern in which only a cryptographic hash of a record is anchored on the ledger while the record itself is kept off-chain; it depends entirely on the originals being preserved in trustworthy off-chain repositories."@en ;
+    skos:scopeNote "The Custodian Attestation Record's pattern: the ledger holds only the timestamp commitment, one proof per file, and the custodian's repository is the trustworthy off-chain repository. Van Garderen's 2016 warning applies: since 'only the cryptographic hash of the document, its unique digital fingerprint, is stored on the blockchain', the usual requirements for maintaining authentic, reliable and usable records before and after registration must be met by the records layer, which the CAR supplies. Lemieux's SWOT analysis names the two weaknesses the records layer must answer: no mechanism to link records on the chain back to the business context of their creation, and uncertain long-term preservation of the chain itself."@en ;
+    skos:related dipl:DigitalTimeStamp , dipl:TrustedRecordKeepingSystem , dipl:RecordsTrustLayer , dipl:DecentralizedAutonomousCollection ;
+    dct:source "Lemieux, V. L. A Typology of Blockchain Recordkeeping Solutions and Some Reflections on Their Implications for the Future of Archival Preservation, IEEE Big Data (2017), doi:10.1109/bigdata.2017.8258180" ,
+        "Lemieux, V. L. Blockchain Recordkeeping: A SWOT Analysis, Information Management, ARMA (2017)" ,
+        "Van Garderen, P. Archives, Technology, and Innovation, Association of Canadian Archivists plenary, Montreal (2016-06-16), doi:10.5281/zenodo.5002213" .
+
+dipl:DigitalRecordPattern
+    a skos:Concept ;
+    skos:inScheme dipl:LedgerRecordkeepingPatternScheme ;
+    skos:topConceptOf dipl:LedgerRecordkeepingPatternScheme ;
+    skos:prefLabel "digital record pattern"@en , "Digital-Record-Muster"@de ;
+    skos:definition "A blockchain recordkeeping pattern in which the record itself, or its content, is written to and kept on the ledger."@en ;
+    skos:scopeNote "Not used by the Custodian Attestation Record: the chain never holds content, and bundling documents into one on-chain metadocument destroys their identities as records."@en ;
+    dct:source "Lemieux, V. L. A Typology of Blockchain Recordkeeping Solutions and Some Reflections on Their Implications for the Future of Archival Preservation, IEEE Big Data (2017), doi:10.1109/bigdata.2017.8258180" .
+
+dipl:TokenizedPattern
+    a skos:Concept ;
+    skos:inScheme dipl:LedgerRecordkeepingPatternScheme ;
+    skos:topConceptOf dipl:LedgerRecordkeepingPatternScheme ;
+    skos:prefLabel "tokenized pattern"@en , "Token-Muster"@de ;
+    skos:definition "A blockchain recordkeeping pattern in which a record or the right it evidences is represented and transferred as a token on the ledger."@en ;
+    skos:scopeNote "Not used by the Custodian Attestation Record. Lemieux's land registry studies (Factom in Honduras, Ubitquity in Brazil, ChromaWay in Sweden) found that on a permissionless chain 'there is no explicit and stable link between a transacting address and a legal or real-world entity'."@en ;
+    dct:source "Lemieux, V. L. A Typology of Blockchain Recordkeeping Solutions and Some Reflections on Their Implications for the Future of Archival Preservation, IEEE Big Data (2017), doi:10.1109/bigdata.2017.8258180" ,
+        "Lemieux, V. L. Evaluating the Use of Blockchain in Land Transactions: An Archival Science Perspective, European Property Law Journal 6(3) (2017), doi:10.1515/eplj-2017-0019" .
+
+dipl:TrustLayerScheme
+    a skos:ConceptScheme ;
+    skos:prefLabel "Trust layers of a blockchain system"@en , "Vertrauensschichten eines Blockchain-Systems"@de ;
+    skos:definition "The three layers through which every blockchain recordkeeping system earns or fails trust: social, records and technical. The records layer is the one the archival profession must design."@en ;
+    skos:scopeNote "Trust in records is trust in the institution that keeps them; public blockchains 'currently lack the juridical legitimacy needed to convey power' (Lemieux 2019). The Custodian Attestation Record is the records layer between the custodian (social layer) and the hash, signature and timestamp (technical layer)."@en ;
+    skos:hasTopConcept dipl:SocialTrustLayer , dipl:RecordsTrustLayer , dipl:TechnicalTrustLayer ;
+    dct:source "Lemieux, V. L., Hofman, D., Batista, D. and Joo, A. Blockchain Technology and Recordkeeping, ARMA International Educational Foundation (2019)" ,
+        "Lemieux, V. L. Blockchain and Public Record Keeping: Of Temples, Prisons, and the (Re)Configuration of Power, Frontiers in Blockchain 2:5 (2019), doi:10.3389/fbloc.2019.00005" .
+
+dipl:SocialTrustLayer
+    a skos:Concept ;
+    skos:inScheme dipl:TrustLayerScheme ;
+    skos:topConceptOf dipl:TrustLayerScheme ;
+    skos:prefLabel "social trust layer"@en , "soziale Vertrauensschicht"@de ;
+    skos:definition "The layer of institutions, juridical persons, procedures and legitimacy on which trust in a blockchain recordkeeping system ultimately rests."@en ;
+    skos:scopeNote "For the Custodian Attestation Record: the issuing custodian, its juridical standing and its adopted certification procedure, from which the record's authority derives, as the medieval vidimus derived its authority from the public official who issued it."@en ;
+    skos:related dipl:Custodian , dipl:JuridicalAdministrativeContext ;
+    dct:source "Lemieux, V. L., Hofman, D., Batista, D. and Joo, A. Blockchain Technology and Recordkeeping, ARMA International Educational Foundation (2019)" .
+
+dipl:RecordsTrustLayer
+    a skos:Concept ;
+    skos:inScheme dipl:TrustLayerScheme ;
+    skos:topConceptOf dipl:TrustLayerScheme ;
+    skos:prefLabel "records trust layer"@en , "Schriftgut-Vertrauensschicht"@de ;
+    skos:definition "The layer that gives a ledger entry identity as a record: its identity attributes, archival bond, procedural context and documentary form, expressed so that they can be interpreted within and across ledgers."@en ;
+    skos:scopeNote "Lemieux and Sporny proposed this layer as a JSON-LD entry whose context fetches a machine-readable ontology, 'ideally created by domain experts'. The Custodian Attestation Record is such a layer: a JSON-LD record whose context references this vocabulary, with SHACL shapes that enforce the diplomatic rules."@en ;
+    skos:related dipl:ArchivalBond , dipl:Identity , dipl:MirrorPattern ;
+    dct:source "Lemieux, V. L., Hofman, D., Batista, D. and Joo, A. Blockchain Technology and Recordkeeping, ARMA International Educational Foundation (2019)" ,
+        "Lemieux, V. L. and Sporny, M. Preserving the Archival Bond in Distributed Ledgers: A Data Model and Syntax, WWW 2017 Companion (2017), doi:10.1145/3041021.3053896" .
+
+dipl:TechnicalTrustLayer
+    a skos:Concept ;
+    skos:inScheme dipl:TrustLayerScheme ;
+    skos:topConceptOf dipl:TrustLayerScheme ;
+    skos:prefLabel "technical trust layer"@en , "technische Vertrauensschicht"@de ;
+    skos:definition "The layer of cryptography, consensus and storage that protects the integrity of what is anchored: hashes, signatures, time-stamps and the ledger itself."@en ;
+    skos:scopeNote "Integrity is the only quality this layer delivers natively. For the Custodian Attestation Record it is the hash, the institutional signature and the anchored time-stamp; the signature keeps its evidential value if the timestamp infrastructure fails."@en ;
+    skos:related dipl:Integrity , dipl:DigitalTimeStamp , dipl:ElectronicSeal ;
+    dct:source "Lemieux, V. L., Hofman, D., Batista, D. and Joo, A. Blockchain Technology and Recordkeeping, ARMA International Educational Foundation (2019)" ,
+        "Lemieux, V. L. Blockchain and Distributed Ledgers as Trusted Recordkeeping Systems: An Archival Theoretic Evaluation Framework, Future Technologies Conference (2017)" .
