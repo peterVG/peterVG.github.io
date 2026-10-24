@@ -1,0 +1,14 @@
+diplomatics/index.html
+  h_10c93bba641ef0 6476
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "ed19f1584b890f33945a2656d510e6045db5884f",
+  "prompts": {},
+  "humans": {
+    "h_10c93bba641ef0": {
+      "author": "Peter Van Garderen <vangarderen.peter@gmail.com>"
+    }
+  }
+}
